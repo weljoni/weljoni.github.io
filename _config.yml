@@ -1,7 +1,7 @@
 # ===============================
 #   Site Settings
 # ===============================
-text_skin: orange
+text_skin: dark
 highlight_theme: tomorrow-night
 url: "https://weljoni.github.io"  # 你的 GitHub Pages 地址
 baseurl: ""  # 为空，因为仓库名是 weljoni.github.io
