@@ -21,7 +21,9 @@ tags:
 
 解压后查看：
 
-<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843345333-b067b3de-d4b0-4568-85fe-7cd7a09ca631.png" alt="CloudTrail JSON preview" width="600">
+<center>
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843345333-b067b3de-d4b0-4568-85fe-7cd7a09ca631.png" alt="CloudTrail JSON preview" width="50%">
+</center>
 
 打开后发现未格式化，先格式化JSON文件：
 
