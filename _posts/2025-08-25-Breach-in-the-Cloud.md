@@ -21,7 +21,7 @@ tags:
 
 解压后查看：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843345333-b067b3de-d4b0-4568-85fe-7cd7a09ca631.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843345333-b067b3de-d4b0-4568-85fe-7cd7a09ca631.png" alt="CloudTrail JSON preview" width="600">
 
 打开后发现未格式化，先格式化JSON文件：
 
@@ -29,7 +29,7 @@ tags:
 for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843620156-802e1497-8bb4-4652-8021-c5934eeb4bd6.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843620156-802e1497-8bb4-4652-8021-c5934eeb4bd6.png" alt="Formatted JSON file" width="600">
 
 我们先来开一下在所有日志中都有哪些AWS主体（IAM 用户和角色）做了事情。
 
@@ -37,7 +37,7 @@ for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; don
 grep -r userName | sort -u # 递归搜索当前目录及其子目录下的所有文件中查找包含userName的行，并对结果进去排序和去重。
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843914147-03a333e7-78cf-4230-9196-d3fb9d507e68.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755843914147-03a333e7-78cf-4230-9196-d3fb9d507e68.png" alt="User names in logs" width="600">
 
 其中temp-user这个账户多次出现，在不同的时间段，高度活跃。
 
@@ -47,7 +47,7 @@ grep -r userName | sort -u # 递归搜索当前目录及其子目录下的所有
 grep -A 10 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755844589496-f09b930f-c02f-45db-a9b6-1bfbb6e8826c.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755844589496-f09b930f-c02f-45db-a9b6-1bfbb6e8826c.png" alt="GetCallerIdentity API call" width="600">
 
 我们可以看到IAM用户temp-user调用了`GetCallerIdentity`API。结合这些判断他执行的CLI命令是：
 
@@ -72,11 +72,11 @@ aws sts get-caller-identity
 curl ipinfo.io/84.32.71.19
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755846325716-2a92426b-30e9-46f1-aa60-6b33c32516b4.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755846325716-2a92426b-30e9-46f1-aa60-6b33c32516b4.png" alt="IP information lookup" width="600">
 
 发现这个IP归属为`Cherry Servers`。
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755846517730-fee71666-7109-4ce4-85f5-c16d8cb33b3b.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755846517730-fee71666-7109-4ce4-85f5-c16d8cb33b3b.png" alt="Cherry Servers information" width="600">
 
 发现这是一个云资源提供商。但Huge Logistics并没有使用其服务，因此这可以是一个潜在的IoC。
 
@@ -86,7 +86,7 @@ curl ipinfo.io/84.32.71.19
 grep -A 20 temp-user 107513503799_CloudTrail_us-east-1_20230826T2040Z_UkDeakooXR09uCBm.json
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856481069-6365eac1-1132-4b49-a6bd-586ef3c3543e.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856481069-6365eac1-1132-4b49-a6bd-586ef3c3543e.png" alt="S3 bucket access attempt" width="600">
 
 可以看到temp-user尝试列出emergency-data-recovery存储桶中的对象，但未成功（Access Denied）。
 
@@ -97,7 +97,7 @@ grep errorMessage 107513503799_CloudTrail_us-east-1_20230826T2050Z_iUtQqYPskB20y
 grep errorMessage 107513503799_CloudTrail_us-east-1_20230826T2055Z_W0F5uypAbGttUgSn.json | wc -l
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755848222311-90e768cc-1bbb-446a-a260-79d6c0c37c6f.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755848222311-90e768cc-1bbb-446a-a260-79d6c0c37c6f.png" alt="Error message count" width="600">
 
 我们可以看到在下一个日志中有450条errorMessage记录。极可能在进行爆破。
 
@@ -118,7 +118,7 @@ grep errorMessage 107513503799_CloudTrail_us-east-1_20230826T2055Z_W0F5uypAbGttU
 grep -A 20 temp-user 107513503799_CloudTrail_us-east-1_20230826T2100Z_APB7fBUnHmiWjHtg.json
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755855606870-862ef9ac-7d59-4631-a95a-ff10c7addf52.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755855606870-862ef9ac-7d59-4631-a95a-ff10c7addf52.png" alt="AssumeRole success" width="600">
 
 看到`esponseElements.credentials`且角色 ARN 是`AdminRole`，那么temp-user成功承担名为AdminRole的角色。
 
@@ -140,17 +140,19 @@ grep -A 20 temp-user 107513503799_CloudTrail_us-east-1_20230826T2100Z_APB7fBUnHm
 grep -A 20 AdminRole 107513503799_CloudTrail_us-east-1_20230826T2105Z_fpp78PgremAcrW5c.json
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856229505-d1151c40-30b0-479b-9793-c062b856713a.png)发现他又调用了GetCallerIdentity这个API。
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856229505-d1151c40-30b0-479b-9793-c062b856713a.png" alt="AdminRole GetCallerIdentity" width="600">
+
+发现他又调用了GetCallerIdentity这个API。
 
 ```bash
 grep eventName 107513503799_CloudTrail_us-east-1_20230826T2120Z_UCUhsJa0zoFY3ZO0.json
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856713135-b9369c50-8794-4ca7-adb6-30c2dc86bdba.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755856713135-b9369c50-8794-4ca7-adb6-30c2dc86bdba.png" alt="Event names in logs" width="600">
 
 看看他们访问的内容：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1755976659350-2eb38648-c792-4daf-9336-f6ffd2827721.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1755976659350-2eb38648-c792-4daf-9336-f6ffd2827721.png" alt="File download activity" width="600">
 
 他们下载了emergency.txt这个文件。
 
@@ -174,7 +176,7 @@ aws configure --profile breach-in-the-cloud
 aws sts get-caller-identity --profile breach-in-the-cloud
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020478987-369703f8-de21-4753-94ff-f52f7f3ff335.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020478987-369703f8-de21-4753-94ff-f52f7f3ff335.png" alt="Get caller identity" width="600">
 
 查看是否有内联用户策略附加到我们的 IAM 用户。
 
@@ -182,7 +184,7 @@ aws sts get-caller-identity --profile breach-in-the-cloud
 aws iam list-user-policies --user-name temp-user --profile breach-in-the-cloud
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020671330-e27516ac-74cf-4f3e-bf08-3d00c46909eb.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020671330-e27516ac-74cf-4f3e-bf08-3d00c46909eb.png" alt="List user policies" width="600">
 
 这里列出了这个用户有一个内联策略是test-temp-user。
 
@@ -192,7 +194,7 @@ aws iam list-user-policies --user-name temp-user --profile breach-in-the-cloud
 aws iam get-user-policy --user-name temp-user --policy-name test-temp-user --profile breach-in-the-cloud
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020795345-39d1ed1e-cfa9-46b5-a905-b7907d9288dd.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020795345-39d1ed1e-cfa9-46b5-a905-b7907d9288dd.png" alt="Get user policy" width="600">
 
 看到这里设置的这个用户可以承担AdminRole角色。
 
@@ -202,7 +204,7 @@ aws iam get-user-policy --user-name temp-user --policy-name test-temp-user --pro
 aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name MySession --profile breach-in-the-cloud
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020874676-cc597d9f-4db0-493c-b06e-207db9c829d4.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020874676-cc597d9f-4db0-493c-b06e-207db9c829d4.png" alt="Assume role command" width="600">
 
 设置上面给出的`AccessKeyId`，`SecretAccessKey`。
 
@@ -210,7 +212,7 @@ aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-s
 aws configure --profile breach-adminrole
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020954521-6aa039f0-4bab-454d-9ecb-beffc7c4b241.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756020954521-6aa039f0-4bab-454d-9ecb-beffc7c4b241.png" alt="Configure breach-adminrole profile" width="600">
 
 设置SessionToken来承担该角色。
 
@@ -224,7 +226,7 @@ aws configure set aws_session_token "FwoGZXIvYXdzEPj//////////wEaDEqKPBc/EjTw1dT
 aws sts get-caller-identity --profile breach-adminrole
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021094009-e134a84d-0827-4e41-bf07-69e2b4bdd3eb.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021094009-e134a84d-0827-4e41-bf07-69e2b4bdd3eb.png" alt="AdminRole identity confirmation" width="600">
 
 可以看到已经是AdminRole了。
 
@@ -234,13 +236,13 @@ aws sts get-caller-identity --profile breach-adminrole
 aws s3 ls s3://emergency-data-recovery --profile breach-adminrole
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021208267-ae2b3095-301b-48bd-853d-f9f55dfb6725.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021208267-ae2b3095-301b-48bd-853d-f9f55dfb6725.png" alt="S3 bucket listing" width="600">
 
 下载：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021475179-4ea40084-4535-4c3d-9d91-91b57504906a.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021475179-4ea40084-4535-4c3d-9d91-91b57504906a.png" alt="File download" width="600">
 
 查看文件发现flag：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021527566-0a0d7bb7-ba0c-42d4-89b8-46bd80e714c9.png)
+<img src="https://cdn.nlark.com/yuque/0/2025/png/36181902/1756021527566-0a0d7bb7-ba0c-42d4-89b8-46bd80e714c9.png" alt="Flag found in file" width="600">
 
