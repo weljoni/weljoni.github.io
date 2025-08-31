@@ -2,5 +2,5 @@
 
 - 云安全
     - Pwned Labs
-        - [Breach in the Cloud](cloud-security/Pwned Labs/Breach in the Cloud.md")
+        - [Breach in the Cloud](/docs/cloud-security/Pwned%20Labs/Breach%20in%20the%20Cloud.md)
 <!-- 以下略 -->
