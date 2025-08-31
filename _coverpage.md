@@ -7,4 +7,4 @@
 - 记录云安全学习笔记
 
 [weljoni](https://github.com/weljoni)
-[开始使用](/docs/index.html)
+[开始使用](/index.html)
