@@ -1,0 +1,206 @@
+baseURL = "https://weljoni.github.io/"
+title = "weljoni"
+theme = "PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableInlineShortcodes = true
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+
+[pagination]
+  pagerSize = 8
+
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    weight = 1
+    languageCode = "zh-cn"
+    title = "weljoni"
+    contentDir = "content/zh"
+    [languages.zh.params]
+      languageAltTitle = "中文"
+      description = "安全研究笔记 · AI 安全 · 防御工程"
+      [[languages.zh.menu.main]]
+        name = "首页"
+        url = "/"
+        weight = 1
+      [[languages.zh.menu.main]]
+        name = "文章"
+        url = "/posts/"
+        weight = 2
+      [[languages.zh.menu.main]]
+        name = "思维导图"
+        url = "/projects/ai-attack-surface/"
+        weight = 3
+      [[languages.zh.menu.main]]
+        name = "归档"
+        url = "/archives/"
+        weight = 4
+      [[languages.zh.menu.main]]
+        name = "关于"
+        url = "/about/"
+        weight = 5
+      [[languages.zh.menu.main]]
+        name = "Search"
+        url = "/search/"
+        weight = 6
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    languageCode = "en"
+    title = "weljoni"
+    contentDir = "content/en"
+    [languages.en.params]
+      languageAltTitle = "English"
+      description = "Security research notes · AI security · defensive engineering"
+      [[languages.en.menu.main]]
+        name = "Home"
+        url = "/en/"
+        weight = 1
+      [[languages.en.menu.main]]
+        name = "Posts"
+        url = "/en/posts/"
+        weight = 2
+      [[languages.en.menu.main]]
+        name = "Mind Map"
+        url = "/projects/ai-attack-surface/"
+        weight = 3
+      [[languages.en.menu.main]]
+        name = "Archives"
+        url = "/en/archives/"
+        weight = 4
+      [[languages.en.menu.main]]
+        name = "About"
+        url = "/en/about/"
+        weight = 5
+      [[languages.en.menu.main]]
+        name = "Search"
+        url = "/en/search/"
+        weight = 6
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  env = "production"
+  description = "weljoni — AI security research & defensive notes"
+  author = "weljoni"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowShareButtons = false
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+  DateFormat = "2006-01-02"
+  mainSections = ["posts"]
+
+  [params.assets]
+    disableHLJS = false
+    disableFingerprinting = false
+
+  [params.label]
+    text = "weljoni"
+    icon = ""
+    iconHeight = 35
+
+  [params.profileMode]
+    enabled = true
+    title = "weljoni"
+    subtitle = "Security Researcher · AI Security"
+    imageUrl = ""
+    imageTitle = ""
+    imageWidth = 120
+    imageHeight = 120
+
+  [params.homeInfoParams]
+    Title = "Hi, I'm weljoni 👋"
+    Content = "Security researcher focused on **AI security** and attack-surface taxonomy. Notes here are for research and defense only."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/weljoni"
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:weljoni123@gmail.com"
+  [[params.socialIcons]]
+    name = "discord"
+    url = "https://discord.gg/9WCW6XfZK"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    style = "monokai"
+
+[privacy]
+  [privacy.vimeo]
+    disabled = true
+  [privacy.twitter]
+    disabled = true
+  [privacy.instagram]
+    disabled = true
+  [privacy.youtube]
+    disabled = true
+
+
+[languages.zh.params.homeInfoParams]
+  Title = "你好，我是 weljoni 👋"
+  Content = "安全研究员，目前主要研究 **AI 安全** 与攻击面分类。本站内容仅用于研究与防御，不可用于未授权攻击。"
+
+[languages.zh.params.profileMode]
+  enabled = true
+  title = "weljoni"
+  subtitle = "安全研究员 · AI 安全"
+  imageUrl = ""
+  imageWidth = 120
+  imageHeight = 120
+  [[languages.zh.params.profileMode.buttons]]
+    name = "交互思维导图"
+    url = "/projects/ai-attack-surface/"
+  [[languages.zh.params.profileMode.buttons]]
+    name = "文章"
+    url = "/posts/"
+
+[languages.en.params.homeInfoParams]
+  Title = "Hi, I'm weljoni 👋"
+  Content = "Security researcher focused on **AI security** and attack-surface taxonomy. Content here is for research and defense only — not unauthorized attacks."
+
+[languages.en.params.profileMode]
+  enabled = true
+  title = "weljoni"
+  subtitle = "Security Researcher · AI Security"
+  imageUrl = ""
+  imageWidth = 120
+  imageHeight = 120
+  [[languages.en.params.profileMode.buttons]]
+    name = "Interactive Mind Map"
+    url = "/projects/ai-attack-surface/"
+  [[languages.en.params.profileMode.buttons]]
+    name = "Posts"
+    url = "/en/posts/"

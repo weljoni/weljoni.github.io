@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Attack Surface · weljoni</title>
+  <meta name="description" content="Interactive bilingual AI attack surface mind map" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --border: #243044;
+      --text: #e5eefc;
+      --muted: #93a4bf;
+      --accent: #3b82f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+    .topbar {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 18, 32, 0.96);
+      backdrop-filter: blur(10px);
+    }
+    .left, .right { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand { color: var(--text); text-decoration: none; font-weight: 700; white-space: nowrap; }
+    .title { color: var(--muted); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .title b { color: var(--text); font-weight: 600; }
+    .lang-switch {
+      display: inline-flex;
+      padding: 3px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+      gap: 3px;
+    }
+    .lang-switch button {
+      appearance: none; border: 0; cursor: pointer;
+      background: transparent; color: var(--muted);
+      border-radius: 999px; padding: 7px 14px;
+      font: inherit; font-size: 13px; font-weight: 700;
+    }
+    .lang-switch button.active { background: var(--accent); color: #fff; }
+    .link { color: #93c5fd; text-decoration: none; font-size: 13px; white-space: nowrap; }
+    .link:hover { color: #fff; }
+    .hint { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .stage { position: relative; height: calc(100vh - 56px); background: #111827; }
+    .stage iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+      background: #111827; opacity: 0; pointer-events: none;
+    }
+    .stage iframe.active { opacity: 1; pointer-events: auto; }
+    .disclaimer {
+      position: absolute; left: 12px; bottom: 12px; z-index: 5;
+      max-width: min(520px, calc(100% - 24px));
+      padding: 8px 12px; border-radius: 10px;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      background: rgba(127, 29, 29, 0.72);
+      color: #fecaca; font-size: 12px; line-height: 1.45;
+      pointer-events: none;
+    }
+    @media (max-width: 720px) {
+      .title, .hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="left">
+      <a class="brand" href="/">weljoni</a>
+      <span class="title"><b>AI Attack Surface</b></span>
+    </div>
+    <div class="right">
+      <span class="hint" id="hint">拖拽移动 · 滚轮缩放</span>
+      <div class="lang-switch" role="tablist" aria-label="Language">
+        <button type="button" id="tab-zh" class="active" role="tab" aria-selected="true">中文</button>
+        <button type="button" id="tab-en" role="tab" aria-selected="false">English</button>
+      </div>
+      <a class="link" href="/posts/">Blog</a>
+      <a class="link" href="https://github.com/weljoni/ai-attack-surface" target="_blank" rel="noopener">Repo</a>
+    </div>
+  </header>
+
+  <main class="stage">
+    <iframe id="frame-zh" class="active" title="AI 攻击面分类" src="/mindmaps/mindmap-zh.html" loading="eager"></iframe>
+    <iframe id="frame-en" title="AI Attack Surface Taxonomy" src="/mindmaps/mindmap-en.html" loading="lazy"></iframe>
+    <div class="disclaimer" id="disclaimer">仅用于安全研究与防御 · 禁止未授权攻击</div>
+  </main>
+
+  <script>
+    (function () {
+      var tabZh = document.getElementById('tab-zh');
+      var tabEn = document.getElementById('tab-en');
+      var frameZh = document.getElementById('frame-zh');
+      var frameEn = document.getElementById('frame-en');
+      var hint = document.getElementById('hint');
+      var disclaimer = document.getElementById('disclaimer');
+      var defaultLang = "zh";
+
+      function setLang(lang) {
+        var isZh = lang === 'zh';
+        tabZh.classList.toggle('active', isZh);
+        tabEn.classList.toggle('active', !isZh);
+        tabZh.setAttribute('aria-selected', String(isZh));
+        tabEn.setAttribute('aria-selected', String(!isZh));
+        frameZh.classList.toggle('active', isZh);
+        frameEn.classList.toggle('active', !isZh);
+        hint.textContent = isZh ? '拖拽移动 · 滚轮缩放' : 'Drag to pan · Scroll to zoom';
+        disclaimer.textContent = isZh
+          ? '仅用于安全研究与防御 · 禁止未授权攻击'
+          : 'Research & defense only · No unauthorized attacks';
+        try { localStorage.setItem('aas-lang', lang); } catch (e) {}
+        if (history.replaceState) history.replaceState(null, '', '#' + lang);
+      }
+
+      tabZh.addEventListener('click', function () { setLang('zh'); });
+      tabEn.addEventListener('click', function () { setLang('en'); });
+
+      var initial = defaultLang;
+      if (location.hash === '#en') initial = 'en';
+      else if (location.hash === '#zh') initial = 'zh';
+      else {
+        try {
+          var saved = localStorage.getItem('aas-lang');
+          if (saved === 'en' || saved === 'zh') initial = saved;
+        } catch (e) {}
+      }
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
