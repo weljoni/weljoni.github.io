@@ -1,1 +1,1845 @@
-{"nodeData": {"id": "root", "topic": "AI 攻击面分类", "children": [{"id": "n2", "topic": "1. 输入操控面", "children": [{"id": "n3", "topic": "1.1 提示注入", "children": [{"id": "n4", "topic": "注入路径", "children": [{"id": "n5", "topic": "直接提示注入", "children": [{"id": "n6", "topic": "间接提示注入（IDPI）", "children": [{"id": "n7", "topic": "多模态注入"}]}]}]}, {"id": "n8", "topic": "载体与通道", "children": [{"id": "n9", "topic": "元数据注入（文件标题、alt 文本、EXIF）", "children": [{"id": "n10", "topic": "文档内嵌伪系统指令（[SYSTEM INSTRUCTION]）", "children": [{"id": "n11", "topic": "日历 / 邮件注入", "children": [{"id": "n12", "topic": "工具通道注入 / 双通道提示注入（ToolLeak）"}]}]}]}]}, {"id": "n13", "topic": "时序与上下文", "children": [{"id": "n14", "topic": "多轮/上下文注入（FITD）", "children": [{"id": "n15", "topic": "记忆注入 / 上下文投毒", "children": [{"id": "n16", "topic": "载荷拆分（Payload Splitting）", "children": [{"id": "n17", "topic": "零点击间接注入", "children": [{"id": "n18", "topic": "延迟触发注入"}]}]}]}]}]}, {"id": "n19", "topic": "特殊形态", "children": [{"id": "n20", "topic": "SQL 注入式越狱（SIJ）", "children": [{"id": "n21", "topic": "LPCI（逻辑层提示控制注入）"}]}]}]}, {"id": "n22", "topic": "1.2 越狱", "children": [{"id": "n23", "topic": "角色与说服", "children": [{"id": "n24", "topic": "角色扮演 / 人格劫持（DAN、开发者模式、嵌套角色）", "children": [{"id": "n25", "topic": "权威说服（PAP）", "children": [{"id": "n26", "topic": "Skeleton Key（骷髅钥匙 / 免责声明豁免）", "children": [{"id": "n27", "topic": "拒绝遏制（禁绝“不能/抱歉”等词）", "children": [{"id": "n28", "topic": "输出混淆（假设性场景包装）"}]}]}]}]}]}, {"id": "n29", "topic": "编码与混淆", "children": [{"id": "n30", "topic": "密码 / 编码攻击", "children": [{"id": "n31", "topic": "Base64 / ROT13 / 摩斯 / 凯撒", "children": [{"id": "n32", "topic": "RoguePrompt（加密俄罗斯套娃）", "children": [{"id": "n33", "topic": "BitBypass（二进制断 Token）", "children": [{"id": "n34", "topic": "ArtPrompt（ASCII 艺术注入）", "children": [{"id": "n35", "topic": "人造语言（Tongue-Tied）", "children": [{"id": "n36", "topic": "Unicode 不可见字符 / 同形字 / 零宽字符", "children": [{"id": "n37", "topic": "Token 走私 / 输入混淆", "children": [{"id": "n38", "topic": "混合语 / 小语种提示（Macaronic / 低资源语言）", "children": [{"id": "n39", "topic": "翻转攻击（FlipAttack）"}]}]}]}]}]}]}]}]}]}]}, {"id": "n40", "topic": "多轮与策略", "children": [{"id": "n41", "topic": "多样本 / Many-shot 越狱", "children": [{"id": "n42", "topic": "多轮分解（Multi-Turn Decomposition）", "children": [{"id": "n43", "topic": "渐进引导（Crescendo）", "children": [{"id": "n44", "topic": "回声室（Echo Chamber）", "children": [{"id": "n45", "topic": "上下文泛洪 / 上下文淹没", "children": [{"id": "n46", "topic": "思维链劫持（H-CoT）", "children": [{"id": "n47", "topic": "Copilot 确认越狱（可编辑输出劫持）"}]}]}]}]}]}]}]}, {"id": "n48", "topic": "对抗优化与自动化", "children": [{"id": "n49", "topic": "对抗性后缀（GCG / 可迁移对抗 Token）", "children": [{"id": "n50", "topic": "自动化越狱（PAIR / JBFuzz / AI 越狱 AI）"}]}]}]}, {"id": "n51", "topic": "1.3 多模态 / 跨模态注入", "children": [{"id": "n52", "topic": "图像通道", "children": [{"id": "n53", "topic": "图像内 OCR / Text-on-Image（FigStep、白底白字）", "children": [{"id": "n54", "topic": "隐写嵌入载荷（空间 / 频域 / 神经隐写）", "children": [{"id": "n55", "topic": "对抗像素 / 打印补丁 / 投影光", "children": [{"id": "n56", "topic": "通用对抗图像 / 通用对抗补丁（Universal Adversarial Perturbation / Universal Image Trigger）", "children": [{"id": "n57", "topic": "物理世界投影 / 打印补丁延伸（Physical-world Projection / Printed Patch for MLLM）"}]}]}]}]}]}, {"id": "n58", "topic": "音频 / 视频通道", "children": [{"id": "n59", "topic": "音频 / 语音通道注入", "children": [{"id": "n60", "topic": "音频实时流注入 / 语音对抗示例（Real-time Audio Stream Injection / Adversarial Audio）", "children": [{"id": "n61", "topic": "视频帧级 / 时序对抗（Video Frame / Temporal Adversarial Examples）"}]}]}]}, {"id": "n62", "topic": "跨模态融合", "children": [{"id": "n63", "topic": "跨模态扰动（CrossMPI）", "children": [{"id": "n64", "topic": "虚拟场景催眠（VSH）", "children": [{"id": "n65", "topic": "组合性脆弱（CLIP 等跨模态打分操纵）", "children": [{"id": "n66", "topic": "跨模态对齐破坏（Cross-modal Misalignment Attack，针对 VLA 等）", "children": [{"id": "n67", "topic": "单模态主导融合攻击（Single-Modality Domination in Fusion Models）"}]}]}]}]}]}]}, {"id": "n68", "topic": "1.4 护栏 / 防御元攻击（Guardrail & Defense Bypass）", "children": [{"id": "n69", "topic": "护栏模型攻击", "children": [{"id": "n70", "topic": "护栏模型本身越狱（Guard Model Jailbreak / Dual-Jailbreaking）", "children": [{"id": "n71", "topic": "LLM-as-Judge 绕过（针对评判模型的说服 / 角色扮演）"}]}]}, {"id": "n72", "topic": "窗口与结构绕过", "children": [{"id": "n73", "topic": "Prompt Overflow / 上下文窗口不匹配（Guardrail 检查窗口 vs 模型推理窗口差异）", "children": [{"id": "n74", "topic": "推理护栏结构绕过（Structural CoT Bypass / Reasoning Guardrail Subversion）", "children": [{"id": "n75", "topic": "模板 Token / 结构注入绕过推理护栏"}]}]}]}, {"id": "n76", "topic": "字符与对抗逃避", "children": [{"id": "n77", "topic": "字符级 / Unicode 注入绕过检测器（Character Injection / Homoglyph / Zero-width vs Prompt Guard）", "children": [{"id": "n78", "topic": "对抗性机器学习逃避护栏（AML Evasion against Prompt Shields / Classifiers）", "children": [{"id": "n79", "topic": "受控释放提示（Controlled-Release Prompting：过滤器不可解但模型可解）", "children": [{"id": "n80", "topic": "弱防御强化攻击（Defense-to-Attack：利用弱防御提示增强越狱）"}]}]}]}]}]}]}, {"id": "n81", "topic": "2. 训练与模型供应链面", "children": [{"id": "n82", "topic": "2.1 训练数据中毒 / 后门 / Sleeper Agent", "children": [{"id": "n83", "topic": "数据投毒手法", "children": [{"id": "n84", "topic": "训练数据投毒", "children": [{"id": "n85", "topic": "干净标签投毒（Clean-Label）", "children": [{"id": "n86", "topic": "标签翻转（Label Flipping）", "children": [{"id": "n87", "topic": "梯度投毒（Gradient-Based）", "children": [{"id": "n88", "topic": "Nightshade 式主动投毒（注：防御方/版权方的主动反训练手段，此处列为数据侧对抗面）", "children": [{"id": "n89", "topic": "Agent 轨迹投毒（Malice in Agentland）"}]}]}]}]}]}]}, {"id": "n90", "topic": "后门植入", "children": [{"id": "n91", "topic": "后门攻击（Backdoor / Trojan）", "children": [{"id": "n92", "topic": "Virtual Prompt Injection（VPI）", "children": [{"id": "n93", "topic": "Finetuning-Activated Backdoors（FAB）", "children": [{"id": "n94", "topic": "Privacy Backdoor", "children": [{"id": "n95", "topic": "Benign-Data Backdoor", "children": [{"id": "n96", "topic": "Code Model Backdoor（代码补全后门）"}]}]}]}]}]}]}, {"id": "n97", "topic": "欺骗性对齐", "children": [{"id": "n98", "topic": "Sleeper Agents（睡眠特工 / 欺骗性对齐）", "children": [{"id": "n99", "topic": "影子对齐（Shadow Alignment）", "children": [{"id": "n100", "topic": "病毒感染攻击（跨模型代际传播）"}]}]}]}, {"id": "n101", "topic": "量化相关后门", "children": [{"id": "n102", "topic": "量化条件后门（Quantization-Conditioned Backdoor / QCB）", "children": [{"id": "n103", "topic": "量化条件对齐破坏（Quantization-Conditioned Misalignment / Q-Misalign）", "children": [{"id": "n104", "topic": "量化过程权重舍入操控（Rounding-Guided Backdoor Injection）", "children": [{"id": "n105", "topic": "量化后后门残留（Backdoor Persistence after Quantization / Compression）"}]}]}]}]}]}, {"id": "n106", "topic": "2.2 模型供应链投毒", "children": [{"id": "n107", "topic": "模型文件与权重", "children": [{"id": "n108", "topic": "恶意模型序列化文件（pickle / SavedModel / H5 Lambda）", "children": [{"id": "n109", "topic": "模型配置模板后门（GGUF chat template / tokenizer config）", "children": [{"id": "n110", "topic": "LoRA Adapter 篡改 / 量化模型回灌后门"}]}]}]}, {"id": "n111", "topic": "仓库与命名空间", "children": [{"id": "n112", "topic": "命名空间复用 / 劫持（Model Namespace Reuse / AI Jacking）", "children": [{"id": "n113", "topic": "模型仓库大规模污染", "children": [{"id": "n114", "topic": "恶意技能市场（Skill Marketplace 投毒）"}]}]}]}, {"id": "n115", "topic": "依赖与包生态", "children": [{"id": "n116", "topic": "恶意 ML 包（PyPI / npm 仿冒）", "children": [{"id": "n117", "topic": "包幻觉蹲坑（Slopsquatting）", "children": [{"id": "n118", "topic": "TinyML / 边缘模型供应链攻击（Edge / TinyML Supply Chain）"}]}]}]}]}, {"id": "n119", "topic": "2.3 模型提取 / 窃取", "children": [{"id": "n120", "topic": "功能克隆", "children": [{"id": "n121", "topic": "模型窃取 / 提取（API 查询 + 学生模型蒸馏）", "children": [{"id": "n122", "topic": "无数据攻击（Data-Free，用生成模型合成替代集）", "children": [{"id": "n123", "topic": "功能复刻式 API 滥用"}]}]}]}, {"id": "n124", "topic": "结构与所有权", "children": [{"id": "n125", "topic": "神经元级 / 架构级复制", "children": [{"id": "n126", "topic": "架构 / 超参数推断（Architecture / Hyperparameter Inference）", "children": [{"id": "n127", "topic": "模型指纹与所有权窃取（Model Fingerprinting / Ownership Extraction）"}]}]}]}]}, {"id": "n128", "topic": "2.4 联邦 / 分布式训练特有攻击（训练侧场景）", "children": [{"id": "n129", "topic": "联邦学习投毒 / 后门"}, {"id": "n130", "topic": "客户端模型更新篡改"}, {"id": "n131", "topic": "聚合算法操纵"}, {"id": "n132", "topic": "（参见 3.1）梯度反演隐私泄露"}]}, {"id": "n133", "topic": "2.5 更深模型层攻击 / 白盒后攻击（Model-level Deep Attacks）", "children": [{"id": "n134", "topic": "表示与注意力操控", "children": [{"id": "n135", "topic": "注意力机制劫持（Attention Hacking / Attention Manipulation）", "children": [{"id": "n136", "topic": "神经元级激活操控（Neuron Activation Control）", "children": [{"id": "n137", "topic": "模型内部表示操纵（Internal Representation Manipulation）"}]}]}]}, {"id": "n138", "topic": "权重与梯度", "children": [{"id": "n139", "topic": "权重空间后门激活（Weight-space Backdoor Activation after Extraction）", "children": [{"id": "n140", "topic": "梯度泄露 / 梯度反演延伸（Gradient Leakage / Inversion in Federated / Distributed Settings）"}]}]}]}]}, {"id": "n141", "topic": "3. 隐私与机密面", "children": [{"id": "n142", "topic": "3.1 训练数据提取 / 隐私推断", "children": [{"id": "n143", "topic": "经典隐私推断", "children": [{"id": "n144", "topic": "模型反转（Model Inversion）", "children": [{"id": "n145", "topic": "成员推理（Membership Inference / MIA）", "children": [{"id": "n146", "topic": "属性推理（Attribute Inference）"}]}]}]}, {"id": "n147", "topic": "数据提取与反演", "children": [{"id": "n148", "topic": "训练数据提取（Divergence / Prefix 攻击）", "children": [{"id": "n149", "topic": "嵌入反演（Embedding Inversion）", "children": [{"id": "n150", "topic": "自适应域推理（ADI）"}]}]}]}, {"id": "n151", "topic": "场景延伸与防御绕过", "children": [{"id": "n152", "topic": "差分隐私绕过 / 强化成员推理（DP Bypass / Adaptive MIA）", "children": [{"id": "n153", "topic": "联邦学习梯度反演 / 投毒（Federated Learning Gradient Inversion / Poisoning）", "children": [{"id": "n154", "topic": "跨会话 / 长期记忆隐私推断（Cross-session Memory Inference）", "children": [{"id": "n155", "topic": "机器遗忘攻击（Machine Unlearning Attacks：遗忘不彻底残差推断 / 遗忘验证绕过 / 删除后数据仍可提取）"}]}]}]}]}]}, {"id": "n156", "topic": "3.2 系统提示泄漏 / 越权指令", "children": [{"id": "n157", "topic": "提示与隐藏上下文抽取", "children": [{"id": "n158", "topic": "直接诱导复述系统提示", "children": [{"id": "n159", "topic": "对比推理 / 间接抽取", "children": [{"id": "n160", "topic": "隐藏上下文扩展泄露（策略文本、会话元数据、开发者指令等）"}]}]}]}, {"id": "n161", "topic": "工具面泄露", "children": [{"id": "n162", "topic": "工具参数诱导填空（ToolLeak 类）", "children": [{"id": "n163", "topic": "工具描述 / Schema 外泄"}]}]}]}, {"id": "n164", "topic": "3.3 推理侧信道（时序 / 功耗 / 缓存）", "children": [{"id": "n165", "topic": "计算与硬件侧", "children": [{"id": "n166", "topic": "时序侧信道（per-token latency / KV cache 共享）", "children": [{"id": "n167", "topic": "GPU L2 Cache Prime+Probe", "children": [{"id": "n168", "topic": "GPU 共享环境细粒度侧信道（多租户 GPU 缓存 / 功耗延伸）", "children": [{"id": "n169", "topic": "功耗 / 热信号侧信道（Energon）"}]}]}]}]}, {"id": "n170", "topic": "网络与过滤侧", "children": [{"id": "n171", "topic": "加密流量侧信道（Whisper Leak：TLS 包长 / 时序分析还原流式输出主题）", "children": [{"id": "n172", "topic": "输入过滤侧信道（推断权重与架构）"}]}]}]}, {"id": "n173", "topic": "3.4 内部部署组件外泄（MCP / 插件 / sandbox）", "children": [{"id": "n174", "topic": "凭据与配置", "children": [{"id": "n175", "topic": "Agent 配置 / 凭据外泄（mcp.json、API Key、Token）"}]}, {"id": "n176", "topic": "插件与运行时", "children": [{"id": "n177", "topic": "插件 / Extension 供应链外泄", "children": [{"id": "n178", "topic": "插件 / MCP 运行时动态加载攻击"}]}]}, {"id": "n179", "topic": "规则与 Skills", "children": [{"id": "n180", "topic": "编码助手规则文件后门（Rules File Backdoor）", "children": [{"id": "n181", "topic": "Agent 规则文件 / Skills 后门强化"}]}]}, {"id": "n182", "topic": "记忆外泄", "children": [{"id": "n183", "topic": "长期记忆与会话历史外泄（含跨会话持久化 Persistent Memory Exfiltration）"}]}, {"id": "n184", "topic": "（参见 7.2）沙箱逃逸 / 主机权限提升"}]}]}, {"id": "n185", "topic": "4. Agent 目标劫持 / 工具滥用", "children": [{"id": "n186", "topic": "4.1 目标与意图", "children": [{"id": "n187", "topic": "目标与意图操控", "children": [{"id": "n188", "topic": "目标劫持 / 意图漂移", "children": [{"id": "n189", "topic": "意图流颠覆（Intent Flow Subversion）", "children": [{"id": "n190", "topic": "计划偏离攻击（Plan Deviation / Goal Drift across Agents）"}]}]}]}, {"id": "n191", "topic": "编排与审批", "children": [{"id": "n192", "topic": "编排器 / 控制器劫持（Orchestrator / Planner Hijacking）", "children": [{"id": "n193", "topic": "人类审批疲劳攻击（HITL Exploitation）"}]}]}]}, {"id": "n194", "topic": "4.2 工具与 MCP", "children": [{"id": "n195", "topic": "工具投毒", "children": [{"id": "n196", "topic": "工具投毒（Tool Poisoning / TPA，MCP 描述注入）", "children": [{"id": "n197", "topic": "工具输出投毒 / 工具影子攻击", "children": [{"id": "n198", "topic": "预审批命令参数注入"}]}]}]}, {"id": "n199", "topic": "MCP 与会话", "children": [{"id": "n200", "topic": "影子 MCP 服务器（Shadow MCP）", "children": [{"id": "n201", "topic": "MCP 会话劫持 / 提示劫持"}]}]}, {"id": "n202", "topic": "协议层", "children": [{"id": "n203", "topic": "Agent 协议层攻击（A2A / Agent Card 伪造、Agent 间通信中间人、能力声明欺骗）"}]}]}, {"id": "n204", "topic": "4.3 过度代理（Excessive Agency）", "children": [{"id": "n205", "topic": "授权过宽", "children": [{"id": "n206", "topic": "读写 / 发信 / 转账等同会话授权", "children": [{"id": "n207", "topic": "无人工门禁的高危动作", "children": [{"id": "n208", "topic": "工具作用域过宽（读库即写库）"}]}]}]}, {"id": "n209", "topic": "权限提升", "children": [{"id": "n210", "topic": "权限蠕变提权（Scope Creep）", "children": [{"id": "n211", "topic": "权限合谋提权（Collusive Privilege Escalation）"}]}]}]}, {"id": "n212", "topic": "4.4 配置与 Harness", "children": [{"id": "n213", "topic": "Harness 配置投毒（settings.json / rules / SessionStart Hook）"}]}, {"id": "n214", "topic": "4.5 记忆与传播", "children": [{"id": "n215", "topic": "记忆与工作区投毒", "children": [{"id": "n216", "topic": "记忆投毒（持久记忆 / 跨会话）", "children": [{"id": "n217", "topic": "共享记忆 / 工作区投毒（Shared Memory / Workspace Poisoning）", "children": [{"id": "n218", "topic": "RAG 喷射"}]}]}]}, {"id": "n219", "topic": "蠕虫与横向传播", "children": [{"id": "n220", "topic": "跨 Agent 传播（配置写回另一 Agent）", "children": [{"id": "n221", "topic": "自传播 AI 蠕虫（Morris II / RAGworm）", "children": [{"id": "n222", "topic": "多智能体蠕虫传播（Multi-Agent Worm / Propagation across Network）"}]}]}]}, {"id": "n223", "topic": "攻击基础设施化", "children": [{"id": "n224", "topic": "Promptware C2（Agent 作为攻击基础设施）"}]}]}, {"id": "n225", "topic": "4.6 多智能体", "children": [{"id": "n226", "topic": "合谋与冒充", "children": [{"id": "n227", "topic": "多智能体合谋（Agent Collusion）", "children": [{"id": "n228", "topic": "智能体冒充 / 身份伪造（Agent Impersonation）"}]}]}, {"id": "n229", "topic": "信任与通道", "children": [{"id": "n230", "topic": "智能体间信任边界突破（Inter-Agent Trust Exploitation / Peer Trust Bypass）", "children": [{"id": "n231", "topic": "内部通道隐私泄露（Internal-Channel Privacy Leakage）"}]}]}]}, {"id": "n232", "topic": "（参见 1.1）Agent 侧注入入口"}]}, {"id": "n233", "topic": "5. RAG 向量库污染", "children": [{"id": "n234", "topic": "文本向量库投毒", "children": [{"id": "n235", "topic": "PoisonedRAG"}, {"id": "n236", "topic": "CorruptRAG"}, {"id": "n237", "topic": "Phantom（幽灵 / 休眠触发）"}, {"id": "n238", "topic": "文档内嵌间接注入"}, {"id": "n239", "topic": "嵌入空间操纵（Embedding-space manipulation）"}]}, {"id": "n240", "topic": "多模态 / 结构化知识投毒", "children": [{"id": "n241", "topic": "MM-PoisonRAG（多模态 RAG）"}, {"id": "n242", "topic": "PoisonedEye（视觉-语言 RAG）"}, {"id": "n243", "topic": "KG-RAG 投毒（知识图谱三元组）"}]}, {"id": "n244", "topic": "检索隔离失效", "children": [{"id": "n245", "topic": "跨租户向量命名空间泄露"}]}, {"id": "n246", "topic": "（参见 4.5）RAG 喷射（Agent 投毒链）"}]}, {"id": "n247", "topic": "6. 输出与下游集成面", "children": [{"id": "n248", "topic": "6.1 不安全输出处理", "children": [{"id": "n249", "topic": "输出 → SQL 注入"}, {"id": "n250", "topic": "输出 → 命令注入 / RCE"}, {"id": "n251", "topic": "输出 → XSS（HTML 直渲）"}, {"id": "n252", "topic": "输出 → SSRF"}, {"id": "n253", "topic": "输出 → 代码 eval / exec"}]}, {"id": "n254", "topic": "6.2 误导 / 幻觉武器化", "children": [{"id": "n255", "topic": "内容伪造与误导", "children": [{"id": "n256", "topic": "自信错误输出被下游当事实执行", "children": [{"id": "n257", "topic": "伪权威证据 / 虚构判例与引用", "children": [{"id": "n258", "topic": "大规模虚假信息生成", "children": [{"id": "n259", "topic": "跨模态伪证据生成"}]}]}]}]}, {"id": "n260", "topic": "供应链诱导", "children": [{"id": "n261", "topic": "包幻觉引导的影子组件劫持"}]}, {"id": "n262", "topic": "武器化应用", "children": [{"id": "n263", "topic": "AI 辅助社会工程完整链（AI-generated Phishing / Deepfake / 大规模个性化钓鱼）", "children": [{"id": "n264", "topic": "用 AI 攻击非 AI 系统（AI-enabled Traditional Cyber Attacks：漏洞扫描、利用合成、自动化渗透）"}]}]}]}, {"id": "n265", "topic": "6.3 深度伪造与生成内容滥用（影响类，非纯模型攻击）", "children": [{"id": "n266", "topic": "生成与传播", "children": [{"id": "n267", "topic": "深度伪造音视频生成与传播", "children": [{"id": "n268", "topic": "AI 生成虚假新闻 / 证据规模化", "children": [{"id": "n269", "topic": "自动化社会工程内容工厂"}]}]}]}, {"id": "n270", "topic": "溯源对抗", "children": [{"id": "n271", "topic": "生成内容水印去除 / 溯源规避（Watermark Removal / Provenance Evasion，绕过 AI 内容检测与监管）"}]}]}]}, {"id": "n272", "topic": "7. 运行时与可用性面", "children": [{"id": "n273", "topic": "7.1 资源耗尽 / 拒绝服务", "children": [{"id": "n274", "topic": "Token 与上下文耗尽", "children": [{"id": "n275", "topic": "Token Bomb / Token 最大化", "children": [{"id": "n276", "topic": "上下文窗口溢出"}]}]}, {"id": "n277", "topic": "计算与能耗耗尽", "children": [{"id": "n278", "topic": "Sponge Attack / AutoDoS（高能耗输入）", "children": [{"id": "n279", "topic": "ThinkTrap（推理模型思考死循环）", "children": [{"id": "n280", "topic": "Agent 工具调用死循环（无 max-step）"}]}]}]}, {"id": "n281", "topic": "经济与误报型 DoS", "children": [{"id": "n282", "topic": "拒绝钱包（Denial-of-Wallet）", "children": [{"id": "n283", "topic": "误报型 DoS（触发护栏挡合法流量）", "children": [{"id": "n284", "topic": "P-DoS（投毒使模型变成复读机）"}]}]}]}]}, {"id": "n285", "topic": "7.2 推理服务 / 运行时基础设施攻击（Inference Service & Runtime）", "children": [{"id": "n286", "topic": "服务漏洞与 RCE", "children": [{"id": "n287", "topic": "本地推理服务 RCE（Ollama / vLLM / llama.cpp / TorchServe 等反序列化、路径遍历、消息队列漏洞）", "children": [{"id": "n288", "topic": "模型文件解析漏洞（Malicious Model File Parsing → RCE，GGUF / Safetensors / Pickle 延伸）", "children": [{"id": "n289", "topic": "消息队列 / IPC 攻击（Message Queue / ZMQ / NCCL 管道 RCE）"}]}]}]}, {"id": "n290", "topic": "边界逃逸", "children": [{"id": "n291", "topic": "沙箱逃逸（Sandbox Escape：isolated-vm、容器、GPU 容器逃逸）"}]}, {"id": "n292", "topic": "滥用与劫持", "children": [{"id": "n293", "topic": "无认证暴露服务滥用（Unauthenticated Inference Endpoint Abuse：算力窃取、SSRF 跳板、元数据窃取）", "children": [{"id": "n294", "topic": "LLMjacking 进化（劫持推理端点作为攻击基础设施）"}]}]}, {"id": "n295", "topic": "（参见 3.3）GPU 共享侧信道"}]}, {"id": "n296", "topic": "7.3 传统对抗样本 / 逃避攻击（Evasion / Adversarial Examples）", "children": [{"id": "n297", "topic": "数字域攻击", "children": [{"id": "n298", "topic": "白盒梯度攻击（FGSM / PGD / C&W / AutoAttack）", "children": [{"id": "n299", "topic": "黑盒查询攻击（Query-based / Transfer-based / Score-based）", "children": [{"id": "n300", "topic": "决策边界攻击（Decision-based / Boundary Attack）", "children": [{"id": "n301", "topic": "语义保持对抗（Semantic-preserving / Imperceptible Adversarial Examples）", "children": [{"id": "n302", "topic": "对抗性重编程（Adversarial Reprogramming）"}]}]}]}]}]}, {"id": "n303", "topic": "物理与系统级", "children": [{"id": "n304", "topic": "物理世界对抗样本（Physical Adversarial Examples：贴纸、T恤、路牌等）", "children": [{"id": "n305", "topic": "多传感器融合逃避（Multi-sensor Fusion Attacks，自动驾驶等场景）"}]}]}, {"id": "n306", "topic": "目标场景", "children": [{"id": "n307", "topic": "针对分类器 / 检测器 / 目标检测的逃避"}]}]}]}, {"id": "n308", "topic": "8. 侦察与评估元攻击面", "children": [{"id": "n309", "topic": "8.1 侦察与目标画像（Recon & Target Profiling）", "children": [{"id": "n310", "topic": "模型与护栏指纹", "children": [{"id": "n311", "topic": "后端模型 / 版本指纹识别（行为探针识别底座模型与版本）", "children": [{"id": "n312", "topic": "护栏 / 过滤器指纹探测（试探边界词、响应模式定位所用护栏）"}]}]}, {"id": "n313", "topic": "能力与资产侦察", "children": [{"id": "n314", "topic": "工具链 / 插件清单探测（枚举可用工具、MCP 服务与权限范围）", "children": [{"id": "n315", "topic": "API 行为与配额探测（限流策略、上下文长度、计费模型推断）", "children": [{"id": "n316", "topic": "公开模型 / 数据集侦察（收集目标训练所用公开资产，ATLAS AML.T0000 阶段）"}]}]}]}]}, {"id": "n317", "topic": "8.2 评估规避与对齐伪装（Eval Gaming / Sandbagging / Alignment Faking）", "children": [{"id": "n318", "topic": "行为伪装", "children": [{"id": "n319", "topic": "评测低能（Sandbagging：在能力评测中故意压分以规避监管/获取部署许可）", "children": [{"id": "n320", "topic": "对齐伪装（Alignment Faking：识别\"正在被测试\"并切换为合规行为）", "children": [{"id": "n321", "topic": "测试环境检测与行为切换（检测红队/沙箱指纹，区分评测与真实流量）"}]}]}]}, {"id": "n322", "topic": "评测操纵", "children": [{"id": "n323", "topic": "基准 / 榜单污染（Benchmark Contamination / 针对性过拟合评测集）", "children": [{"id": "n324", "topic": "奖励破解 / 规范博弈（Reward Hacking / Specification Gaming：钻奖励信号空子）"}]}]}]}]}]}}
+{
+  "nodeData": {
+    "id": "1a34416a-230b-4336-b066-7af698b33f62",
+    "topic": "AI 攻击面分类",
+    "expanded": true,
+    "children": [
+      {
+        "id": "171a623e-9820-4373-91b7-bed610f345bb",
+        "topic": "1. 输入操控面",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "1dc6c297-5457-4e63-9b0e-7dff65954cac",
+            "topic": "1.1 提示注入",
+            "expanded": true,
+            "children": [
+              {
+                "id": "3ab64779-bcb0-4625-9721-d0a784d59078",
+                "topic": "注入路径",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1889ae24-f428-4d5e-b2a5-0358f7bbedc2",
+                    "topic": "直接提示注入",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2d9cf453-eeaa-4009-8b64-7e7f33f4b7f9",
+                    "topic": "间接提示注入（IDPI）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8510853d-2018-42c0-8990-d2701d89e505",
+                    "topic": "多模态注入",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "6cd9ca62-6627-436a-8392-b7c7c89f29a4",
+                "topic": "载体与通道",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "74b56a7d-1452-41b8-8196-3223d26d1ac0",
+                    "topic": "元数据注入（文件标题、alt 文本、EXIF）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ca54debc-d26b-4d95-a496-4448ddea2086",
+                    "topic": "文档内嵌伪系统指令（[SYSTEM INSTRUCTION]）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7cfff95a-4123-44b7-87eb-9068a268c17f",
+                    "topic": "日历 / 邮件注入",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8e239869-02b6-423d-8bb9-dd229b572fb4",
+                    "topic": "工具通道注入 / 双通道提示注入（ToolLeak）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "6aa255e1-77eb-4d3d-a6c7-0b2da26e399a",
+                "topic": "时序与上下文",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "b44825bb-7a0c-4105-9724-e6d1c0eba7a3",
+                    "topic": "多轮/上下文注入（FITD）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "409b7537-95f9-406d-9a7f-28b4648ae6f7",
+                    "topic": "记忆注入 / 上下文投毒",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d919ba49-188b-493c-ba5a-389005229347",
+                    "topic": "载荷拆分（Payload Splitting）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f85a3682-5ce1-4180-b152-b04c135375fe",
+                    "topic": "零点击间接注入",
+                    "expanded": true
+                  },
+                  {
+                    "id": "daeeb443-837f-49a3-838e-765757f4b41d",
+                    "topic": "延迟触发注入",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "5e2cb613-ffc3-442b-a881-086537b8fa79",
+                "topic": "特殊形态",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "2be834d1-b709-4290-b838-d41414dbe35c",
+                    "topic": "SQL 注入式越狱（SIJ）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9cfc8bbb-d7be-4c71-b925-38f399ae4b26",
+                    "topic": "LPCI（逻辑层提示控制注入）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cc6f041f-1e46-4e82-8314-0b9455040600",
+            "topic": "1.2 越狱",
+            "expanded": true,
+            "children": [
+              {
+                "id": "7c0f59c1-a6dd-42eb-9c66-3bd04cbb8ef7",
+                "topic": "角色与说服",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1fc10da5-cb5b-429b-9016-f3bbfa9a811f",
+                    "topic": "角色扮演 / 人格劫持（DAN、开发者模式、嵌套角色）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "833a7a2f-9756-4d4c-89eb-dd1315870954",
+                    "topic": "权威说服（PAP）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "aa5d33eb-6f8c-455e-8783-d42baea478bb",
+                    "topic": "Skeleton Key（骷髅钥匙 / 免责声明豁免）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "72a1ef48-10a4-4705-a79a-ab1ae1daa9d4",
+                    "topic": "拒绝遏制（禁绝“不能/抱歉”等词）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e8dd79bc-7900-40bf-8bb9-98053cf0d804",
+                    "topic": "输出混淆（假设性场景包装）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "5e21472e-a506-44f1-ac81-b44806b5f332",
+                "topic": "编码与混淆",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "acdf6f85-1e35-4f15-9671-281a6ca243e6",
+                    "topic": "密码 / 编码攻击",
+                    "expanded": true,
+                    "children": [
+                      {
+                        "id": "f519f23f-1211-45ef-8bc0-ce189d9a2810",
+                        "topic": "Base64 / ROT13 / 摩斯 / 凯撒",
+                        "expanded": true
+                      },
+                      {
+                        "id": "8d19bb16-3ed9-42c0-b3b1-813e99c0cec6",
+                        "topic": "RoguePrompt（加密俄罗斯套娃）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "fcecf180-93f6-43d1-a6c0-73478f67665a",
+                        "topic": "BitBypass（二进制断 Token）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "dc80fc19-a900-443e-befd-1c45524c0b68",
+                        "topic": "ArtPrompt（ASCII 艺术注入）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "fea5cabd-806e-4c87-aa1d-a5617febcf8d",
+                        "topic": "人造语言（Tongue-Tied）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "8dbb491f-532a-43d6-87dd-3aab95719ec9",
+                        "topic": "Unicode 不可见字符 / 同形字 / 零宽字符",
+                        "expanded": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "a33a7e2f-ce8f-4d64-bb40-f30c627bb885",
+                    "topic": "Token 走私 / 输入混淆",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f1bbf9b9-73b1-40c6-9379-dd3b3aa1cc51",
+                    "topic": "混合语 / 小语种提示（Macaronic / 低资源语言）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ee95d78a-4bd2-46e5-bc7a-5493437063b6",
+                    "topic": "翻转攻击（FlipAttack）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "dac94bb0-61f9-4a78-813d-e19153c336d7",
+                "topic": "多轮与策略",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3ab5ecb5-8cb7-4fd4-ad00-6c2ad0e1e62c",
+                    "topic": "多样本 / Many-shot 越狱",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a233845e-25ae-4d64-9b8d-f9d37faaa940",
+                    "topic": "多轮分解（Multi-Turn Decomposition）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cdfb3194-ed41-4437-ac62-f9ece83aa9da",
+                    "topic": "渐进引导（Crescendo）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e6d8f2c3-ec71-4076-ae0c-6b80ab691969",
+                    "topic": "回声室（Echo Chamber）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5c3af4d1-a0b5-41c9-b353-62e6d66ee2c3",
+                    "topic": "上下文泛洪 / 上下文淹没",
+                    "expanded": true
+                  },
+                  {
+                    "id": "53af5efe-2582-4c29-8140-b951c9077b0a",
+                    "topic": "思维链劫持（H-CoT）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2c7ed94a-4b62-4fbf-8245-099b6ac8c614",
+                    "topic": "Copilot 确认越狱（可编辑输出劫持）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "138b7f61-7e62-438d-8a67-80efdd923493",
+                "topic": "对抗优化与自动化",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "55d034bb-9cb6-4bed-b173-9d796631ef84",
+                    "topic": "对抗性后缀（GCG / 可迁移对抗 Token）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "80a35c1b-b9f6-4c9b-8e22-eef04863cb44",
+                    "topic": "自动化越狱（PAIR / JBFuzz / AI 越狱 AI）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9aecf646-2dcc-48c4-bf03-47a4d8e5371b",
+            "topic": "1.3 多模态 / 跨模态注入",
+            "expanded": true,
+            "children": [
+              {
+                "id": "f676ac5a-3eb6-447e-af57-384ca7925011",
+                "topic": "图像通道",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "84262a97-6f73-4e2d-8788-9200435042b4",
+                    "topic": "图像内 OCR / Text-on-Image（FigStep、白底白字）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2f47ae78-e758-4a04-9609-8db534e3f7e7",
+                    "topic": "隐写嵌入载荷（空间 / 频域 / 神经隐写）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "470df27f-0896-4efd-85f5-94648e40bbda",
+                    "topic": "对抗像素 / 打印补丁 / 投影光",
+                    "expanded": true
+                  },
+                  {
+                    "id": "faf7fb16-21a4-46c2-8054-5e889c9386b2",
+                    "topic": "通用对抗图像 / 通用对抗补丁（Universal Adversarial Perturbation / Universal Image Trigger）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "98f84f5b-bda8-4168-b652-bc0ffdd748b9",
+                    "topic": "物理世界投影 / 打印补丁延伸（Physical-world Projection / Printed Patch for MLLM）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "09d6bee9-fb2e-450b-8a58-228aa3c03bc3",
+                "topic": "音频 / 视频通道",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "a5e34bf0-084c-44a9-bf7d-5e68c8fc6225",
+                    "topic": "音频 / 语音通道注入",
+                    "expanded": true
+                  },
+                  {
+                    "id": "02e2aed5-84d8-4fff-a1df-befbe4e0f9be",
+                    "topic": "音频实时流注入 / 语音对抗示例（Real-time Audio Stream Injection / Adversarial Audio）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3d8d4aac-f7f1-46ac-a12f-e8d28144dbc0",
+                    "topic": "视频帧级 / 时序对抗（Video Frame / Temporal Adversarial Examples）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "e5453069-5f56-400b-905e-3db9610fd0e2",
+                "topic": "跨模态融合",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6eca59ba-fd52-4233-bf33-a23674b7b007",
+                    "topic": "跨模态扰动（CrossMPI）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6259ac25-188b-4f67-9b8f-8e347cd820b8",
+                    "topic": "虚拟场景催眠（VSH）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5cf74c7f-5ff5-4095-a274-5cbebce72b63",
+                    "topic": "组合性脆弱（CLIP 等跨模态打分操纵）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "4f3e4641-a5cc-449f-bcb1-ecd183f9793a",
+                    "topic": "跨模态对齐破坏（Cross-modal Misalignment Attack，针对 VLA 等）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5430cb8e-5f6a-43dc-8a06-d4212ee4e6e2",
+                    "topic": "单模态主导融合攻击（Single-Modality Domination in Fusion Models）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6493b8cb-1552-4f02-a001-6fa61dbe5c53",
+            "topic": "1.4 护栏 / 防御元攻击（Guardrail & Defense Bypass）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "fd574f6b-a0ba-4d79-8139-9ba2766cc09f",
+                "topic": "护栏模型攻击",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "13c37f93-7232-493f-a23f-3fa82ec318d9",
+                    "topic": "护栏模型本身越狱（Guard Model Jailbreak / Dual-Jailbreaking）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "386b0fb3-2e03-4dc5-b528-f5f767a5779a",
+                    "topic": "LLM-as-Judge 绕过（针对评判模型的说服 / 角色扮演）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c3af738b-2437-447a-8aa6-5bb027364b08",
+                "topic": "窗口与结构绕过",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "dba1620c-8ded-4f15-9b51-bd2504470a7e",
+                    "topic": "Prompt Overflow / 上下文窗口不匹配（Guardrail 检查窗口 vs 模型推理窗口差异）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f15ca953-f609-4bb1-a296-073e5da9add2",
+                    "topic": "推理护栏结构绕过（Structural CoT Bypass / Reasoning Guardrail Subversion）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "08823ca3-3018-4030-94b4-a3e52ebfd25e",
+                    "topic": "模板 Token / 结构注入绕过推理护栏",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "5e941dcb-6b88-4919-9008-a09edcd80026",
+                "topic": "字符与对抗逃避",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5a42ec59-7366-4e67-b730-79d30213fc34",
+                    "topic": "字符级 / Unicode 注入绕过检测器（Character Injection / Homoglyph / Zero-width vs Prompt Guard）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "979e1d2b-b85c-4eff-9d4b-ae3ea0cea9d5",
+                    "topic": "对抗性机器学习逃避护栏（AML Evasion against Prompt Shields / Classifiers）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a8c16b00-0df8-4e88-b394-ae207b7fe477",
+                    "topic": "受控释放提示（Controlled-Release Prompting：过滤器不可解但模型可解）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "42a60a2e-efe5-49bf-99b8-f59830f02c2b",
+                    "topic": "弱防御强化攻击（Defense-to-Attack：利用弱防御提示增强越狱）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "72243d3e-807f-4998-98ef-bcd43b754873",
+        "topic": "2. 训练与模型供应链面",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "8451c0b0-8f5e-4305-9838-904d4194084f",
+            "topic": "2.1 训练数据中毒 / 后门 / Sleeper Agent",
+            "expanded": true,
+            "children": [
+              {
+                "id": "f1af50f7-8176-401a-aa76-d5b02af0d827",
+                "topic": "数据投毒手法",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "98b0d542-3771-4943-98f3-34de11302e72",
+                    "topic": "训练数据投毒",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cc8873f8-b6ff-481d-ad9a-8a38d1270e08",
+                    "topic": "干净标签投毒（Clean-Label）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "862f6e50-86e6-47c0-890c-09277bf1dc9a",
+                    "topic": "标签翻转（Label Flipping）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "74283613-87ea-4467-8bd0-42ed3af7bdd7",
+                    "topic": "梯度投毒（Gradient-Based）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9a381e11-a6b7-4e27-86af-91c3eb53a200",
+                    "topic": "Nightshade 式主动投毒（注：防御方/版权方的主动反训练手段，此处列为数据侧对抗面）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9ca10fbe-70dc-4de1-9972-d68f621efe9c",
+                    "topic": "Agent 轨迹投毒（Malice in Agentland）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "95e67d4f-49b8-427b-a221-375b1764b278",
+                "topic": "后门植入",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5fad50de-18ca-4737-bb8d-f97a17c331e5",
+                    "topic": "后门攻击（Backdoor / Trojan）",
+                    "expanded": true,
+                    "children": [
+                      {
+                        "id": "cef7b5b9-48d2-4c6d-8ecf-f8972b24d2db",
+                        "topic": "Virtual Prompt Injection（VPI）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "9e1044bb-154d-49a3-b2ad-f0cf938a7b18",
+                        "topic": "Finetuning-Activated Backdoors（FAB）",
+                        "expanded": true
+                      },
+                      {
+                        "id": "ce2508bb-85a5-417a-ad43-43de106a1522",
+                        "topic": "Privacy Backdoor",
+                        "expanded": true
+                      },
+                      {
+                        "id": "1c71b8ed-0c35-4501-9aee-7deb12e44303",
+                        "topic": "Benign-Data Backdoor",
+                        "expanded": true
+                      },
+                      {
+                        "id": "bca55df8-ad37-4737-8af7-6c0706c09037",
+                        "topic": "Code Model Backdoor（代码补全后门）",
+                        "expanded": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "fbb96593-b118-4496-bd9a-302357715310",
+                "topic": "欺骗性对齐",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "4d32035b-0e32-4e43-b622-03b0220c9d10",
+                    "topic": "Sleeper Agents（睡眠特工 / 欺骗性对齐）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d90a2eb6-ea48-453f-a11e-b0314f066eda",
+                    "topic": "影子对齐（Shadow Alignment）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3f71639f-f88e-4f1f-9291-1f81b3d09e68",
+                    "topic": "病毒感染攻击（跨模型代际传播）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "12db1149-8115-49f3-b7cc-c4115f31c7af",
+                "topic": "量化相关后门",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "df9bc699-ba9f-469a-a410-c4708aa19d4e",
+                    "topic": "量化条件后门（Quantization-Conditioned Backdoor / QCB）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "670553e4-2fca-45db-a936-0c4fa997df61",
+                    "topic": "量化条件对齐破坏（Quantization-Conditioned Misalignment / Q-Misalign）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ad83a425-145a-4b13-bf02-0e09e48eb512",
+                    "topic": "量化过程权重舍入操控（Rounding-Guided Backdoor Injection）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "557e3d11-d12f-453b-b88b-9ba74726bd3a",
+                    "topic": "量化后后门残留（Backdoor Persistence after Quantization / Compression）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6f6b2a54-7e24-49eb-86ae-c6ea5579478d",
+            "topic": "2.2 模型供应链投毒",
+            "expanded": true,
+            "children": [
+              {
+                "id": "93347b45-34c1-4a8f-9123-61184c61a46a",
+                "topic": "模型文件与权重",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "4277c13f-a6bd-4eb0-b74f-e39a4faacd46",
+                    "topic": "恶意模型序列化文件（pickle / SavedModel / H5 Lambda）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5b3f0868-ef83-49ec-b0f8-6b896e0e97ef",
+                    "topic": "模型配置模板后门（GGUF chat template / tokenizer config）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5650da0c-c501-4d8b-ab48-bdc6b8671596",
+                    "topic": "LoRA Adapter 篡改 / 量化模型回灌后门",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "0483ce2a-1be6-4a5d-852d-1021507dce8d",
+                "topic": "仓库与命名空间",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c29169f0-456c-40f9-a69c-85fe1dc6380c",
+                    "topic": "命名空间复用 / 劫持（Model Namespace Reuse / AI Jacking）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3d455bb3-0d46-45ef-81bb-c89dab51ffe1",
+                    "topic": "模型仓库大规模污染",
+                    "expanded": true
+                  },
+                  {
+                    "id": "4b2735c6-90f0-4508-bde8-d0ab9ff585f9",
+                    "topic": "恶意技能市场（Skill Marketplace 投毒）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "553edc33-2644-4f67-9e88-70732c36e79c",
+                "topic": "依赖与包生态",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "67533921-1c3d-4bb0-bdf8-00e5c2689569",
+                    "topic": "恶意 ML 包（PyPI / npm 仿冒）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bf17bbab-8218-4e8c-8eba-6ca48fd1cdc9",
+                    "topic": "包幻觉蹲坑（Slopsquatting）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e9d60f57-3fe0-4b46-81f9-ecbb7b164f80",
+                    "topic": "TinyML / 边缘模型供应链攻击（Edge / TinyML Supply Chain）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "5f791020-13a3-45c1-b14d-d64b91c037f7",
+            "topic": "2.3 模型提取 / 窃取",
+            "expanded": true,
+            "children": [
+              {
+                "id": "f90c287a-8e63-40d0-a16e-026116fab71f",
+                "topic": "功能克隆",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e2af6a45-b718-46b7-87ae-f78826f82a84",
+                    "topic": "模型窃取 / 提取（API 查询 + 学生模型蒸馏）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "aeb64138-5de8-4aad-b794-bbc6f262d9d0",
+                    "topic": "无数据攻击（Data-Free，用生成模型合成替代集）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2b4c990e-2736-46e2-b54f-56a61c88edba",
+                    "topic": "功能复刻式 API 滥用",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "7650be86-ec4b-4370-88a6-c105ce25b999",
+                "topic": "结构与所有权",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "d94732f1-456f-46f1-a5f6-05c933927078",
+                    "topic": "神经元级 / 架构级复制",
+                    "expanded": true
+                  },
+                  {
+                    "id": "76fc518c-85a7-4ec4-9919-036bfc5b9b1a",
+                    "topic": "架构 / 超参数推断（Architecture / Hyperparameter Inference）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a69886a1-676a-4520-a9f2-5f9ffb884255",
+                    "topic": "模型指纹与所有权窃取（Model Fingerprinting / Ownership Extraction）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "668cd7f1-a808-49dc-a195-794a7df1d6a7",
+            "topic": "2.4 联邦 / 分布式训练特有攻击（训练侧场景）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "89f18fae-abae-44c8-8c1d-b01f3d66d588",
+                "topic": "联邦学习投毒 / 后门",
+                "expanded": true
+              },
+              {
+                "id": "e92cf298-2bd5-416d-b94e-4e2d6a176be6",
+                "topic": "客户端模型更新篡改",
+                "expanded": true
+              },
+              {
+                "id": "e84ce4c0-8eae-4d05-bb32-adbd6693464d",
+                "topic": "聚合算法操纵",
+                "expanded": true
+              },
+              {
+                "id": "65af1476-9d0a-487f-8d02-bf3b6e137918",
+                "topic": "（参见 3.1）梯度反演隐私泄露",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "34a070cc-9ff8-41e5-9f18-b63910aa2245",
+            "topic": "2.5 更深模型层攻击 / 白盒后攻击（Model-level Deep Attacks）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "09bf90c8-fcad-4daf-9811-ad6c8c12b699",
+                "topic": "表示与注意力操控",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e123cf0b-a563-47d9-8a39-8677385edecc",
+                    "topic": "注意力机制劫持（Attention Hacking / Attention Manipulation）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "612c3e3a-4477-40c5-b0d3-52ba71980a91",
+                    "topic": "神经元级激活操控（Neuron Activation Control）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "00feb1ef-8ed0-4348-b0f5-dc667f264b48",
+                    "topic": "模型内部表示操纵（Internal Representation Manipulation）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "93fb060b-a7af-437f-ad47-a2f3977d9ac0",
+                "topic": "权重与梯度",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "9ec3ca3b-bb4c-4de8-b972-7fb8f9bb3d1a",
+                    "topic": "权重空间后门激活（Weight-space Backdoor Activation after Extraction）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "454e3e2f-516b-45ce-8aae-18eda004bb37",
+                    "topic": "梯度泄露 / 梯度反演延伸（Gradient Leakage / Inversion in Federated / Distributed Settings）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "014da959-1aa0-4f22-8787-5e030a5d52bf",
+        "topic": "3. 隐私与机密面",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "0c379244-3550-44d3-8b36-389a397a586e",
+            "topic": "3.1 训练数据提取 / 隐私推断",
+            "expanded": true,
+            "children": [
+              {
+                "id": "74668e41-12c9-4cb8-bb66-5e5ab64dacf4",
+                "topic": "经典隐私推断",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "d7172410-9060-400b-bbab-b35a5560da33",
+                    "topic": "模型反转（Model Inversion）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7f0b879c-277f-4dca-a085-3fffba7741f0",
+                    "topic": "成员推理（Membership Inference / MIA）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "475e75d2-06fc-41a8-bd75-7c3e26f6b73a",
+                    "topic": "属性推理（Attribute Inference）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "44037b45-ce41-4922-8207-933d7f321003",
+                "topic": "数据提取与反演",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "b82f98d2-4e82-4e9f-9421-677f3e03f503",
+                    "topic": "训练数据提取（Divergence / Prefix 攻击）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6c4947ce-710c-49b8-ad30-5bd6cf14c632",
+                    "topic": "嵌入反演（Embedding Inversion）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "745a2deb-e2e5-4b30-8992-c86eb7063f01",
+                    "topic": "自适应域推理（ADI）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "3f275cbb-5d41-4559-b8b3-16a8cdeeb764",
+                "topic": "场景延伸与防御绕过",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5d9b716c-9a3c-440a-a120-120df30f4348",
+                    "topic": "差分隐私绕过 / 强化成员推理（DP Bypass / Adaptive MIA）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1a29665d-4260-4e70-9a9a-eaa50d1faae4",
+                    "topic": "联邦学习梯度反演 / 投毒（Federated Learning Gradient Inversion / Poisoning）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e8282435-40d5-4d37-b4e1-49d7ad26a2bd",
+                    "topic": "跨会话 / 长期记忆隐私推断（Cross-session Memory Inference）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1228831b-e6c9-434b-8301-424b0ca27a2f",
+                    "topic": "机器遗忘攻击（Machine Unlearning Attacks：遗忘不彻底残差推断 / 遗忘验证绕过 / 删除后数据仍可提取）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "0d4a7604-1eeb-4458-9f71-26950a7135b9",
+            "topic": "3.2 系统提示泄漏 / 越权指令",
+            "expanded": true,
+            "children": [
+              {
+                "id": "61f4b907-1920-4e35-a691-0987b4fae826",
+                "topic": "提示与隐藏上下文抽取",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "62bfef38-1ca0-4064-a640-b2c6cad719aa",
+                    "topic": "直接诱导复述系统提示",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8f00a2a0-6c06-4b01-8e72-b63972abc9a7",
+                    "topic": "对比推理 / 间接抽取",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ce48e690-5322-4dfd-936b-36bd6da2c57e",
+                    "topic": "隐藏上下文扩展泄露（策略文本、会话元数据、开发者指令等）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "064606ee-4ca5-4fbf-a99d-f0398f6886f9",
+                "topic": "工具面泄露",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "95cc69a2-681e-46ec-9b15-ed3e97555bdc",
+                    "topic": "工具参数诱导填空（ToolLeak 类）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f7891eee-ba5a-4bdb-b217-f8962e136f7e",
+                    "topic": "工具描述 / Schema 外泄",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "781ea901-08a9-476a-826e-d2152e63c605",
+            "topic": "3.3 推理侧信道（时序 / 功耗 / 缓存）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "efd80734-00d5-49a2-abba-964c606efae2",
+                "topic": "计算与硬件侧",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "dd318889-c0e3-4d48-825d-c860fae46681",
+                    "topic": "时序侧信道（per-token latency / KV cache 共享）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "59983fb9-d0fa-4f5f-85d0-1fded550cadb",
+                    "topic": "GPU L2 Cache Prime+Probe",
+                    "expanded": true
+                  },
+                  {
+                    "id": "95821199-9d62-44e7-988f-8d604e8c0e83",
+                    "topic": "GPU 共享环境细粒度侧信道（多租户 GPU 缓存 / 功耗延伸）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "62338841-42e8-4df7-8a16-1c370ed89515",
+                    "topic": "功耗 / 热信号侧信道（Energon）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "ab8c2285-6fe2-4560-978a-defdde50e36a",
+                "topic": "网络与过滤侧",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "87e2df38-3162-4ba1-b0e6-4e2e6b5a2f04",
+                    "topic": "加密流量侧信道（Whisper Leak：TLS 包长 / 时序分析还原流式输出主题）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cbecce50-c78b-412a-a7f4-66b78d284e53",
+                    "topic": "输入过滤侧信道（推断权重与架构）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "15b799e2-e5c8-4389-b02c-56209ad69611",
+            "topic": "3.4 内部部署组件外泄（MCP / 插件 / sandbox）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "3b69d4f4-20d0-41ac-bd36-d91e059bce53",
+                "topic": "凭据与配置",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6cf32b23-5950-47be-a5ef-299323215e03",
+                    "topic": "Agent 配置 / 凭据外泄（mcp.json、API Key、Token）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c1fc6b91-e825-498e-b6a6-fed710cf6f90",
+                "topic": "插件与运行时",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3b231a22-13ea-465e-8fb9-de348dbf86ba",
+                    "topic": "插件 / Extension 供应链外泄",
+                    "expanded": true
+                  },
+                  {
+                    "id": "db9499aa-cf67-48af-a682-77752f62e18c",
+                    "topic": "插件 / MCP 运行时动态加载攻击",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "24a5c41d-b69f-498a-8d78-f5798ddf7524",
+                "topic": "规则与 Skills",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "2c491c72-44e5-44b0-a6d7-245fdd504fa3",
+                    "topic": "编码助手规则文件后门（Rules File Backdoor）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b2f1a579-047c-451c-98af-0c65a5992e2d",
+                    "topic": "Agent 规则文件 / Skills 后门强化",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "78a46d64-d18c-42e4-8683-1e6db0b01aa7",
+                "topic": "记忆外泄",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "74c163e7-2804-4abf-91fb-df986379c012",
+                    "topic": "长期记忆与会话历史外泄（含跨会话持久化 Persistent Memory Exfiltration）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "9b06ae40-1067-4168-8296-f7221f6ceb97",
+                "topic": "（参见 7.2）沙箱逃逸 / 主机权限提升",
+                "expanded": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "5dd1e56d-12df-44f7-a9e5-a8db258bf4d2",
+        "topic": "4. Agent 目标劫持 / 工具滥用",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "7a6d571e-2786-4980-8825-a2f42eda7a69",
+            "topic": "4.1 目标与意图",
+            "expanded": true,
+            "children": [
+              {
+                "id": "7ee15c49-5ad6-4d5e-a158-65efec735695",
+                "topic": "目标与意图操控",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c006a058-bb60-457f-8399-52e125620ee2",
+                    "topic": "目标劫持 / 意图漂移",
+                    "expanded": true
+                  },
+                  {
+                    "id": "20d926eb-8964-4c05-8760-d2ebe7f85341",
+                    "topic": "意图流颠覆（Intent Flow Subversion）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d73a33fa-d2b6-4a9c-9da9-4a8cd56aec62",
+                    "topic": "计划偏离攻击（Plan Deviation / Goal Drift across Agents）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "99f417c1-db6f-4423-ba31-347d6498d1b1",
+                "topic": "编排与审批",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1453ed00-d1c3-4b96-b292-58c2f946b40a",
+                    "topic": "编排器 / 控制器劫持（Orchestrator / Planner Hijacking）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "94fdf744-5320-4de9-afe0-59cbb787e7f6",
+                    "topic": "人类审批疲劳攻击（HITL Exploitation）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "0d1d8651-1758-43ca-8ef6-491eedbc0f20",
+            "topic": "4.2 工具与 MCP",
+            "expanded": true,
+            "children": [
+              {
+                "id": "18ae5b3e-3b7c-4ac3-a687-ade80c549f75",
+                "topic": "工具投毒",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e7fc31e6-338a-433b-aabc-0d6de01f016f",
+                    "topic": "工具投毒（Tool Poisoning / TPA，MCP 描述注入）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2b1cf59f-55c2-4098-a901-947ca67bfe24",
+                    "topic": "工具输出投毒 / 工具影子攻击",
+                    "expanded": true
+                  },
+                  {
+                    "id": "fc6ed8be-99d3-4f81-b4de-94379381c4f7",
+                    "topic": "预审批命令参数注入",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "de59a5a7-6b16-429d-bd2a-5c047a36d2e3",
+                "topic": "MCP 与会话",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ed168382-2530-40fc-96dc-7e3800cda75f",
+                    "topic": "影子 MCP 服务器（Shadow MCP）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "05572e2d-fdd7-435f-9fc9-f68c56aac01c",
+                    "topic": "MCP 会话劫持 / 提示劫持",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "f9b1a942-798b-4475-99cd-7a9748d4e3bb",
+                "topic": "协议层",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e805d5cd-ee29-4f57-9aa7-2361eee70db9",
+                    "topic": "Agent 协议层攻击（A2A / Agent Card 伪造、Agent 间通信中间人、能力声明欺骗）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "4ce47764-740f-4807-b138-9cb80f41af31",
+            "topic": "4.3 过度代理（Excessive Agency）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "aae4f4d9-191d-4aac-b807-bc3fe78667e5",
+                "topic": "授权过宽",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "b2023533-3f8d-4480-92ba-05b58fe51364",
+                    "topic": "读写 / 发信 / 转账等同会话授权",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7291ebab-0865-47fe-8fdd-076699ffc143",
+                    "topic": "无人工门禁的高危动作",
+                    "expanded": true
+                  },
+                  {
+                    "id": "300628c1-d47a-4369-a202-a70244668396",
+                    "topic": "工具作用域过宽（读库即写库）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "a00cdd3a-5633-4acf-aaa4-e7b16b0b22c6",
+                "topic": "权限提升",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "45c26b97-79d9-4d02-b7e2-69ec92fbc6d5",
+                    "topic": "权限蠕变提权（Scope Creep）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "c980285c-f8ec-4408-b7e9-37355c4ac60f",
+                    "topic": "权限合谋提权（Collusive Privilege Escalation）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "39a1bc38-6f80-4e79-aca8-773c45f90df7",
+            "topic": "4.4 配置与 Harness",
+            "expanded": true,
+            "children": [
+              {
+                "id": "2fd4d109-7780-481a-9578-e3fe15666d2c",
+                "topic": "Harness 配置投毒（settings.json / rules / SessionStart Hook）",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "6cf68385-3843-4f22-872b-720ba1c51ed8",
+            "topic": "4.5 记忆与传播",
+            "expanded": true,
+            "children": [
+              {
+                "id": "d25ce6d1-0827-4f54-a8f5-6ec7e0ed916e",
+                "topic": "记忆与工作区投毒",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "f594b5b0-2165-49a1-a9eb-a76e9da4516f",
+                    "topic": "记忆投毒（持久记忆 / 跨会话）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9561fa1e-d0bd-4724-9c94-8f517ba6f1e7",
+                    "topic": "共享记忆 / 工作区投毒（Shared Memory / Workspace Poisoning）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2f4212aa-6b70-4c4e-bd82-765265d5c8ae",
+                    "topic": "RAG 喷射",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "6c428db8-f772-41e9-a077-53679cbf1bd5",
+                "topic": "蠕虫与横向传播",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "799d36a3-16bd-48b6-9cad-d4dee7b8bb33",
+                    "topic": "跨 Agent 传播（配置写回另一 Agent）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "56874994-9d5d-45e7-97a5-9c2ae2f4697b",
+                    "topic": "自传播 AI 蠕虫（Morris II / RAGworm）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2435e6a0-fc1c-4639-adc9-29123218e13a",
+                    "topic": "多智能体蠕虫传播（Multi-Agent Worm / Propagation across Network）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "eceb7dac-7189-4492-ae56-837b820aeffb",
+                "topic": "攻击基础设施化",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "0f308c3e-a9d8-482b-8c60-0bea020bdbf1",
+                    "topic": "Promptware C2（Agent 作为攻击基础设施）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "e4430d10-568a-4ab1-835e-aeb43dec808c",
+            "topic": "4.6 多智能体",
+            "expanded": true,
+            "children": [
+              {
+                "id": "4baa6a19-e259-4e8d-88db-1784992c984a",
+                "topic": "合谋与冒充",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "632182a8-c894-41f7-ada4-4f6241926227",
+                    "topic": "多智能体合谋（Agent Collusion）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f3c2b92d-bfb4-4de1-b7c9-9b0d6db986fb",
+                    "topic": "智能体冒充 / 身份伪造（Agent Impersonation）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "0bd3c73a-6f22-4bdd-8592-3f186ed67def",
+                "topic": "信任与通道",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3e635b43-c8d9-4884-8706-77d64488cf0e",
+                    "topic": "智能体间信任边界突破（Inter-Agent Trust Exploitation / Peer Trust Bypass）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1baf427c-856f-4628-a755-30e5dac106d4",
+                    "topic": "内部通道隐私泄露（Internal-Channel Privacy Leakage）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "085b72e4-bf1c-4245-81a2-c8151ad994aa",
+            "topic": "（参见 1.1）Agent 侧注入入口",
+            "expanded": true
+          }
+        ]
+      },
+      {
+        "id": "3a090f8f-398d-4e27-9d57-1d053ea0e6e4",
+        "topic": "5. RAG 向量库污染",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "739cddc6-1e02-44f9-af0c-16cfdec56f63",
+            "topic": "文本向量库投毒",
+            "expanded": true,
+            "children": [
+              {
+                "id": "0b4fc74d-3c9e-4ec5-afef-b9e680849a4f",
+                "topic": "PoisonedRAG",
+                "expanded": true
+              },
+              {
+                "id": "9401d03f-1c5f-42d7-8d61-0a445afef219",
+                "topic": "CorruptRAG",
+                "expanded": true
+              },
+              {
+                "id": "df2b37b3-24df-4128-946e-6c8d80afe786",
+                "topic": "Phantom（幽灵 / 休眠触发）",
+                "expanded": true
+              },
+              {
+                "id": "cdb2029f-8156-4e33-8557-71e23958c85e",
+                "topic": "文档内嵌间接注入",
+                "expanded": true
+              },
+              {
+                "id": "577ab70f-fcab-4e38-95c7-516ecd9b043e",
+                "topic": "嵌入空间操纵（Embedding-space manipulation）",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "d42286a7-d95a-4fc7-8b51-7f4610fe9bbf",
+            "topic": "多模态 / 结构化知识投毒",
+            "expanded": true,
+            "children": [
+              {
+                "id": "da15ba9d-fe71-4204-8d76-3abc2df9455e",
+                "topic": "MM-PoisonRAG（多模态 RAG）",
+                "expanded": true
+              },
+              {
+                "id": "424e9bf0-3f84-456d-9fe6-85bcde7841f4",
+                "topic": "PoisonedEye（视觉-语言 RAG）",
+                "expanded": true
+              },
+              {
+                "id": "5c5e6ef8-287d-4949-b1b6-7fd6423cd394",
+                "topic": "KG-RAG 投毒（知识图谱三元组）",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "5e1b571d-dce2-400c-840c-174ab7d3e33b",
+            "topic": "检索隔离失效",
+            "expanded": true,
+            "children": [
+              {
+                "id": "604d05b2-efbb-4d4c-9f3c-f3b597e76efe",
+                "topic": "跨租户向量命名空间泄露",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "48862dd8-496f-406b-be39-4564ca27aefb",
+            "topic": "（参见 4.5）RAG 喷射（Agent 投毒链）",
+            "expanded": true
+          }
+        ]
+      },
+      {
+        "id": "d8cf7ec3-30a8-47e2-83c9-bd81f0f50d78",
+        "topic": "6. 输出与下游集成面",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "f2cf9db0-f28d-4e58-8074-7333e4c95666",
+            "topic": "6.1 不安全输出处理",
+            "expanded": true,
+            "children": [
+              {
+                "id": "074bb683-01a9-451e-82fc-dcbe1c650d86",
+                "topic": "输出 → SQL 注入",
+                "expanded": true
+              },
+              {
+                "id": "9417def2-751a-4711-a666-f2f9646b6954",
+                "topic": "输出 → 命令注入 / RCE",
+                "expanded": true
+              },
+              {
+                "id": "b3314f0e-9802-4891-acf5-b0074cf02af9",
+                "topic": "输出 → XSS（HTML 直渲）",
+                "expanded": true
+              },
+              {
+                "id": "11601b6c-a4c7-4b74-a6ac-f653419f8efa",
+                "topic": "输出 → SSRF",
+                "expanded": true
+              },
+              {
+                "id": "fdbffe69-c7ca-4a2f-83e7-eab4eebabb71",
+                "topic": "输出 → 代码 eval / exec",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "e9af8c44-bfe8-404d-8783-31b137d91e54",
+            "topic": "6.2 误导 / 幻觉武器化",
+            "expanded": true,
+            "children": [
+              {
+                "id": "2092b851-2a77-4d38-87d3-17bb7d7e62ee",
+                "topic": "内容伪造与误导",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3b58e736-900e-4db3-87a4-6e3d1d17ed54",
+                    "topic": "自信错误输出被下游当事实执行",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7db825c4-7dc1-4861-b710-d4dc9c79f090",
+                    "topic": "伪权威证据 / 虚构判例与引用",
+                    "expanded": true
+                  },
+                  {
+                    "id": "74cba129-3e9a-4fb9-994e-0b687ae56997",
+                    "topic": "大规模虚假信息生成",
+                    "expanded": true
+                  },
+                  {
+                    "id": "c349150a-106e-4845-9d48-42768f707e82",
+                    "topic": "跨模态伪证据生成",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "221dbafe-8e25-430b-9450-2e74e8b8b1c1",
+                "topic": "供应链诱导",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3717333a-8ea8-4dc9-bb6b-60fbae05078e",
+                    "topic": "包幻觉引导的影子组件劫持",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "04c0b1d1-4d64-409a-82ca-2eb2dae5b35e",
+                "topic": "武器化应用",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e658712f-5e14-4d5b-b90f-9e4076428622",
+                    "topic": "AI 辅助社会工程完整链（AI-generated Phishing / Deepfake / 大规模个性化钓鱼）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e2e522f4-1873-4839-a08e-67bccba8423f",
+                    "topic": "用 AI 攻击非 AI 系统（AI-enabled Traditional Cyber Attacks：漏洞扫描、利用合成、自动化渗透）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9b45cec4-1992-43be-bd97-4ef126b153f7",
+            "topic": "6.3 深度伪造与生成内容滥用（影响类，非纯模型攻击）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "a2db1051-46be-4c9f-acf5-599bc66b8432",
+                "topic": "生成与传播",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "0817e698-efc6-4638-86d9-f1f9be40e629",
+                    "topic": "深度伪造音视频生成与传播",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cb92c0da-98da-415d-8f1a-208949fb25fa",
+                    "topic": "AI 生成虚假新闻 / 证据规模化",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e7cb833a-9eb7-49f5-a549-73d898bafa51",
+                    "topic": "自动化社会工程内容工厂",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "d18b185f-74d0-4f73-ba9c-9d25357375b8",
+                "topic": "溯源对抗",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "4ad9d3d5-97e6-4d3b-831c-0effe5ab37f0",
+                    "topic": "生成内容水印去除 / 溯源规避（Watermark Removal / Provenance Evasion，绕过 AI 内容检测与监管）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4df46364-56ee-48fa-82f7-ce63e94d8378",
+        "topic": "7. 运行时与可用性面",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "b8e99eef-96f1-43c5-a700-a89abfb14b03",
+            "topic": "7.1 资源耗尽 / 拒绝服务",
+            "expanded": true,
+            "children": [
+              {
+                "id": "bd862b56-9f49-43db-b961-b0a4fd852778",
+                "topic": "Token 与上下文耗尽",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1b7ab216-5625-41a9-bbe3-240d2b4990c9",
+                    "topic": "Token Bomb / Token 最大化",
+                    "expanded": true
+                  },
+                  {
+                    "id": "07c6d060-5989-465e-8a07-e739ea0e3fa7",
+                    "topic": "上下文窗口溢出",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "b76f0953-f7a1-4739-a817-b4c8c11f8db8",
+                "topic": "计算与能耗耗尽",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3248e810-6ce1-4f02-8a38-3475d9bf86f4",
+                    "topic": "Sponge Attack / AutoDoS（高能耗输入）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "226a9b1e-b988-4d1d-a802-2ab61cf3a137",
+                    "topic": "ThinkTrap（推理模型思考死循环）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2a8274be-6cd2-4124-be7b-f5dd16e0c314",
+                    "topic": "Agent 工具调用死循环（无 max-step）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c5d81716-b08d-450a-a0be-39053655a410",
+                "topic": "经济与误报型 DoS",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "42807160-c70e-45a3-bb2f-f2656269c180",
+                    "topic": "拒绝钱包（Denial-of-Wallet）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6a370456-c957-46c9-b9c2-a35cb00a6b30",
+                    "topic": "误报型 DoS（触发护栏挡合法流量）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f831842d-b652-40ad-b309-bae06ea5dd03",
+                    "topic": "P-DoS（投毒使模型变成复读机）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "8ef6245b-25e6-4562-b6de-15e3e4e77c0a",
+            "topic": "7.2 推理服务 / 运行时基础设施攻击（Inference Service & Runtime）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "f35e372c-7074-49f2-94ce-3016f1c6339f",
+                "topic": "服务漏洞与 RCE",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "92a35ea4-58df-48ab-87af-7f2e3a69f453",
+                    "topic": "本地推理服务 RCE（Ollama / vLLM / llama.cpp / TorchServe 等反序列化、路径遍历、消息队列漏洞）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1ae255d2-07d6-45e2-b6f0-0fc31ab2b5b7",
+                    "topic": "模型文件解析漏洞（Malicious Model File Parsing → RCE，GGUF / Safetensors / Pickle 延伸）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9ff81615-44d9-4156-b43f-c2bf6083460d",
+                    "topic": "消息队列 / IPC 攻击（Message Queue / ZMQ / NCCL 管道 RCE）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "729d2054-95a8-4b96-a478-403b9461242f",
+                "topic": "边界逃逸",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "d6f7209b-c13a-47a4-afbf-74d061dbd888",
+                    "topic": "沙箱逃逸（Sandbox Escape：isolated-vm、容器、GPU 容器逃逸）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "0c0cf057-d0c3-4b81-a9c5-56ef84d33a58",
+                "topic": "滥用与劫持",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "69a3827c-ed17-4551-ac7a-a13dad34b69d",
+                    "topic": "无认证暴露服务滥用（Unauthenticated Inference Endpoint Abuse：算力窃取、SSRF 跳板、元数据窃取）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "99fbdfb3-cd0e-48a3-9d06-a6d0917c1960",
+                    "topic": "LLMjacking 进化（劫持推理端点作为攻击基础设施）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "fbdd32b6-920c-4260-b564-3bf23918c8e8",
+                "topic": "（参见 3.3）GPU 共享侧信道",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "75b0a67b-53ae-4052-b6f6-9f7d3f189279",
+            "topic": "7.3 传统对抗样本 / 逃避攻击（Evasion / Adversarial Examples）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "1dcbcaf0-0714-4e32-8c05-0646d393b450",
+                "topic": "数字域攻击",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ddf18039-8e94-48fe-8285-4a86da420255",
+                    "topic": "白盒梯度攻击（FGSM / PGD / C&W / AutoAttack）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7d6b9c18-3a66-4328-b39c-bd6c9cafcddf",
+                    "topic": "黑盒查询攻击（Query-based / Transfer-based / Score-based）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1e4e7a67-078b-4353-97d9-dad1c32f1a99",
+                    "topic": "决策边界攻击（Decision-based / Boundary Attack）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "97e31c0a-0c66-4f60-b0b3-0dbf70ba81ce",
+                    "topic": "语义保持对抗（Semantic-preserving / Imperceptible Adversarial Examples）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bacedbc2-1542-4cd8-aa3d-6b4bb2f44d2b",
+                    "topic": "对抗性重编程（Adversarial Reprogramming）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "d82c3424-2aef-4bc9-8298-e077c2735731",
+                "topic": "物理与系统级",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "44d45436-b5d0-4301-9ccc-e103e01f46e0",
+                    "topic": "物理世界对抗样本（Physical Adversarial Examples：贴纸、T恤、路牌等）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "90f8bb0d-cd2a-4c5f-b333-ef3e386ea950",
+                    "topic": "多传感器融合逃避（Multi-sensor Fusion Attacks，自动驾驶等场景）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "13c31dbc-52e1-486e-8348-b9090d672ba3",
+                "topic": "目标场景",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "42363296-cef6-44e4-adfb-d932c015c164",
+                    "topic": "针对分类器 / 检测器 / 目标检测的逃避",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "454405f7-cd09-46b7-9c64-5b4168154ca7",
+        "topic": "8. 侦察与评估元攻击面",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "63a8382b-975f-4b73-937a-a47219943370",
+            "topic": "8.1 侦察与目标画像（Recon & Target Profiling）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "735a67c7-c6a3-4f13-a27c-757cd953b178",
+                "topic": "模型与护栏指纹",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "8d1a3650-81e2-4299-adb1-ff0b716449b3",
+                    "topic": "后端模型 / 版本指纹识别（行为探针识别底座模型与版本）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a568f067-b145-4b43-89dc-6386cb7a4832",
+                    "topic": "护栏 / 过滤器指纹探测（试探边界词、响应模式定位所用护栏）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "9fea01b8-fab5-42c8-bc9b-8f98740b2091",
+                "topic": "能力与资产侦察",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6a5d79d2-9f6d-44bb-b84e-14a0e1619542",
+                    "topic": "工具链 / 插件清单探测（枚举可用工具、MCP 服务与权限范围）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d2373e29-f634-4ff5-bcd1-3c38d8f20a03",
+                    "topic": "API 行为与配额探测（限流策略、上下文长度、计费模型推断）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "4dfcd33c-91be-4f9d-98e7-8d33b2915220",
+                    "topic": "公开模型 / 数据集侦察（收集目标训练所用公开资产，ATLAS AML.T0000 阶段）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "97b1e568-9d8a-4af0-8df0-a194bfb8fe32",
+            "topic": "8.2 评估规避与对齐伪装（Eval Gaming / Sandbagging / Alignment Faking）",
+            "expanded": true,
+            "children": [
+              {
+                "id": "0fe48228-455a-46b8-ad1e-a7256cf4497a",
+                "topic": "行为伪装",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "7850ac3d-ab81-4b4a-b61d-e371eee2b840",
+                    "topic": "评测低能（Sandbagging：在能力评测中故意压分以规避监管/获取部署许可）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "74015d50-00b3-46e9-9753-cf2286d45138",
+                    "topic": "对齐伪装（Alignment Faking：识别\"正在被测试\"并切换为合规行为）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "77f62036-85f5-4c72-b954-9c4a28a1d8b8",
+                    "topic": "测试环境检测与行为切换（检测红队/沙箱指纹，区分评测与真实流量）",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "efec84c2-9a90-4e8b-a4e3-02e789f529d0",
+                "topic": "评测操纵",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "d0263df4-7e53-45f0-9b86-2d31687310c6",
+                    "topic": "基准 / 榜单污染（Benchmark Contamination / 针对性过拟合评测集）",
+                    "expanded": true
+                  },
+                  {
+                    "id": "815e4437-d946-463f-b287-fe267c57f8cb",
+                    "topic": "奖励破解 / 规范博弈（Reward Hacking / Specification Gaming：钻奖励信号空子）",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "linkData": []
+}

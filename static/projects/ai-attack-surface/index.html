@@ -92,8 +92,13 @@
 
     /* ===== XMind-like polish for Mind Elixir ===== */
     #map .map-container {
-      --gap: 42px !important;
+      /* Vertical gap between sibling nodes — keeps same-level items stacked, not collinear */
+      --gap: 28px !important;
       background: transparent !important;
+    }
+    /* Ensure each depth sits on its own column (level-by-level hierarchy) */
+    #map me-parent {
+      margin-inline: 6px;
     }
     #map me-root > me-tpc {
       background: linear-gradient(135deg, #0f766e 0%, #115e59 55%, #1d4ed8 120%) !important;
@@ -259,15 +264,31 @@
         return JSON.parse(JSON.stringify(data));
       }
 
-      function fitView() {
+      // Readable default zoom — scaleFit on 300+ nodes collapses the tree into a thin line.
+      function fitView(mode) {
         if (!mind) return;
         try { mind.toCenter(); } catch (e) {}
         try {
-          if (typeof mind.scaleFit === 'function') mind.scaleFit();
-          else mind.scale(0.5);
+          if (mode === 'all' && typeof mind.scaleFit === 'function') {
+            mind.scaleFit();
+            // Never go below a usable floor; user can still zoom out via toolbar.
+            if (mind.scaleVal && mind.scaleVal < 0.35) mind.scale(0.35);
+          } else {
+            mind.scale(0.72);
+          }
         } catch (e) {
-          try { mind.scale(0.5); } catch (e2) {}
+          try { mind.scale(0.72); } catch (e2) {}
         }
+      }
+
+      // Guarantee L1 branches split left/right (SIDE layout).
+      function ensureSideDirections(data) {
+        var kids = (data && data.nodeData && data.nodeData.children) || [];
+        var mid = Math.ceil(kids.length / 2);
+        kids.forEach(function (c, i) {
+          c.direction = i < mid ? MindElixir.LEFT : MindElixir.RIGHT;
+        });
+        return data;
       }
 
       function createMind(data) {
@@ -275,6 +296,8 @@
           try { mind.destroy(); } catch (e) {}
           mapEl.innerHTML = '';
         }
+
+        data = ensureSideDirections(data);
 
         mind = new MindElixir({
           el: mapEl,
@@ -313,9 +336,9 @@
         });
 
         mind.init(data);
-        // Wait a tick for layout, then fit full expanded tree.
-        setTimeout(fitView, 60);
-        setTimeout(fitView, 220);
+        // Center at a readable scale so hierarchy (level columns + sibling stacks) is visible.
+        setTimeout(function () { fitView('readable'); }, 80);
+        setTimeout(function () { fitView('readable'); }, 280);
       }
 
       async function setLang(lang) {
@@ -337,14 +360,15 @@
 
       tabZh.addEventListener('click', function () { setLang('zh'); });
       tabEn.addEventListener('click', function () { setLang('en'); });
-      btnFit.addEventListener('click', fitView);
+      btnFit.addEventListener('click', function () { fitView('all'); });
       btnExpand.addEventListener('click', function () {
         if (!mind) return;
         try {
           var data = mind.getData();
           data.nodeData = expandAll(data.nodeData);
+          ensureSideDirections(data);
           mind.refresh(data);
-          fitView();
+          fitView('readable');
         } catch (e) { console.warn(e); }
       });
 

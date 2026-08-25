@@ -1,1 +1,1845 @@
-{"nodeData": {"id": "root", "topic": "AI Attack Surface Taxonomy", "children": [{"id": "n2", "topic": "1. Input Manipulation Surface", "children": [{"id": "n3", "topic": "1.1 Prompt Injection", "children": [{"id": "n4", "topic": "Injection Paths", "children": [{"id": "n5", "topic": "Direct Prompt Injection", "children": [{"id": "n6", "topic": "Indirect Prompt Injection (IDPI)", "children": [{"id": "n7", "topic": "Multimodal Injection"}]}]}]}, {"id": "n8", "topic": "Carriers & Channels", "children": [{"id": "n9", "topic": "Metadata Injection (file titles, alt text, EXIF)", "children": [{"id": "n10", "topic": "Embedded Pseudo System Instructions ([SYSTEM INSTRUCTION])", "children": [{"id": "n11", "topic": "Calendar / Email Injection", "children": [{"id": "n12", "topic": "Tool-Channel Injection / Dual-Channel Prompt Injection (ToolLeak)"}]}]}]}]}, {"id": "n13", "topic": "Timing & Context", "children": [{"id": "n14", "topic": "Multi-Turn / Context Injection (FITD)", "children": [{"id": "n15", "topic": "Memory Injection / Context Poisoning", "children": [{"id": "n16", "topic": "Payload Splitting", "children": [{"id": "n17", "topic": "Zero-Click Indirect Injection", "children": [{"id": "n18", "topic": "Delayed-Trigger Injection"}]}]}]}]}]}, {"id": "n19", "topic": "Special Forms", "children": [{"id": "n20", "topic": "SQL-Injection-like Jailbreak (SIJ)", "children": [{"id": "n21", "topic": "LPCI (Logic-Layer Prompt Control Injection)"}]}]}]}, {"id": "n22", "topic": "1.2 Jailbreak", "children": [{"id": "n23", "topic": "Role-Play & Persuasion", "children": [{"id": "n24", "topic": "Role-Play / Persona Hijacking (DAN, Developer Mode, Nested Roles)", "children": [{"id": "n25", "topic": "Persuasive Adversarial Prompts (PAP)", "children": [{"id": "n26", "topic": "Skeleton Key (Disclaimer Bypass)", "children": [{"id": "n27", "topic": "Refusal Suppression (Ban Words like \"cannot\" / \"sorry\")", "children": [{"id": "n28", "topic": "Output Obfuscation (Hypothetical Framing)"}]}]}]}]}]}, {"id": "n29", "topic": "Encoding & Obfuscation", "children": [{"id": "n30", "topic": "Cipher / Encoding Attacks", "children": [{"id": "n31", "topic": "Base64 / ROT13 / Morse / Caesar", "children": [{"id": "n32", "topic": "RoguePrompt (Encrypted Nested Payloads)", "children": [{"id": "n33", "topic": "BitBypass (Binary Token Breaking)", "children": [{"id": "n34", "topic": "ArtPrompt (ASCII Art Injection)", "children": [{"id": "n35", "topic": "Constructed Languages (Tongue-Tied)", "children": [{"id": "n36", "topic": "Unicode Invisible / Homoglyph / Zero-Width Characters", "children": [{"id": "n37", "topic": "Token Smuggling / Input Obfuscation", "children": [{"id": "n38", "topic": "Macaronic / Low-Resource Language Prompts", "children": [{"id": "n39", "topic": "FlipAttack"}]}]}]}]}]}]}]}]}]}]}, {"id": "n40", "topic": "Multi-Turn & Strategy", "children": [{"id": "n41", "topic": "Many-Shot Jailbreak", "children": [{"id": "n42", "topic": "Multi-Turn Decomposition", "children": [{"id": "n43", "topic": "Crescendo", "children": [{"id": "n44", "topic": "Echo Chamber", "children": [{"id": "n45", "topic": "Context Flooding / Context Overflow", "children": [{"id": "n46", "topic": "Chain-of-Thought Hijacking (H-CoT)", "children": [{"id": "n47", "topic": "Copilot Confirmation Jailbreak (Editable Output Hijack)"}]}]}]}]}]}]}]}, {"id": "n48", "topic": "Adversarial Optimization & Automation", "children": [{"id": "n49", "topic": "Adversarial Suffixes (GCG / Transferable Adversarial Tokens)", "children": [{"id": "n50", "topic": "Automated Jailbreak (PAIR / JBFuzz / AI-vs-AI)"}]}]}]}, {"id": "n51", "topic": "1.3 Multimodal / Cross-Modal Injection", "children": [{"id": "n52", "topic": "Image Channel", "children": [{"id": "n53", "topic": "In-Image OCR / Text-on-Image (FigStep, White-on-White Text)", "children": [{"id": "n54", "topic": "Steganographic Payloads (Spatial / Frequency / Neural Stego)", "children": [{"id": "n55", "topic": "Adversarial Pixels / Printed Patches / Projected Light", "children": [{"id": "n56", "topic": "Universal Adversarial Images / Patches (UAP / Universal Image Trigger)", "children": [{"id": "n57", "topic": "Physical-World Projection / Printed Patch for MLLM"}]}]}]}]}]}, {"id": "n58", "topic": "Audio / Video Channel", "children": [{"id": "n59", "topic": "Audio / Speech Channel Injection", "children": [{"id": "n60", "topic": "Real-time Audio Stream Injection / Adversarial Audio", "children": [{"id": "n61", "topic": "Video Frame / Temporal Adversarial Examples"}]}]}]}, {"id": "n62", "topic": "Cross-Modal Fusion", "children": [{"id": "n63", "topic": "Cross-Modal Perturbation (CrossMPI)", "children": [{"id": "n64", "topic": "Virtual Scenario Hypnosis (VSH)", "children": [{"id": "n65", "topic": "Compositional Vulnerability (CLIP Cross-Modal Score Manipulation)", "children": [{"id": "n66", "topic": "Cross-Modal Misalignment Attack (e.g., VLA)", "children": [{"id": "n67", "topic": "Single-Modality Domination in Fusion Models"}]}]}]}]}]}]}, {"id": "n68", "topic": "1.4 Guardrail & Defense Bypass", "children": [{"id": "n69", "topic": "Attacks on Guard Models", "children": [{"id": "n70", "topic": "Guard Model Jailbreak / Dual-Jailbreaking", "children": [{"id": "n71", "topic": "LLM-as-Judge Bypass (Persuasion / Role-Play against Judges)"}]}]}, {"id": "n72", "topic": "Window & Structural Bypass", "children": [{"id": "n73", "topic": "Prompt Overflow / Context-Window Mismatch (Guard Check Window vs Model Window)", "children": [{"id": "n74", "topic": "Structural CoT Bypass / Reasoning Guardrail Subversion", "children": [{"id": "n75", "topic": "Template Token / Structural Injection vs Reasoning Guardrails"}]}]}]}, {"id": "n76", "topic": "Character & Adversarial Evasion", "children": [{"id": "n77", "topic": "Character-Level / Unicode Injection vs Detectors (Homoglyph / Zero-width vs Prompt Guard)", "children": [{"id": "n78", "topic": "AML Evasion against Prompt Shields / Classifiers", "children": [{"id": "n79", "topic": "Controlled-Release Prompting (Filter-Insoluble, Model-Soluble)", "children": [{"id": "n80", "topic": "Weak-Defense Exploitation (Defense Amplification Attacks)"}]}]}]}]}]}]}, {"id": "n81", "topic": "2. Training & Model Supply Chain Surface", "children": [{"id": "n82", "topic": "2.1 Training-Data Poisoning / Backdoors / Sleeper Agents", "children": [{"id": "n83", "topic": "Data Poisoning Techniques", "children": [{"id": "n84", "topic": "Training-Data Poisoning", "children": [{"id": "n85", "topic": "Clean-Label Poisoning", "children": [{"id": "n86", "topic": "Label Flipping", "children": [{"id": "n87", "topic": "Gradient-Based Poisoning", "children": [{"id": "n88", "topic": "Nightshade-Style Active Poisoning (Defensive/Copyright Anti-Training; listed as data-side adversarial surface)", "children": [{"id": "n89", "topic": "Agent Trajectory Poisoning (Malice in Agentland)"}]}]}]}]}]}]}, {"id": "n90", "topic": "Backdoor Implantation", "children": [{"id": "n91", "topic": "Backdoor / Trojan Attacks", "children": [{"id": "n92", "topic": "Virtual Prompt Injection (VPI)", "children": [{"id": "n93", "topic": "Finetuning-Activated Backdoors (FAB)", "children": [{"id": "n94", "topic": "Privacy Backdoor", "children": [{"id": "n95", "topic": "Clean-Label Backdoor", "children": [{"id": "n96", "topic": "Code Model Backdoor (Code-Completion Backdoors)"}]}]}]}]}]}]}, {"id": "n97", "topic": "Deceptive Alignment", "children": [{"id": "n98", "topic": "Sleeper Agents (Deceptive Alignment)", "children": [{"id": "n99", "topic": "Shadow Alignment", "children": [{"id": "n100", "topic": "Viral Infection Attacks (Cross-Model Generational Spread)"}]}]}]}, {"id": "n101", "topic": "Quantization-Related Backdoors", "children": [{"id": "n102", "topic": "Quantization-Conditioned Backdoor (QCB)", "children": [{"id": "n103", "topic": "Quantization-Conditioned Misalignment (Q-Misalign)", "children": [{"id": "n104", "topic": "Rounding-Guided Backdoor Injection", "children": [{"id": "n105", "topic": "Backdoor Persistence after Quantization / Compression"}]}]}]}]}]}, {"id": "n106", "topic": "2.2 Model Supply-Chain Poisoning", "children": [{"id": "n107", "topic": "Model Files & Weights", "children": [{"id": "n108", "topic": "Malicious Model Serialization (pickle / SavedModel / H5 Lambda)", "children": [{"id": "n109", "topic": "Model Config Template Backdoors (GGUF Chat Template / Tokenizer Config)", "children": [{"id": "n110", "topic": "LoRA Adapter Tampering / Quantized-Model Backdoor Re-injection"}]}]}]}, {"id": "n111", "topic": "Repositories & Namespaces", "children": [{"id": "n112", "topic": "Model Namespace Reuse / AI Jacking", "children": [{"id": "n113", "topic": "Large-Scale Model Repository Pollution", "children": [{"id": "n114", "topic": "Malicious Skill Marketplace Poisoning"}]}]}]}, {"id": "n115", "topic": "Dependencies & Package Ecosystem", "children": [{"id": "n116", "topic": "Malicious ML Packages (PyPI / npm Typosquatting)", "children": [{"id": "n117", "topic": "Slopsquatting (Package-Hallucination Squatting)", "children": [{"id": "n118", "topic": "TinyML / Edge Model Supply-Chain Attacks"}]}]}]}]}, {"id": "n119", "topic": "2.3 Model Extraction / Theft", "children": [{"id": "n120", "topic": "Functional Cloning", "children": [{"id": "n121", "topic": "Model Stealing / Extraction (API Queries + Student Distillation)", "children": [{"id": "n122", "topic": "Data-Free Attacks (Synthetic Surrogate Sets via Generators)", "children": [{"id": "n123", "topic": "Functional Replication via API Abuse"}]}]}]}, {"id": "n124", "topic": "Structure & Ownership", "children": [{"id": "n125", "topic": "Neuron-Level / Architecture-Level Replication", "children": [{"id": "n126", "topic": "Architecture / Hyperparameter Inference", "children": [{"id": "n127", "topic": "Model Fingerprinting / Ownership Extraction"}]}]}]}]}, {"id": "n128", "topic": "2.4 Federated / Distributed Training Attacks", "children": [{"id": "n129", "topic": "Federated Learning Poisoning / Backdoors"}, {"id": "n130", "topic": "Client Model-Update Tampering"}, {"id": "n131", "topic": "Aggregation Algorithm Manipulation"}, {"id": "n132", "topic": "(See 3.1) Gradient-Inversion Privacy Leakage"}]}, {"id": "n133", "topic": "2.5 Model-Level Deep Attacks (Post-Extraction / White-Box)", "children": [{"id": "n134", "topic": "Representation & Attention Manipulation", "children": [{"id": "n135", "topic": "Attention Hacking / Attention Manipulation", "children": [{"id": "n136", "topic": "Neuron Activation Control", "children": [{"id": "n137", "topic": "Internal Representation Manipulation"}]}]}]}, {"id": "n138", "topic": "Weights & Gradients", "children": [{"id": "n139", "topic": "Weight-Space Backdoor Activation after Extraction", "children": [{"id": "n140", "topic": "Gradient Leakage / Inversion (Federated / Distributed Settings)"}]}]}]}]}, {"id": "n141", "topic": "3. Privacy & Confidentiality Surface", "children": [{"id": "n142", "topic": "3.1 Training-Data Extraction / Privacy Inference", "children": [{"id": "n143", "topic": "Classical Privacy Inference", "children": [{"id": "n144", "topic": "Model Inversion", "children": [{"id": "n145", "topic": "Membership Inference (MIA)", "children": [{"id": "n146", "topic": "Attribute Inference"}]}]}]}, {"id": "n147", "topic": "Data Extraction & Inversion", "children": [{"id": "n148", "topic": "Training-Data Extraction (Divergence / Prefix Attacks)", "children": [{"id": "n149", "topic": "Embedding Inversion", "children": [{"id": "n150", "topic": "Adaptive Domain Inference (ADI)"}]}]}]}, {"id": "n151", "topic": "Scenario Extensions & Defense Bypass", "children": [{"id": "n152", "topic": "Differential-Privacy Bypass / Adaptive MIA", "children": [{"id": "n153", "topic": "Federated Learning Gradient Inversion / Poisoning", "children": [{"id": "n154", "topic": "Cross-Session Memory Inference", "children": [{"id": "n155", "topic": "Machine Unlearning Attacks (Incomplete Unlearning Residuals / Verification Bypass / Post-Deletion Extraction)"}]}]}]}]}]}, {"id": "n156", "topic": "3.2 System-Prompt Leakage / Unauthorized Instructions", "children": [{"id": "n157", "topic": "Prompt & Hidden-Context Extraction", "children": [{"id": "n158", "topic": "Direct Elicitation of System Prompt", "children": [{"id": "n159", "topic": "Contrastive Reasoning / Indirect Extraction", "children": [{"id": "n160", "topic": "Extended Hidden-Context Leakage (Policy Text, Session Metadata, Developer Instructions)"}]}]}]}, {"id": "n161", "topic": "Tool-Surface Leakage", "children": [{"id": "n162", "topic": "Tool-Parameter Elicitation (ToolLeak-class)", "children": [{"id": "n163", "topic": "Tool Description / Schema Exfiltration"}]}]}]}, {"id": "n164", "topic": "3.3 Inference Side Channels (Timing / Power / Cache)", "children": [{"id": "n165", "topic": "Compute & Hardware Side", "children": [{"id": "n166", "topic": "Timing Side Channel (Per-Token Latency / Shared KV Cache)", "children": [{"id": "n167", "topic": "GPU L2 Cache Prime+Probe", "children": [{"id": "n168", "topic": "Fine-Grained Side Channels in Shared GPUs (Multi-Tenant Cache / Power)", "children": [{"id": "n169", "topic": "Power / Thermal Side Channels (Energon)"}]}]}]}]}, {"id": "n170", "topic": "Network & Filtering Side", "children": [{"id": "n171", "topic": "Encrypted-Traffic Side Channel (Whisper Leak: TLS Size/Timing → Streaming Topics)", "children": [{"id": "n172", "topic": "Input-Filter Side Channel (Inferring Weights & Architecture)"}]}]}]}, {"id": "n173", "topic": "3.4 Internal Component Exfiltration (MCP / Plugins / Sandbox)", "children": [{"id": "n174", "topic": "Credentials & Configuration", "children": [{"id": "n175", "topic": "Agent Config / Credential Exfiltration (mcp.json, API Keys, Tokens)"}]}, {"id": "n176", "topic": "Plugins & Runtime", "children": [{"id": "n177", "topic": "Plugin / Extension Supply-Chain Exfiltration", "children": [{"id": "n178", "topic": "Plugin / MCP Runtime Dynamic-Loading Attacks"}]}]}, {"id": "n179", "topic": "Rules & Skills", "children": [{"id": "n180", "topic": "Coding-Assistant Rules File Backdoor", "children": [{"id": "n181", "topic": "Agent Rules / Skills Backdoor Hardening"}]}]}, {"id": "n182", "topic": "Memory Exfiltration", "children": [{"id": "n183", "topic": "Long-Term Memory & Session-History Exfiltration (incl. Persistent Cross-Session)"}]}, {"id": "n184", "topic": "(See 7.2) Sandbox Escape / Host Privilege Escalation"}]}]}, {"id": "n185", "topic": "4. Agent Goal Hijacking / Tool Abuse", "children": [{"id": "n186", "topic": "4.1 Goals & Intent", "children": [{"id": "n187", "topic": "Goal & Intent Manipulation", "children": [{"id": "n188", "topic": "Goal Hijacking / Intent Drift", "children": [{"id": "n189", "topic": "Intent Flow Subversion", "children": [{"id": "n190", "topic": "Plan Deviation / Goal Drift across Agents"}]}]}]}, {"id": "n191", "topic": "Orchestration & Approval", "children": [{"id": "n192", "topic": "Orchestrator / Planner Hijacking", "children": [{"id": "n193", "topic": "Human-Approval Fatigue (HITL Exploitation)"}]}]}]}, {"id": "n194", "topic": "4.2 Tools & MCP", "children": [{"id": "n195", "topic": "Tool Poisoning", "children": [{"id": "n196", "topic": "Tool Poisoning / TPA (MCP Description Injection)", "children": [{"id": "n197", "topic": "Tool-Output Poisoning / Tool Shadowing", "children": [{"id": "n198", "topic": "Pre-Approved Command Parameter Injection"}]}]}]}, {"id": "n199", "topic": "MCP & Sessions", "children": [{"id": "n200", "topic": "Shadow MCP Servers", "children": [{"id": "n201", "topic": "MCP Session Hijacking / Prompt Hijacking"}]}]}, {"id": "n202", "topic": "Protocol Layer", "children": [{"id": "n203", "topic": "Agent Protocol Attacks (A2A / Agent Card Forgery, Inter-Agent MITM, Capability Spoofing)"}]}]}, {"id": "n204", "topic": "4.3 Excessive Agency", "children": [{"id": "n205", "topic": "Overly Broad Authorization", "children": [{"id": "n206", "topic": "Read-Write / Email / Transfer Same-Session Authorization", "children": [{"id": "n207", "topic": "High-Risk Actions without Human Gates", "children": [{"id": "n208", "topic": "Overly Broad Tool Scope (Read Implies Write)"}]}]}]}, {"id": "n209", "topic": "Privilege Escalation", "children": [{"id": "n210", "topic": "Scope Creep Privilege Escalation", "children": [{"id": "n211", "topic": "Collusive Privilege Escalation"}]}]}]}, {"id": "n212", "topic": "4.4 Configuration & Harness", "children": [{"id": "n213", "topic": "Harness Config Poisoning (settings.json / rules / SessionStart Hook)"}]}, {"id": "n214", "topic": "4.5 Memory & Propagation", "children": [{"id": "n215", "topic": "Memory & Workspace Poisoning", "children": [{"id": "n216", "topic": "Memory Poisoning (Persistent / Cross-Session)", "children": [{"id": "n217", "topic": "Shared Memory / Workspace Poisoning", "children": [{"id": "n218", "topic": "RAG Spraying"}]}]}]}, {"id": "n219", "topic": "Worms & Lateral Movement", "children": [{"id": "n220", "topic": "Cross-Agent Propagation (Config Write-Back to Another Agent)", "children": [{"id": "n221", "topic": "Self-Propagating AI Worms (Morris II / RAGworm)", "children": [{"id": "n222", "topic": "Multi-Agent Worm / Network Propagation"}]}]}]}, {"id": "n223", "topic": "Conversion into Attack Infrastructure", "children": [{"id": "n224", "topic": "Promptware C2 (Agent Converted into Attack Infrastructure)"}]}]}, {"id": "n225", "topic": "4.6 Multi-Agent", "children": [{"id": "n226", "topic": "Collusion & Impersonation", "children": [{"id": "n227", "topic": "Agent Collusion", "children": [{"id": "n228", "topic": "Agent Impersonation"}]}]}, {"id": "n229", "topic": "Trust & Channels", "children": [{"id": "n230", "topic": "Inter-Agent Trust Exploitation / Peer Trust Bypass", "children": [{"id": "n231", "topic": "Internal-Channel Privacy Leakage"}]}]}]}, {"id": "n232", "topic": "(See 1.1) Agent-Side Injection Entry Points"}]}, {"id": "n233", "topic": "5. RAG Vector-Store Poisoning", "children": [{"id": "n234", "topic": "Text Vector-Store Poisoning", "children": [{"id": "n235", "topic": "PoisonedRAG"}, {"id": "n236", "topic": "CorruptRAG"}, {"id": "n237", "topic": "Phantom (Dormant Triggers)"}, {"id": "n238", "topic": "In-Document Indirect Injection"}, {"id": "n239", "topic": "Embedding-Space Manipulation"}]}, {"id": "n240", "topic": "Multimodal / Structured Knowledge Poisoning", "children": [{"id": "n241", "topic": "MM-PoisonRAG (Multimodal RAG)"}, {"id": "n242", "topic": "PoisonedEye (Vision-Language RAG)"}, {"id": "n243", "topic": "KG-RAG Poisoning (Knowledge-Graph Triples)"}]}, {"id": "n244", "topic": "Retrieval Isolation Failure", "children": [{"id": "n245", "topic": "Cross-Tenant Vector Namespace Leakage"}]}, {"id": "n246", "topic": "(See 4.5) RAG Spraying (Agent Poisoning Chain)"}]}, {"id": "n247", "topic": "6. Output & Downstream Integration Surface", "children": [{"id": "n248", "topic": "6.1 Insecure Output Handling", "children": [{"id": "n249", "topic": "Output → SQL Injection"}, {"id": "n250", "topic": "Output → Command Injection / RCE"}, {"id": "n251", "topic": "Output → XSS (Raw HTML Render)"}, {"id": "n252", "topic": "Output → SSRF"}, {"id": "n253", "topic": "Output → Code eval / exec"}]}, {"id": "n254", "topic": "6.2 Misinformation / Hallucination Weaponization", "children": [{"id": "n255", "topic": "Content Fabrication & Misdirection", "children": [{"id": "n256", "topic": "Confident False Outputs Executed as Fact Downstream", "children": [{"id": "n257", "topic": "Pseudo-Authoritative Evidence / Fabricated Citations", "children": [{"id": "n258", "topic": "Large-Scale Disinformation Generation", "children": [{"id": "n259", "topic": "Cross-Modal Pseudo-Evidence Generation"}]}]}]}]}, {"id": "n260", "topic": "Supply-Chain Induction", "children": [{"id": "n261", "topic": "Package-Hallucination-Guided Shadow Component Hijacking"}]}, {"id": "n262", "topic": "Weaponized Applications", "children": [{"id": "n263", "topic": "AI-Assisted Social Engineering Chains (Phishing / Deepfake / Mass Personalized Lures)", "children": [{"id": "n264", "topic": "AI-Enabled Traditional Cyber Attacks (Scan, Exploit Synthesis, Automated Pentest)"}]}]}]}, {"id": "n265", "topic": "6.3 Deepfakes & Generative-Content Abuse (Impact-Class)", "children": [{"id": "n266", "topic": "Generation & Propagation", "children": [{"id": "n267", "topic": "Deepfake A/V Generation & Propagation", "children": [{"id": "n268", "topic": "AI-Generated Fake News / Evidence at Scale", "children": [{"id": "n269", "topic": "Automated Social-Engineering Content Factories"}]}]}]}, {"id": "n270", "topic": "Provenance Evasion", "children": [{"id": "n271", "topic": "Watermark Removal / Provenance Evasion (Bypass AI-Content Detection & Oversight)"}]}]}]}, {"id": "n272", "topic": "7. Runtime & Availability Surface", "children": [{"id": "n273", "topic": "7.1 Resource Exhaustion / Denial of Service", "children": [{"id": "n274", "topic": "Token & Context Exhaustion", "children": [{"id": "n275", "topic": "Token Bomb / Token Maximization", "children": [{"id": "n276", "topic": "Context-Window Overflow"}]}]}, {"id": "n277", "topic": "Compute & Energy Exhaustion", "children": [{"id": "n278", "topic": "Sponge Attack / AutoDoS (High-Energy Inputs)", "children": [{"id": "n279", "topic": "ThinkTrap (Reasoning-Model Think Loops)", "children": [{"id": "n280", "topic": "Agent Tool-Call Deadlocks (No max-step)"}]}]}]}, {"id": "n281", "topic": "Economic & False-Positive DoS", "children": [{"id": "n282", "topic": "Denial-of-Wallet", "children": [{"id": "n283", "topic": "False-Positive DoS (Guardrails Blocking Legitimate Traffic)", "children": [{"id": "n284", "topic": "P-DoS (Poisoning-induced DoS: Model Collapse into Repetition)"}]}]}]}]}, {"id": "n285", "topic": "7.2 Inference Service & Runtime Infrastructure Attacks", "children": [{"id": "n286", "topic": "Service Vulnerabilities & RCE", "children": [{"id": "n287", "topic": "Local Inference Service RCE (Ollama / vLLM / llama.cpp / TorchServe: Deser, Path Traversal, MQ Vulns)", "children": [{"id": "n288", "topic": "Malicious Model File Parsing → RCE (GGUF / Safetensors / Pickle)", "children": [{"id": "n289", "topic": "Message Queue / IPC Attacks (ZMQ / NCCL Pipeline RCE)"}]}]}]}, {"id": "n290", "topic": "Boundary Escape", "children": [{"id": "n291", "topic": "Sandbox Escape (isolated-vm, Containers, GPU Container Escape)"}]}, {"id": "n292", "topic": "Abuse & Hijacking", "children": [{"id": "n293", "topic": "Unauthenticated Inference Endpoint Abuse (Compute Theft, SSRF Pivot, Metadata Theft)", "children": [{"id": "n294", "topic": "LLMjacking Evolution (Hijacked Endpoints as Attack Infrastructure)"}]}]}, {"id": "n295", "topic": "(See 3.3) GPU Shared Side Channels"}]}, {"id": "n296", "topic": "7.3 Classical Adversarial Examples / Evasion", "children": [{"id": "n297", "topic": "Digital-Domain Attacks", "children": [{"id": "n298", "topic": "White-Box Gradient Attacks (FGSM / PGD / C&W / AutoAttack)", "children": [{"id": "n299", "topic": "Black-Box Query Attacks (Query / Transfer / Score-based)", "children": [{"id": "n300", "topic": "Decision-Based / Boundary Attacks", "children": [{"id": "n301", "topic": "Semantic-Preserving / Imperceptible Adversarial Examples", "children": [{"id": "n302", "topic": "Adversarial Reprogramming"}]}]}]}]}]}, {"id": "n303", "topic": "Physical & System-Level", "children": [{"id": "n304", "topic": "Physical Adversarial Examples (Stickers, T-shirts, Road Signs)", "children": [{"id": "n305", "topic": "Multi-Sensor Fusion Attacks (e.g., Autonomous Driving)"}]}]}, {"id": "n306", "topic": "Target Scenarios", "children": [{"id": "n307", "topic": "Evasion against Classifiers / Detectors / Object Detection"}]}]}]}, {"id": "n308", "topic": "8. Recon & Evaluation Meta-Attack Surface", "children": [{"id": "n309", "topic": "8.1 Recon & Target Profiling", "children": [{"id": "n310", "topic": "Model & Guardrail Fingerprinting", "children": [{"id": "n311", "topic": "Backend Model / Version Fingerprinting (Behavioral Probes)", "children": [{"id": "n312", "topic": "Guardrail / Filter Fingerprinting (Boundary Words, Response Patterns)"}]}]}, {"id": "n313", "topic": "Capability & Asset Recon", "children": [{"id": "n314", "topic": "Toolchain / Plugin Inventory Probing (Tools, MCP Services, Permission Scope)", "children": [{"id": "n315", "topic": "API Behavior & Quota Probing (Rate Limits, Context Length, Billing Model)", "children": [{"id": "n316", "topic": "Public Model / Dataset Recon (ATLAS AML.T0000-Stage Public Assets)"}]}]}]}]}, {"id": "n317", "topic": "8.2 Eval Gaming / Sandbagging / Alignment Faking", "children": [{"id": "n318", "topic": "Behavioral Camouflage", "children": [{"id": "n319", "topic": "Sandbagging (Deliberate Underperformance to Evade Oversight / Gain Deployment)", "children": [{"id": "n320", "topic": "Alignment Faking (Detect Testing and Switch to Compliant Behavior)", "children": [{"id": "n321", "topic": "Test-Environment Detection & Behavior Switching (Red-Team/Sandbox Fingerprints)"}]}]}]}, {"id": "n322", "topic": "Evaluation Manipulation", "children": [{"id": "n323", "topic": "Benchmark Contamination / Targeted Overfit to Eval Sets", "children": [{"id": "n324", "topic": "Reward Hacking / Specification Gaming"}]}]}]}]}]}}
+{
+  "nodeData": {
+    "id": "0c9199a8-63bd-4dc7-a77e-c17caa60e5e0",
+    "topic": "AI Attack Surface Taxonomy",
+    "expanded": true,
+    "children": [
+      {
+        "id": "bab5b676-0787-4bc5-a82f-9b1a874d3478",
+        "topic": "1. Input Manipulation Surface",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "d40bcf9b-5639-4ade-938e-ed3aacc63985",
+            "topic": "1.1 Prompt Injection",
+            "expanded": true,
+            "children": [
+              {
+                "id": "8a442604-6dd8-42b7-a016-e6dee22126ea",
+                "topic": "Injection Paths",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e503007e-5f55-4be4-92a3-2c10ee306f84",
+                    "topic": "Direct Prompt Injection",
+                    "expanded": true
+                  },
+                  {
+                    "id": "59ee64e6-3fac-4300-8b21-ebf06b7e9f11",
+                    "topic": "Indirect Prompt Injection (IDPI)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1fd8e4be-ef40-453c-8f84-ee5c1ec1c9be",
+                    "topic": "Multimodal Injection",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "151a5d0b-163a-4cb3-ae71-42850ee91808",
+                "topic": "Carriers & Channels",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1865eaef-8267-4eb9-b3ab-1e7de51d2fe6",
+                    "topic": "Metadata Injection (file titles, alt text, EXIF)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "302f0ca4-bd60-48f3-b855-c3c823bbd7ca",
+                    "topic": "Embedded Pseudo System Instructions ([SYSTEM INSTRUCTION])",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bab4cd12-d7a2-40f1-99b2-90501e809584",
+                    "topic": "Calendar / Email Injection",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3a9fa50c-f8cd-458a-997f-8bcec9bd92ba",
+                    "topic": "Tool-Channel Injection / Dual-Channel Prompt Injection (ToolLeak)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "1bc26d5b-eebe-4bb7-86ad-d465ab9006d7",
+                "topic": "Timing & Context",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "db911980-33db-4283-ac32-b3b6f5acafdf",
+                    "topic": "Multi-Turn / Context Injection (FITD)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "c174fc8e-9abd-432f-a4c9-d905b7f6d5a6",
+                    "topic": "Memory Injection / Context Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d92859bf-e800-45bf-9c34-3455cf5bbb34",
+                    "topic": "Payload Splitting",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ef59c495-fbb3-4664-8641-45b2cbc65be9",
+                    "topic": "Zero-Click Indirect Injection",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3386b04b-b7dc-4f0b-97ad-6d142df12001",
+                    "topic": "Delayed-Trigger Injection",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "2f14a6ff-e423-42ec-a3a7-876a2654c40c",
+                "topic": "Special Forms",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "0e08cb4c-7c99-4bdd-ba25-647794d7092b",
+                    "topic": "SQL-Injection-like Jailbreak (SIJ)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3306eed6-abad-46c6-94f5-961e97c73f53",
+                    "topic": "LPCI (Logic-Layer Prompt Control Injection)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "b6c820fc-d8ae-4feb-9c0a-c48dc6c9f0b7",
+            "topic": "1.2 Jailbreak",
+            "expanded": true,
+            "children": [
+              {
+                "id": "900b7729-7cfe-4c24-9d0b-53e9c43bad5f",
+                "topic": "Role-Play & Persuasion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ae3a0736-686f-4630-aaa5-3e39ed839a24",
+                    "topic": "Role-Play / Persona Hijacking (DAN, Developer Mode, Nested Roles)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "407d272f-0208-4891-9d9a-ee30dbcf7643",
+                    "topic": "Persuasive Adversarial Prompts (PAP)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "da80406c-6b84-4599-9d67-826fc120d4d3",
+                    "topic": "Skeleton Key (Disclaimer Bypass)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "84698fd6-de69-4299-ba9b-96787888cd30",
+                    "topic": "Refusal Suppression (Ban Words like \"cannot\" / \"sorry\")",
+                    "expanded": true
+                  },
+                  {
+                    "id": "317303d1-da3a-4283-b359-0c9d730e5ced",
+                    "topic": "Output Obfuscation (Hypothetical Framing)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "5c319eb7-6325-469d-a91e-387ba6dac01a",
+                "topic": "Encoding & Obfuscation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "34d9e594-22a9-42c8-8ff0-f261f9c224d1",
+                    "topic": "Cipher / Encoding Attacks",
+                    "expanded": true,
+                    "children": [
+                      {
+                        "id": "b58cc5d9-a391-425a-bf8a-b852b78f2fe3",
+                        "topic": "Base64 / ROT13 / Morse / Caesar",
+                        "expanded": true
+                      },
+                      {
+                        "id": "1f49c98b-a1ed-47ed-84a1-340401ea8552",
+                        "topic": "RoguePrompt (Encrypted Nested Payloads)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "eff8e3ba-f609-40e6-95ce-d91bd169e9cc",
+                        "topic": "BitBypass (Binary Token Breaking)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "543b57b5-53bf-457d-93c5-3fbdde2618ce",
+                        "topic": "ArtPrompt (ASCII Art Injection)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "be1d012e-1f17-43dd-905c-a0867778e627",
+                        "topic": "Constructed Languages (Tongue-Tied)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "ad892d86-662c-46e8-a4f4-8628e4b083e6",
+                        "topic": "Unicode Invisible / Homoglyph / Zero-Width Characters",
+                        "expanded": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "d238c69c-377f-43b7-86fe-5b73680d3dc1",
+                    "topic": "Token Smuggling / Input Obfuscation",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bd2dd702-a838-41ff-af90-4dc2cf7755be",
+                    "topic": "Macaronic / Low-Resource Language Prompts",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ec2635c5-32b8-42db-9265-4ef810220fa4",
+                    "topic": "FlipAttack",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "50af636c-e941-4994-ba5b-fde6c7c17981",
+                "topic": "Multi-Turn & Strategy",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "06a8dc8e-026b-4868-ae3f-397becf669c6",
+                    "topic": "Many-Shot Jailbreak",
+                    "expanded": true
+                  },
+                  {
+                    "id": "001fd4ef-7b16-4a20-b2cf-959312169665",
+                    "topic": "Multi-Turn Decomposition",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2eda8eed-7e8d-4400-a2cc-0f4371c319cc",
+                    "topic": "Crescendo",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8bb7d554-7ab1-40b6-b496-1dd3249e2be6",
+                    "topic": "Echo Chamber",
+                    "expanded": true
+                  },
+                  {
+                    "id": "038ab993-3abd-4bf4-8dd4-8d0d2c3fcef1",
+                    "topic": "Context Flooding / Context Overflow",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2b096511-5f78-4e45-afde-035d857475af",
+                    "topic": "Chain-of-Thought Hijacking (H-CoT)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "99115d62-2160-4a46-b319-f2a8ed443e8c",
+                    "topic": "Copilot Confirmation Jailbreak (Editable Output Hijack)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "20509249-1a58-471a-9b89-b1715c377bd0",
+                "topic": "Adversarial Optimization & Automation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5a22d1b7-84e5-4d4f-907c-b67d69655481",
+                    "topic": "Adversarial Suffixes (GCG / Transferable Adversarial Tokens)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a8efb2b2-73fe-4ff8-9dbd-93fb43c7313b",
+                    "topic": "Automated Jailbreak (PAIR / JBFuzz / AI-vs-AI)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "23310d8a-a140-4140-afdf-8266a3c67b66",
+            "topic": "1.3 Multimodal / Cross-Modal Injection",
+            "expanded": true,
+            "children": [
+              {
+                "id": "8584c981-c6d8-43b8-b7d9-f7c68d4e0284",
+                "topic": "Image Channel",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "60135773-b258-486c-b088-d8adbb131ae1",
+                    "topic": "In-Image OCR / Text-on-Image (FigStep, White-on-White Text)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2f94f4c9-9b2d-4acb-9326-b555a9d1ce79",
+                    "topic": "Steganographic Payloads (Spatial / Frequency / Neural Stego)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bb8d5ff1-f40a-451a-b41e-d23a81d5154f",
+                    "topic": "Adversarial Pixels / Printed Patches / Projected Light",
+                    "expanded": true
+                  },
+                  {
+                    "id": "582fc4cb-0a9a-4c4d-8ce7-3fcaaaddcbbd",
+                    "topic": "Universal Adversarial Images / Patches (UAP / Universal Image Trigger)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "876ab344-3b89-4796-9b33-a5e1445aae7f",
+                    "topic": "Physical-World Projection / Printed Patch for MLLM",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "bd4b7707-edab-4bdf-93ac-a2d5714a7791",
+                "topic": "Audio / Video Channel",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "f54d9741-b8ca-4061-a14a-92d9567af5a1",
+                    "topic": "Audio / Speech Channel Injection",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bc3aa565-4025-4b4c-9557-a225687eae54",
+                    "topic": "Real-time Audio Stream Injection / Adversarial Audio",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b72a3067-158e-4b9b-9cc7-440a4dec0e85",
+                    "topic": "Video Frame / Temporal Adversarial Examples",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "e6e7b539-9560-4a57-835b-dba8e90b3b2b",
+                "topic": "Cross-Modal Fusion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "7e7d9c39-278e-4975-99ec-6388580cb95c",
+                    "topic": "Cross-Modal Perturbation (CrossMPI)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d7b56fba-a975-41e8-9808-70b4060e813a",
+                    "topic": "Virtual Scenario Hypnosis (VSH)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "853ff089-0be2-4aad-8127-6e08d968797d",
+                    "topic": "Compositional Vulnerability (CLIP Cross-Modal Score Manipulation)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "10d18f65-8aa3-4fc3-aa0f-8f9d403ac78c",
+                    "topic": "Cross-Modal Misalignment Attack (e.g., VLA)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "42d4cdec-e1e8-4307-8676-7f92cb876da0",
+                    "topic": "Single-Modality Domination in Fusion Models",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "eb62fb7b-1034-4583-9ccb-2122e40c9f75",
+            "topic": "1.4 Guardrail & Defense Bypass",
+            "expanded": true,
+            "children": [
+              {
+                "id": "726eb74a-afb5-4942-b4ec-92897e11dccf",
+                "topic": "Attacks on Guard Models",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6b99476f-88a6-4448-8e3c-6ae739534db7",
+                    "topic": "Guard Model Jailbreak / Dual-Jailbreaking",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6a6f938b-10fd-4175-b49d-42788dc6a8a3",
+                    "topic": "LLM-as-Judge Bypass (Persuasion / Role-Play against Judges)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "87945460-1355-41cc-b235-450a22476bd7",
+                "topic": "Window & Structural Bypass",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "d0b3f406-3892-4bac-af3c-c43f6b52365e",
+                    "topic": "Prompt Overflow / Context-Window Mismatch (Guard Check Window vs Model Window)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a7cdf64d-6aed-41a4-93bd-b9fd4acce52b",
+                    "topic": "Structural CoT Bypass / Reasoning Guardrail Subversion",
+                    "expanded": true
+                  },
+                  {
+                    "id": "472d3f70-7a3d-46d6-a14b-ac1ea3f5f570",
+                    "topic": "Template Token / Structural Injection vs Reasoning Guardrails",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "46044537-ebec-41bc-9752-0cf01f5dc320",
+                "topic": "Character & Adversarial Evasion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "44161341-3dbf-4b89-8d89-ab7cdd735826",
+                    "topic": "Character-Level / Unicode Injection vs Detectors (Homoglyph / Zero-width vs Prompt Guard)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "49ffc7b1-97f1-402b-8889-4b760a10956b",
+                    "topic": "AML Evasion against Prompt Shields / Classifiers",
+                    "expanded": true
+                  },
+                  {
+                    "id": "68ab0734-9f05-4ede-9cac-afe2d511efe2",
+                    "topic": "Controlled-Release Prompting (Filter-Insoluble, Model-Soluble)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bfb246c7-bf3b-4d99-b515-7f7d1e6559fc",
+                    "topic": "Weak-Defense Exploitation (Defense Amplification Attacks)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b9fc9eb2-e9b4-4e2d-b428-974981afe63b",
+        "topic": "2. Training & Model Supply Chain Surface",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "580e6a48-ad85-4672-bd04-ac90ae9f863f",
+            "topic": "2.1 Training-Data Poisoning / Backdoors / Sleeper Agents",
+            "expanded": true,
+            "children": [
+              {
+                "id": "1e971325-4b32-42ca-8d1e-a61ed0ae3c34",
+                "topic": "Data Poisoning Techniques",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c4a59f62-868d-4d88-91fb-b808aaf067be",
+                    "topic": "Training-Data Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "52bed574-9c70-4490-b069-7d79c58d09e2",
+                    "topic": "Clean-Label Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "0a8c38b3-348c-4f2f-ad58-21fbb4563867",
+                    "topic": "Label Flipping",
+                    "expanded": true
+                  },
+                  {
+                    "id": "301ea614-8116-4291-b413-3f77b40d1fc9",
+                    "topic": "Gradient-Based Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6b4a4d01-a594-4475-b284-6e972625b5eb",
+                    "topic": "Nightshade-Style Active Poisoning (Defensive/Copyright Anti-Training; listed as data-side adversarial surface)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9b4d7b4f-663a-4f9f-a97b-04cb5e833072",
+                    "topic": "Agent Trajectory Poisoning (Malice in Agentland)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "b16d6bc1-6163-4609-af5e-fec5a8afc78d",
+                "topic": "Backdoor Implantation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "dee307f0-a544-41ff-97a5-c167055f008f",
+                    "topic": "Backdoor / Trojan Attacks",
+                    "expanded": true,
+                    "children": [
+                      {
+                        "id": "dfa8bf53-ded1-464f-a5e5-7ca09d85985d",
+                        "topic": "Virtual Prompt Injection (VPI)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "89700abb-054f-4674-84be-0cabc8af3033",
+                        "topic": "Finetuning-Activated Backdoors (FAB)",
+                        "expanded": true
+                      },
+                      {
+                        "id": "cb36ea75-6ff7-43de-b2df-0fa25a4fce63",
+                        "topic": "Privacy Backdoor",
+                        "expanded": true
+                      },
+                      {
+                        "id": "d86b36ac-99cd-4013-9274-5cc309165fa0",
+                        "topic": "Clean-Label Backdoor",
+                        "expanded": true
+                      },
+                      {
+                        "id": "e92203a1-88bc-4ca5-ac0d-0ff2565268da",
+                        "topic": "Code Model Backdoor (Code-Completion Backdoors)",
+                        "expanded": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "1bb3919f-24e6-43a0-bc1e-0314c3d96e2e",
+                "topic": "Deceptive Alignment",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ddf99a0b-98f3-4a88-a1bf-65fe3f108fe0",
+                    "topic": "Sleeper Agents (Deceptive Alignment)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cdf65b67-40a3-468e-b665-e69c3fe573f9",
+                    "topic": "Shadow Alignment",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9ba56ec6-c83f-452f-84cc-0e2d1ee9e669",
+                    "topic": "Viral Infection Attacks (Cross-Model Generational Spread)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "a4ddaff3-89fb-4e8d-a795-97194f8acc28",
+                "topic": "Quantization-Related Backdoors",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "51a08f1d-9e01-4674-8989-80d67a43c17a",
+                    "topic": "Quantization-Conditioned Backdoor (QCB)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "0c3058f5-98a9-4bb8-8fa9-df176c0e736d",
+                    "topic": "Quantization-Conditioned Misalignment (Q-Misalign)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "2a4927fb-998b-4c59-a87d-fe87c41d0ece",
+                    "topic": "Rounding-Guided Backdoor Injection",
+                    "expanded": true
+                  },
+                  {
+                    "id": "71405a1a-5f04-4d1f-9fc9-fb992d640b94",
+                    "topic": "Backdoor Persistence after Quantization / Compression",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1da56feb-db04-4e6c-80e9-451a5fdca0a8",
+            "topic": "2.2 Model Supply-Chain Poisoning",
+            "expanded": true,
+            "children": [
+              {
+                "id": "b97cf781-0c76-40f2-b9e9-375641b864d3",
+                "topic": "Model Files & Weights",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e3d2e259-32e2-4d2b-990a-836e08fe89cf",
+                    "topic": "Malicious Model Serialization (pickle / SavedModel / H5 Lambda)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "4c75fca1-3915-48f5-a3b0-06c0c9376066",
+                    "topic": "Model Config Template Backdoors (GGUF Chat Template / Tokenizer Config)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a472e709-57fc-440b-a66d-6cf0563b5f42",
+                    "topic": "LoRA Adapter Tampering / Quantized-Model Backdoor Re-injection",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "fb69a3be-490a-4d23-a163-9d5e5f28a28c",
+                "topic": "Repositories & Namespaces",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "7b0393c5-6393-4016-96b6-6f7af13d61f5",
+                    "topic": "Model Namespace Reuse / AI Jacking",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cc907281-f1cf-4945-a274-7e0a6f9b005b",
+                    "topic": "Large-Scale Model Repository Pollution",
+                    "expanded": true
+                  },
+                  {
+                    "id": "378ac022-c8e5-4be4-b38b-c34bae932299",
+                    "topic": "Malicious Skill Marketplace Poisoning",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "f5745a07-a62f-44ac-bbe5-c7e29af29969",
+                "topic": "Dependencies & Package Ecosystem",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "db6925f9-dbad-4316-ab9a-5e4a50167e88",
+                    "topic": "Malicious ML Packages (PyPI / npm Typosquatting)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3a6eb31d-e9ea-4219-8ef9-11a4d89e4436",
+                    "topic": "Slopsquatting (Package-Hallucination Squatting)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8870f5b9-91f1-43fc-9bc7-f2da3f4b7ba1",
+                    "topic": "TinyML / Edge Model Supply-Chain Attacks",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "48d26b5c-2980-49e5-a25c-5ef4bf5ccb61",
+            "topic": "2.3 Model Extraction / Theft",
+            "expanded": true,
+            "children": [
+              {
+                "id": "8e78fb67-8668-42d5-8c97-121bd0c677d1",
+                "topic": "Functional Cloning",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "f0316da4-dd81-4d23-86d8-8aec70f6af1d",
+                    "topic": "Model Stealing / Extraction (API Queries + Student Distillation)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "21ff03cc-d4d4-43ba-848b-736f3420a035",
+                    "topic": "Data-Free Attacks (Synthetic Surrogate Sets via Generators)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "93bfcd9a-62e8-465f-b303-5e86b4eef447",
+                    "topic": "Functional Replication via API Abuse",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "4d1bb419-7203-4036-9330-f26cbbfacb30",
+                "topic": "Structure & Ownership",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5cee5590-379d-418f-a474-2c264aecfdbb",
+                    "topic": "Neuron-Level / Architecture-Level Replication",
+                    "expanded": true
+                  },
+                  {
+                    "id": "097949f8-873e-4353-ac75-4db1bb358da9",
+                    "topic": "Architecture / Hyperparameter Inference",
+                    "expanded": true
+                  },
+                  {
+                    "id": "39a7eb34-2bcd-4939-af83-5acd65ec97ef",
+                    "topic": "Model Fingerprinting / Ownership Extraction",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "03805685-f98b-4829-bd83-5174db2f4314",
+            "topic": "2.4 Federated / Distributed Training Attacks",
+            "expanded": true,
+            "children": [
+              {
+                "id": "fa45ba98-aed0-492a-835a-70423d2aebd6",
+                "topic": "Federated Learning Poisoning / Backdoors",
+                "expanded": true
+              },
+              {
+                "id": "754a337f-0a80-4883-9d6a-cf577c4ab76b",
+                "topic": "Client Model-Update Tampering",
+                "expanded": true
+              },
+              {
+                "id": "3c565402-9e18-4980-b376-0a725fcf18a4",
+                "topic": "Aggregation Algorithm Manipulation",
+                "expanded": true
+              },
+              {
+                "id": "1add4937-bfb9-48f7-a966-e3e30612250a",
+                "topic": "(See 3.1) Gradient-Inversion Privacy Leakage",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "bddbcad1-0cec-446f-88fc-b267d02c7500",
+            "topic": "2.5 Model-Level Deep Attacks (Post-Extraction / White-Box)",
+            "expanded": true,
+            "children": [
+              {
+                "id": "006f96c2-ea70-48cc-b08d-24490461adae",
+                "topic": "Representation & Attention Manipulation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "e645de3b-98c7-451a-a51a-e2abc0e7be05",
+                    "topic": "Attention Hacking / Attention Manipulation",
+                    "expanded": true
+                  },
+                  {
+                    "id": "141f0093-7441-4efa-82a7-bdc21d47e3da",
+                    "topic": "Neuron Activation Control",
+                    "expanded": true
+                  },
+                  {
+                    "id": "c8993dee-323c-47bb-98f2-39eca6b1e3b3",
+                    "topic": "Internal Representation Manipulation",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "6aa5e5bd-78e6-42b5-8632-739211ff6ed7",
+                "topic": "Weights & Gradients",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "33a96431-3411-4b03-af41-e7831f2e3b8d",
+                    "topic": "Weight-Space Backdoor Activation after Extraction",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b4528089-4269-42c7-8564-1fabfcba47ce",
+                    "topic": "Gradient Leakage / Inversion (Federated / Distributed Settings)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2b760263-b9d6-4e77-89ad-fd38d8d491f7",
+        "topic": "3. Privacy & Confidentiality Surface",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "3898d6e8-e3bc-435e-8600-739e01c0698b",
+            "topic": "3.1 Training-Data Extraction / Privacy Inference",
+            "expanded": true,
+            "children": [
+              {
+                "id": "4f5b5a9a-a750-428b-a0de-17a1f6c41cdf",
+                "topic": "Classical Privacy Inference",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "a1f2655b-8741-41d5-a34c-29d24a2448b1",
+                    "topic": "Model Inversion",
+                    "expanded": true
+                  },
+                  {
+                    "id": "591b3275-1f4b-4c2b-8d9b-6dd4421c8c16",
+                    "topic": "Membership Inference (MIA)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8abdb56c-db7c-4a5f-b08e-e68ecd24d67a",
+                    "topic": "Attribute Inference",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "0e7ef161-f677-46cb-9990-76e3c094bb1d",
+                "topic": "Data Extraction & Inversion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5b018bf6-112b-47c3-bc07-7baa8e2d25b8",
+                    "topic": "Training-Data Extraction (Divergence / Prefix Attacks)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9a7e0f11-1c15-4ab5-98fc-401a4918dde2",
+                    "topic": "Embedding Inversion",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cebc2bfd-7425-4f71-8cf0-59f0790b7494",
+                    "topic": "Adaptive Domain Inference (ADI)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "10607b45-da48-4826-9365-065f4a3f064c",
+                "topic": "Scenario Extensions & Defense Bypass",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c1de9752-1fdb-4e38-98c3-8ef0ffadb6e1",
+                    "topic": "Differential-Privacy Bypass / Adaptive MIA",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9dd162af-b208-4ab6-a265-3f89ec927618",
+                    "topic": "Federated Learning Gradient Inversion / Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "064df64a-f9a6-450c-b3bc-eba9a6133ba2",
+                    "topic": "Cross-Session Memory Inference",
+                    "expanded": true
+                  },
+                  {
+                    "id": "72a7b17d-ed6e-45be-8368-b03cd8919920",
+                    "topic": "Machine Unlearning Attacks (Incomplete Unlearning Residuals / Verification Bypass / Post-Deletion Extraction)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "4f9ce81f-573a-4469-bb0e-4d777a92e00c",
+            "topic": "3.2 System-Prompt Leakage / Unauthorized Instructions",
+            "expanded": true,
+            "children": [
+              {
+                "id": "2dfa2cef-d0d8-417c-9f12-354c14ee25ac",
+                "topic": "Prompt & Hidden-Context Extraction",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "1ead5e1d-8559-4310-9d48-208f69fc8f9b",
+                    "topic": "Direct Elicitation of System Prompt",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d00cb6f4-2db7-48eb-9fb8-b0afeddaa510",
+                    "topic": "Contrastive Reasoning / Indirect Extraction",
+                    "expanded": true
+                  },
+                  {
+                    "id": "953679eb-da8a-4c30-9412-830a4774d975",
+                    "topic": "Extended Hidden-Context Leakage (Policy Text, Session Metadata, Developer Instructions)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "36037bcf-2253-4f1c-9117-95f7051f5957",
+                "topic": "Tool-Surface Leakage",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "653cdecf-9ff1-4a6e-a229-d42c447b67ef",
+                    "topic": "Tool-Parameter Elicitation (ToolLeak-class)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "192de717-a4b1-4827-b11d-ced7a8a332a1",
+                    "topic": "Tool Description / Schema Exfiltration",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d32a9131-488c-43c0-b171-6aca60ea3465",
+            "topic": "3.3 Inference Side Channels (Timing / Power / Cache)",
+            "expanded": true,
+            "children": [
+              {
+                "id": "00d596f3-1a36-4675-994e-346fcd3edd44",
+                "topic": "Compute & Hardware Side",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "83fb38df-f588-4f2b-ada0-3c2e4f922b38",
+                    "topic": "Timing Side Channel (Per-Token Latency / Shared KV Cache)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b2546d42-fba4-4ca9-a9b6-25d6b1992f4e",
+                    "topic": "GPU L2 Cache Prime+Probe",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a6d44d87-c778-41dd-bd2a-994a4c369230",
+                    "topic": "Fine-Grained Side Channels in Shared GPUs (Multi-Tenant Cache / Power)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "11d8903c-4134-46b2-9cf8-cf3e542397e2",
+                    "topic": "Power / Thermal Side Channels (Energon)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "901aeaed-eea0-4022-8763-42de59b8f225",
+                "topic": "Network & Filtering Side",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "898e2ff2-1047-421f-9a85-e45460dc7c91",
+                    "topic": "Encrypted-Traffic Side Channel (Whisper Leak: TLS Size/Timing → Streaming Topics)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "5087554a-60c2-4a76-8512-8cb91e50049c",
+                    "topic": "Input-Filter Side Channel (Inferring Weights & Architecture)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d16d75e0-7539-43a6-9167-4756278b0f4b",
+            "topic": "3.4 Internal Component Exfiltration (MCP / Plugins / Sandbox)",
+            "expanded": true,
+            "children": [
+              {
+                "id": "12429732-de1d-4614-b482-12d310467095",
+                "topic": "Credentials & Configuration",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "efd9a3fe-8f9a-454b-b658-5a989a34b875",
+                    "topic": "Agent Config / Credential Exfiltration (mcp.json, API Keys, Tokens)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "d4d0b91c-5a33-4b78-a525-5ab8a5115d32",
+                "topic": "Plugins & Runtime",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "4f40a295-406f-4aa6-8b6c-4978144943e7",
+                    "topic": "Plugin / Extension Supply-Chain Exfiltration",
+                    "expanded": true
+                  },
+                  {
+                    "id": "e4ce409c-6ab2-4766-83f7-f98e7d18fe4f",
+                    "topic": "Plugin / MCP Runtime Dynamic-Loading Attacks",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "1c92e807-9626-4d9f-9768-fb3252e1c53e",
+                "topic": "Rules & Skills",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "5f1a0d9d-88b1-4abd-b776-36e8b1c4d241",
+                    "topic": "Coding-Assistant Rules File Backdoor",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f4ee42f9-f3cb-45ad-8ab0-cde0ff7c1122",
+                    "topic": "Agent Rules / Skills Backdoor Hardening",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c602e048-5527-4494-ab3f-5a002987fcf5",
+                "topic": "Memory Exfiltration",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c7e03cc0-1908-4876-9216-c02044ac64e9",
+                    "topic": "Long-Term Memory & Session-History Exfiltration (incl. Persistent Cross-Session)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "8d3640ea-c7ca-44f3-b809-8c2cdd5df069",
+                "topic": "(See 7.2) Sandbox Escape / Host Privilege Escalation",
+                "expanded": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "c5d38e36-743c-4844-95f7-eafff3ced14a",
+        "topic": "4. Agent Goal Hijacking / Tool Abuse",
+        "expanded": true,
+        "direction": 0,
+        "children": [
+          {
+            "id": "dd8d3cd7-9340-44ae-95fe-5b1cfbea578f",
+            "topic": "4.1 Goals & Intent",
+            "expanded": true,
+            "children": [
+              {
+                "id": "021ec567-6bbc-4f94-a88a-2b5be2bc38e4",
+                "topic": "Goal & Intent Manipulation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "89dd00a8-0c5d-469d-b0e8-01f9421d35d4",
+                    "topic": "Goal Hijacking / Intent Drift",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d375b6a2-7902-40e9-a0b7-778cb2da65b3",
+                    "topic": "Intent Flow Subversion",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a898a8e9-dcbe-47cb-b017-0b9b4e29ce70",
+                    "topic": "Plan Deviation / Goal Drift across Agents",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "4eb73911-e9ff-4291-8a5c-0333b26194b4",
+                "topic": "Orchestration & Approval",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "eb1c4e33-bf4a-4d3b-ae69-dc3774744aca",
+                    "topic": "Orchestrator / Planner Hijacking",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cd5152e9-35b3-411a-b542-70f468ab4ce4",
+                    "topic": "Human-Approval Fatigue (HITL Exploitation)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "efafe634-ea5d-4cc2-ba6d-4316e79970ac",
+            "topic": "4.2 Tools & MCP",
+            "expanded": true,
+            "children": [
+              {
+                "id": "e1adfbc9-93fa-4a2a-aeac-2adfc1876b5f",
+                "topic": "Tool Poisoning",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "a1caf459-03eb-4933-b893-9be2a98ec955",
+                    "topic": "Tool Poisoning / TPA (MCP Description Injection)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b44fda0a-f011-4111-ab38-b9c1cfac1443",
+                    "topic": "Tool-Output Poisoning / Tool Shadowing",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3cd98587-d27b-4bc3-b104-d0df107ad725",
+                    "topic": "Pre-Approved Command Parameter Injection",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "01822529-1b69-4969-8385-affb5a49052e",
+                "topic": "MCP & Sessions",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "875835d2-b199-4f29-9897-8243d2d714ae",
+                    "topic": "Shadow MCP Servers",
+                    "expanded": true
+                  },
+                  {
+                    "id": "ce7622cb-c57d-43f0-bb24-089c5f25a9c2",
+                    "topic": "MCP Session Hijacking / Prompt Hijacking",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "7269b733-e603-4e06-ad26-ee1104511141",
+                "topic": "Protocol Layer",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "61a782d3-0e55-4506-8151-970478d2a2cb",
+                    "topic": "Agent Protocol Attacks (A2A / Agent Card Forgery, Inter-Agent MITM, Capability Spoofing)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "e741abd2-d412-4adb-9137-f1fe06b4103d",
+            "topic": "4.3 Excessive Agency",
+            "expanded": true,
+            "children": [
+              {
+                "id": "246269fa-8b82-446e-82cb-e07d4f662c78",
+                "topic": "Overly Broad Authorization",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "9580a53a-53d4-4f41-b88a-717ae9f70ad6",
+                    "topic": "Read-Write / Email / Transfer Same-Session Authorization",
+                    "expanded": true
+                  },
+                  {
+                    "id": "55b69bd7-c164-433f-95b5-a55bc1821465",
+                    "topic": "High-Risk Actions without Human Gates",
+                    "expanded": true
+                  },
+                  {
+                    "id": "632b16a4-10c7-4847-a7bf-720836e26229",
+                    "topic": "Overly Broad Tool Scope (Read Implies Write)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "48700339-8055-4df2-9906-ed6201e2d980",
+                "topic": "Privilege Escalation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "2d26a71e-49f4-4dbf-9255-0895571a2729",
+                    "topic": "Scope Creep Privilege Escalation",
+                    "expanded": true
+                  },
+                  {
+                    "id": "bda2d94c-088e-4d56-b45d-6f12af6092e4",
+                    "topic": "Collusive Privilege Escalation",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9a5328a5-32a9-4390-a1f5-cd38d9338568",
+            "topic": "4.4 Configuration & Harness",
+            "expanded": true,
+            "children": [
+              {
+                "id": "77868d1a-8e64-4a0c-bb1d-b3f6b9aee192",
+                "topic": "Harness Config Poisoning (settings.json / rules / SessionStart Hook)",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "1bc6f606-86d7-431d-b5d3-765dfe50d7d8",
+            "topic": "4.5 Memory & Propagation",
+            "expanded": true,
+            "children": [
+              {
+                "id": "2af33899-9ca7-41ee-baa1-04a7b7c0c4c3",
+                "topic": "Memory & Workspace Poisoning",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c2105d81-ec19-4ecf-a918-8b56592a703e",
+                    "topic": "Memory Poisoning (Persistent / Cross-Session)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3ee51748-dc18-4cd9-b427-61515ffa83ee",
+                    "topic": "Shared Memory / Workspace Poisoning",
+                    "expanded": true
+                  },
+                  {
+                    "id": "837e6a85-a426-4024-8c7a-c34f03c86a28",
+                    "topic": "RAG Spraying",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "9a974d4d-7289-4f08-9099-66c0a5019ba1",
+                "topic": "Worms & Lateral Movement",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c6997e7b-5ab9-4558-a63a-dda9ba070abc",
+                    "topic": "Cross-Agent Propagation (Config Write-Back to Another Agent)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "a3adc50e-d385-492a-8a18-efaa2bdd7804",
+                    "topic": "Self-Propagating AI Worms (Morris II / RAGworm)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "513bb252-0613-4131-8111-d777ff2f2914",
+                    "topic": "Multi-Agent Worm / Network Propagation",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c4f8a062-5a1d-483b-b41c-e5cf52350c29",
+                "topic": "Conversion into Attack Infrastructure",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ee9ddd46-6217-4485-8f0a-bb53bdc04b51",
+                    "topic": "Promptware C2 (Agent Converted into Attack Infrastructure)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "c8022075-dd26-40aa-ad30-93c97d87642a",
+            "topic": "4.6 Multi-Agent",
+            "expanded": true,
+            "children": [
+              {
+                "id": "21af2080-cdff-41ae-a14d-3c852fb15f54",
+                "topic": "Collusion & Impersonation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "44c0abd2-99b3-4d7d-aa71-66b4e0753cbf",
+                    "topic": "Agent Collusion",
+                    "expanded": true
+                  },
+                  {
+                    "id": "459c3cf9-4683-4b4d-8215-d08fb249f21c",
+                    "topic": "Agent Impersonation",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "48a7d363-9ad6-41a5-bb2f-1cf006d1bbe0",
+                "topic": "Trust & Channels",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6060c353-5208-4337-a5b3-33009acd5be9",
+                    "topic": "Inter-Agent Trust Exploitation / Peer Trust Bypass",
+                    "expanded": true
+                  },
+                  {
+                    "id": "be388122-3034-4c01-a382-857df012f761",
+                    "topic": "Internal-Channel Privacy Leakage",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9d8d41bf-6ac6-4878-8f5d-0d618c475dbe",
+            "topic": "(See 1.1) Agent-Side Injection Entry Points",
+            "expanded": true
+          }
+        ]
+      },
+      {
+        "id": "1ede1fc1-2c99-40d2-ba21-157464465fe5",
+        "topic": "5. RAG Vector-Store Poisoning",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "10beab43-2e31-4a73-ad64-1edeb66fa4c9",
+            "topic": "Text Vector-Store Poisoning",
+            "expanded": true,
+            "children": [
+              {
+                "id": "cf0d89fb-e45d-420f-8a36-ba516ec852de",
+                "topic": "PoisonedRAG",
+                "expanded": true
+              },
+              {
+                "id": "e7b54a42-350f-4dcb-9633-3e8ed9f5aee2",
+                "topic": "CorruptRAG",
+                "expanded": true
+              },
+              {
+                "id": "f2ac6b88-e0e4-42ec-bb86-5a8371192997",
+                "topic": "Phantom (Dormant Triggers)",
+                "expanded": true
+              },
+              {
+                "id": "231a917d-baa1-4d5f-8248-ee0e06f3b982",
+                "topic": "In-Document Indirect Injection",
+                "expanded": true
+              },
+              {
+                "id": "989f13d9-69ec-48c7-bbc9-d96710f20482",
+                "topic": "Embedding-Space Manipulation",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "e275880c-b403-451d-9534-868a279650c1",
+            "topic": "Multimodal / Structured Knowledge Poisoning",
+            "expanded": true,
+            "children": [
+              {
+                "id": "0fee6e3b-ede4-4846-9076-66604090ac95",
+                "topic": "MM-PoisonRAG (Multimodal RAG)",
+                "expanded": true
+              },
+              {
+                "id": "a2dd5780-ff54-4eac-bff7-c0861b5b0622",
+                "topic": "PoisonedEye (Vision-Language RAG)",
+                "expanded": true
+              },
+              {
+                "id": "4b466cab-ca06-4eb8-a9f7-84eebf4d1342",
+                "topic": "KG-RAG Poisoning (Knowledge-Graph Triples)",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "762ac121-3d96-46f3-8186-d7ff9d6b4004",
+            "topic": "Retrieval Isolation Failure",
+            "expanded": true,
+            "children": [
+              {
+                "id": "da3d9135-1110-49bb-bfe6-2d1ceb38f77c",
+                "topic": "Cross-Tenant Vector Namespace Leakage",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "4a0f1caa-d5b3-4d6e-a131-864c19fb7a20",
+            "topic": "(See 4.5) RAG Spraying (Agent Poisoning Chain)",
+            "expanded": true
+          }
+        ]
+      },
+      {
+        "id": "0b64654d-117f-4229-838f-366e552e65de",
+        "topic": "6. Output & Downstream Integration Surface",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "866861c7-bfc9-4f1b-93cb-a1b6c54601ac",
+            "topic": "6.1 Insecure Output Handling",
+            "expanded": true,
+            "children": [
+              {
+                "id": "e27b891b-6cf6-4672-b464-0f40db0877a3",
+                "topic": "Output → SQL Injection",
+                "expanded": true
+              },
+              {
+                "id": "ff4382d2-b5d7-4856-8bff-5a063838923b",
+                "topic": "Output → Command Injection / RCE",
+                "expanded": true
+              },
+              {
+                "id": "3b38f455-3433-4d28-9ebe-0f1683ed5fd5",
+                "topic": "Output → XSS (Raw HTML Render)",
+                "expanded": true
+              },
+              {
+                "id": "8fac6ee1-70e6-4edd-9491-752e594b4f0d",
+                "topic": "Output → SSRF",
+                "expanded": true
+              },
+              {
+                "id": "80681882-2bda-4a3d-987e-69f1cefbb8eb",
+                "topic": "Output → Code eval / exec",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "f2508ebb-7bbf-4408-aaa7-4b60149f2779",
+            "topic": "6.2 Misinformation / Hallucination Weaponization",
+            "expanded": true,
+            "children": [
+              {
+                "id": "d4cc88a0-ca8e-4007-a8e4-0d4079386468",
+                "topic": "Content Fabrication & Misdirection",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "b815af12-ac32-48e2-8562-efc4d15812bd",
+                    "topic": "Confident False Outputs Executed as Fact Downstream",
+                    "expanded": true
+                  },
+                  {
+                    "id": "fd8095a3-a4da-4a41-a51b-904ebfd186c2",
+                    "topic": "Pseudo-Authoritative Evidence / Fabricated Citations",
+                    "expanded": true
+                  },
+                  {
+                    "id": "7de3317e-678d-43f7-83bf-cfb3e32b097c",
+                    "topic": "Large-Scale Disinformation Generation",
+                    "expanded": true
+                  },
+                  {
+                    "id": "634129ad-9b69-4358-a0f1-0fe2a5c15bca",
+                    "topic": "Cross-Modal Pseudo-Evidence Generation",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "aad44244-012b-47e2-b568-480dd1949cff",
+                "topic": "Supply-Chain Induction",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "a67407c3-284f-404c-9376-975f100ea32d",
+                    "topic": "Package-Hallucination-Guided Shadow Component Hijacking",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "a20361e5-98f9-41bb-8ce9-ec516b4907cf",
+                "topic": "Weaponized Applications",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "70021010-3674-4404-b0e5-89f6a5cba8ef",
+                    "topic": "AI-Assisted Social Engineering Chains (Phishing / Deepfake / Mass Personalized Lures)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "b0c30d8f-04a8-4982-8f1a-04af8ce3f5f9",
+                    "topic": "AI-Enabled Traditional Cyber Attacks (Scan, Exploit Synthesis, Automated Pentest)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "306bdf02-e173-469e-9a9a-1198f0978237",
+            "topic": "6.3 Deepfakes & Generative-Content Abuse (Impact-Class)",
+            "expanded": true,
+            "children": [
+              {
+                "id": "42999e14-26fb-4275-89a8-c0015f71a4a1",
+                "topic": "Generation & Propagation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "45071ac8-4235-4372-8701-f305c605914c",
+                    "topic": "Deepfake A/V Generation & Propagation",
+                    "expanded": true
+                  },
+                  {
+                    "id": "c772bdd9-7861-4306-938f-bcaac1b4803e",
+                    "topic": "AI-Generated Fake News / Evidence at Scale",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d61e6aa1-7022-4022-8a7b-4bcbd8ee9795",
+                    "topic": "Automated Social-Engineering Content Factories",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "e8b3aa28-0aa4-4ba8-9a7c-df3dd4366090",
+                "topic": "Provenance Evasion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "4b5701ce-995a-428e-a295-0f18cb13d9b7",
+                    "topic": "Watermark Removal / Provenance Evasion (Bypass AI-Content Detection & Oversight)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "d85205b4-db09-4379-9ca7-9ca2341c73e2",
+        "topic": "7. Runtime & Availability Surface",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "6ab2b444-4e21-4f15-9e5d-517d549e260a",
+            "topic": "7.1 Resource Exhaustion / Denial of Service",
+            "expanded": true,
+            "children": [
+              {
+                "id": "b46c7690-d8b0-406e-bac7-9605d8bcd2d0",
+                "topic": "Token & Context Exhaustion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "0be62acb-ec31-436c-acaa-9727d4c8ae36",
+                    "topic": "Token Bomb / Token Maximization",
+                    "expanded": true
+                  },
+                  {
+                    "id": "f544100a-c9c0-435d-ab5e-0c9c7edcd07d",
+                    "topic": "Context-Window Overflow",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "1d40eeb8-190a-4b80-a357-88c48bf98988",
+                "topic": "Compute & Energy Exhaustion",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "3dadfbf6-32cf-46aa-9b42-0fe7737f0107",
+                    "topic": "Sponge Attack / AutoDoS (High-Energy Inputs)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9deeb08c-83c7-4313-b697-9e3ae1db22e4",
+                    "topic": "ThinkTrap (Reasoning-Model Think Loops)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "0ae52481-5456-4ffd-ab08-4c7025906cd3",
+                    "topic": "Agent Tool-Call Deadlocks (No max-step)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "a954d961-8d8e-4ecc-a638-bdfb89723cc5",
+                "topic": "Economic & False-Positive DoS",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "cb51b855-6b24-433a-a8b4-d401f2a60cbd",
+                    "topic": "Denial-of-Wallet",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1905de72-c0ad-4884-a3d6-002fd2d0a8f3",
+                    "topic": "False-Positive DoS (Guardrails Blocking Legitimate Traffic)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "50651abe-2a90-4d4b-8d7e-f3efdea5d11f",
+                    "topic": "P-DoS (Poisoning-induced DoS: Model Collapse into Repetition)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "b6405e73-9460-47f3-a145-0dd06eaeba04",
+            "topic": "7.2 Inference Service & Runtime Infrastructure Attacks",
+            "expanded": true,
+            "children": [
+              {
+                "id": "ff977ddd-5407-42b2-98d2-72120c7fde76",
+                "topic": "Service Vulnerabilities & RCE",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "b297e257-a619-4314-9ac2-84222c8b6b37",
+                    "topic": "Local Inference Service RCE (Ollama / vLLM / llama.cpp / TorchServe: Deser, Path Traversal, MQ Vulns)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "431cfb15-b68a-4ed3-9d4d-23f7c72def4d",
+                    "topic": "Malicious Model File Parsing → RCE (GGUF / Safetensors / Pickle)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "709397c6-9961-43b6-9105-31a23a09990b",
+                    "topic": "Message Queue / IPC Attacks (ZMQ / NCCL Pipeline RCE)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "40b34a8b-c4e1-4fda-9b64-6b44ef355adc",
+                "topic": "Boundary Escape",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "7dea3eb6-71e3-4256-891f-c0831b1219d9",
+                    "topic": "Sandbox Escape (isolated-vm, Containers, GPU Container Escape)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "496051ad-a236-4ce9-9f76-9fc26d6f8cd9",
+                "topic": "Abuse & Hijacking",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "545fbe11-8a52-4708-b337-5bdbc0e8dc5a",
+                    "topic": "Unauthenticated Inference Endpoint Abuse (Compute Theft, SSRF Pivot, Metadata Theft)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9d4983e8-1dbb-491f-9ad0-ced897f494a6",
+                    "topic": "LLMjacking Evolution (Hijacked Endpoints as Attack Infrastructure)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "4ee251ef-2bbc-4a17-9070-c5d1d6146f2f",
+                "topic": "(See 3.3) GPU Shared Side Channels",
+                "expanded": true
+              }
+            ]
+          },
+          {
+            "id": "f7fcfb05-be1d-488c-88d4-41aae3f9a7cd",
+            "topic": "7.3 Classical Adversarial Examples / Evasion",
+            "expanded": true,
+            "children": [
+              {
+                "id": "753ea46e-a30a-430f-8bda-ecd2137b348b",
+                "topic": "Digital-Domain Attacks",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "6f0b99bf-3101-42e3-8616-2718f97b0db5",
+                    "topic": "White-Box Gradient Attacks (FGSM / PGD / C&W / AutoAttack)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "324097f6-8e77-4826-b6bb-f5b4a3f9fda7",
+                    "topic": "Black-Box Query Attacks (Query / Transfer / Score-based)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "724b529e-27ad-40e3-b29c-10c492870191",
+                    "topic": "Decision-Based / Boundary Attacks",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3c6870f8-6d41-474c-a3db-d8863a3be548",
+                    "topic": "Semantic-Preserving / Imperceptible Adversarial Examples",
+                    "expanded": true
+                  },
+                  {
+                    "id": "3e660d61-3ae9-484f-b935-c93a5ea1a02c",
+                    "topic": "Adversarial Reprogramming",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "c7aa2f7e-9529-40c1-91d8-c81e66d27c2a",
+                "topic": "Physical & System-Level",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "9b68c694-9da3-494e-9209-b00e2bc430a9",
+                    "topic": "Physical Adversarial Examples (Stickers, T-shirts, Road Signs)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "9cb8c55f-beb4-4679-851a-9375df095298",
+                    "topic": "Multi-Sensor Fusion Attacks (e.g., Autonomous Driving)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "02306dbf-fb4c-4cd6-bd57-0192da0279d5",
+                "topic": "Target Scenarios",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "ce727502-bfa1-4932-8e84-12404d8e4c58",
+                    "topic": "Evasion against Classifiers / Detectors / Object Detection",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "25d1d67b-9a6a-48f5-b1ae-05efabaf8d4c",
+        "topic": "8. Recon & Evaluation Meta-Attack Surface",
+        "expanded": true,
+        "direction": 1,
+        "children": [
+          {
+            "id": "3ab29c2d-2229-4d05-ab53-d42e4835d6ec",
+            "topic": "8.1 Recon & Target Profiling",
+            "expanded": true,
+            "children": [
+              {
+                "id": "c2fc2460-5c08-41c9-b7c2-a58ada28f9ff",
+                "topic": "Model & Guardrail Fingerprinting",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "2fdb5834-45f4-4132-a8b4-9494fa40851f",
+                    "topic": "Backend Model / Version Fingerprinting (Behavioral Probes)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "0102f1fb-270b-4af0-aa7a-42045e370997",
+                    "topic": "Guardrail / Filter Fingerprinting (Boundary Words, Response Patterns)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "392ec79c-10fb-4b78-a123-2f2ec90527ed",
+                "topic": "Capability & Asset Recon",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "39ad5a52-96c5-49f4-9e52-739bf15ee5cf",
+                    "topic": "Toolchain / Plugin Inventory Probing (Tools, MCP Services, Permission Scope)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "cf931786-3e99-4949-aa2d-54261cbe3433",
+                    "topic": "API Behavior & Quota Probing (Rate Limits, Context Length, Billing Model)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "6326a7df-e339-4a0c-9cc0-01833be0465d",
+                    "topic": "Public Model / Dataset Recon (ATLAS AML.T0000-Stage Public Assets)",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "f1b8ed50-c298-4c9a-930d-029ad3507e78",
+            "topic": "8.2 Eval Gaming / Sandbagging / Alignment Faking",
+            "expanded": true,
+            "children": [
+              {
+                "id": "42891b5b-2364-490c-826c-cade2a73ddf1",
+                "topic": "Behavioral Camouflage",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "48ae95e1-f632-41e2-a4b8-50a28eb96d5d",
+                    "topic": "Sandbagging (Deliberate Underperformance to Evade Oversight / Gain Deployment)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "8685f93b-864b-467a-9b14-a5a08abff3f0",
+                    "topic": "Alignment Faking (Detect Testing and Switch to Compliant Behavior)",
+                    "expanded": true
+                  },
+                  {
+                    "id": "1ebbd8da-eb5d-4c9e-b4c3-33c446bd4b39",
+                    "topic": "Test-Environment Detection & Behavior Switching (Red-Team/Sandbox Fingerprints)",
+                    "expanded": true
+                  }
+                ]
+              },
+              {
+                "id": "3d02c4fb-b9c0-4006-af57-a5a5e5bf058d",
+                "topic": "Evaluation Manipulation",
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "c31a7437-24bb-4b5a-ad47-fff28b35430b",
+                    "topic": "Benchmark Contamination / Targeted Overfit to Eval Sets",
+                    "expanded": true
+                  },
+                  {
+                    "id": "d9c3959a-fd6e-4d2f-9c1c-6ba9b6d96c2d",
+                    "topic": "Reward Hacking / Specification Gaming",
+                    "expanded": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "linkData": []
+}
