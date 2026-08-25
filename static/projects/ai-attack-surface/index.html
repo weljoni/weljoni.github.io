@@ -219,14 +219,14 @@
           hint: '拖拽画布 · 滚轮缩放 · 点击节点展开/折叠',
           disclaimer: '仅用于安全研究与防御 · 禁止未授权攻击',
           fit: '适应画布',
-          expand: '展开一级',
+          expand: '全部展开',
           loading: '加载思维导图…'
         },
         en: {
           hint: 'Drag canvas · Scroll to zoom · Click nodes to expand/collapse',
           disclaimer: 'Research & defense only · No unauthorized attacks',
           fit: 'Fit view',
-          expand: 'Expand L1',
+          expand: 'Expand all',
           loading: 'Loading mind map…'
         }
       };
@@ -245,25 +245,18 @@
         tabEn.setAttribute('aria-selected', String(lang === 'en'));
       }
 
-      function collapseDeep(node, depth, maxKeep) {
-        // Keep first maxKeep levels expanded; collapse deeper for readability
+      // Expand every node so the map opens fully unfolded.
+      function expandAll(node) {
         if (!node) return node;
         var copy = {
           id: node.id,
-          topic: node.topic
+          topic: node.topic,
+          expanded: true
         };
         if (node.children && node.children.length) {
-          if (depth < maxKeep) {
-            copy.children = node.children.map(function (c) {
-              return collapseDeep(c, depth + 1, maxKeep);
-            });
-            copy.expanded = true;
-          } else {
-            copy.children = node.children.map(function (c) {
-              return collapseDeep(c, depth + 1, maxKeep);
-            });
-            copy.expanded = false;
-          }
+          copy.children = node.children.map(function (c) {
+            return expandAll(c);
+          });
         }
         return copy;
       }
@@ -274,8 +267,7 @@
         var res = await fetch(url);
         if (!res.ok) throw new Error('Failed to load ' + url);
         var data = await res.json();
-        // both-side layout works best when not fully expanded to deepest leaves
-        data.nodeData = collapseDeep(data.nodeData, 1, 2);
+        data.nodeData = expandAll(data.nodeData);
         cache[lang] = data;
         return data;
       }
@@ -324,8 +316,14 @@
         mind.init(data);
         setTimeout(function () {
           try { mind.toCenter(); } catch (e) {}
-          try { mind.scale(0.85); } catch (e) {}
-        }, 50);
+          // Full tree is large — fit it into view after expand-all.
+          try {
+            if (typeof mind.scaleFit === 'function') mind.scaleFit();
+            else mind.scale(0.55);
+          } catch (e) {
+            try { mind.scale(0.55); } catch (e2) {}
+          }
+        }, 80);
       }
 
       async function setLang(lang) {
@@ -356,14 +354,15 @@
       });
       btnExpand.addEventListener('click', function () {
         if (!mind) return;
-        // expand all first-level
         try {
-          var root = mind.getData().nodeData;
-          (root.children || []).forEach(function (c) {
-            c.expanded = true;
-          });
-          mind.refresh(mind.getData());
+          var data = mind.getData();
+          data.nodeData = expandAll(data.nodeData);
+          mind.refresh(data);
           mind.toCenter();
+          try {
+            if (typeof mind.scaleFit === 'function') mind.scaleFit();
+            else mind.scale(0.55);
+          } catch (e2) {}
         } catch (e) {
           console.warn(e);
         }
