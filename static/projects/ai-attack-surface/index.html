@@ -4,17 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Attack Surface · Interactive Mind Map</title>
-  <meta name="description" content="Bilingual AI attack surface mind map — pan, zoom, both-side layout." />
-  <!-- Mind-elixir CSS is bundled in the IIFE build -->
+  <meta name="description" content="Bilingual AI attack surface mind map — both sides, fully expanded, high contrast." />
   <style>
     :root {
-      --bg: #f4f7fb;
-      --panel: #ffffff;
-      --text: #0f172a;
-      --muted: #334155;
-      --line: #cbd5e1;
-      --accent: #1d4ed8;
-      --accent-soft: #dbeafe;
+      --bg: #f7f4ef;
+      --panel: rgba(255, 252, 247, 0.92);
+      --ink: #1c1917;
+      --muted: #57534e;
+      --line: #e7e5e4;
+      --accent: #0f766e;
+      --accent-2: #1d4ed8;
       --warn-bg: #fff7ed;
       --warn-border: #fdba74;
       --warn-text: #9a3412;
@@ -22,156 +21,148 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
-      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        ui-sans-serif, system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 12% -8%, rgba(15, 118, 110, 0.10), transparent 55%),
+        radial-gradient(800px 380px at 100% 0%, rgba(29, 78, 216, 0.08), transparent 50%),
+        var(--bg);
       overflow: hidden;
     }
+
     .topbar {
-      height: 58px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 0 16px;
-      background: var(--panel);
+      padding: 0 18px;
       border-bottom: 1px solid var(--line);
-      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
-      z-index: 20;
+      background: var(--panel);
+      backdrop-filter: blur(12px);
       position: relative;
+      z-index: 30;
     }
     .left, .right { display: flex; align-items: center; gap: 10px; min-width: 0; }
     .brand {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 0.2px;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--ink); text-decoration: none; font-weight: 800;
     }
-    .title {
-      color: var(--muted);
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .brand-dot {
+      width: 28px; height: 28px; border-radius: 9px;
+      background: linear-gradient(135deg, #0f766e, #1d4ed8);
+      color: #fff; display: grid; place-items: center; font-size: 13px;
     }
-    .title b { color: var(--text); }
+    .title { color: var(--muted); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .title b { color: var(--ink); font-weight: 700; }
+
     .lang-switch {
-      display: inline-flex;
-      padding: 3px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #eef2ff;
-      gap: 3px;
+      display: inline-flex; padding: 3px; gap: 3px;
+      border-radius: 999px; border: 1px solid var(--line); background: #fff;
     }
     .lang-switch button {
-      appearance: none;
-      border: 0;
-      cursor: pointer;
-      background: transparent;
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 7px 14px;
-      font: inherit;
-      font-size: 13px;
-      font-weight: 700;
+      appearance: none; border: 0; cursor: pointer; background: transparent;
+      color: var(--muted); border-radius: 999px; padding: 7px 14px;
+      font: inherit; font-size: 13px; font-weight: 700;
     }
     .lang-switch button.active {
-      background: var(--accent);
+      background: linear-gradient(135deg, #0f766e, #0e7490);
       color: #fff;
+      box-shadow: 0 6px 16px rgba(15, 118, 110, 0.25);
     }
+
     .tool-btn, .link {
-      appearance: none;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      border-radius: 999px;
-      padding: 7px 12px;
-      font: inherit;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
+      appearance: none; border: 1px solid var(--line); background: #fff;
+      color: var(--ink); border-radius: 999px; padding: 7px 12px;
+      font: inherit; font-size: 12px; font-weight: 650; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
     }
     .tool-btn:hover, .link:hover {
-      border-color: #93c5fd;
-      background: var(--accent-soft);
+      border-color: #99f6e4; background: #f0fdfa;
     }
-    .hint {
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-    }
+    .hint { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
     #map {
       width: 100vw;
-      height: calc(100vh - 58px);
+      height: calc(100vh - 60px);
       background:
-        radial-gradient(circle at 1px 1px, #dbe3ef 1px, transparent 0) 0 0 / 22px 22px,
-        #f8fafc;
+        radial-gradient(circle at 1px 1px, rgba(120, 113, 108, 0.12) 1px, transparent 0) 0 0 / 20px 20px;
     }
-    /* Higher-contrast overrides for mind-elixir */
+
+    /* ===== XMind-like polish for Mind Elixir ===== */
     #map .map-container {
+      --gap: 42px !important;
       background: transparent !important;
     }
-    #map me-root me-tpc,
-    #map me-main me-tpc,
-    #map me-parent me-tpc {
-      color: #0f172a !important;
-      font-weight: 700 !important;
-      border: 1.5px solid #1e293b !important;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
-    }
     #map me-root > me-tpc {
-      background: #1d4ed8 !important;
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 55%, #1d4ed8 120%) !important;
       color: #ffffff !important;
-      border-color: #1e3a8a !important;
+      border: 0 !important;
+      border-radius: 999px !important;
+      padding: 12px 22px !important;
       font-size: 18px !important;
-      padding: 10px 18px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.2px !important;
+      box-shadow:
+        0 10px 28px rgba(15, 118, 110, 0.28),
+        0 2px 0 rgba(255,255,255,0.2) inset !important;
     }
     #map me-main > me-tpc {
-      background: #eff6ff !important;
-      border-color: #2563eb !important;
-      color: #0f172a !important;
-    }
-    #map me-parent > me-tpc {
       background: #ffffff !important;
-      border-color: #64748b !important;
+      color: #1c1917 !important;
+      border: 1.5px solid #cbd5e1 !important;
+      border-radius: 14px !important;
+      padding: 8px 14px !important;
+      font-size: 14px !important;
+      font-weight: 750 !important;
+      box-shadow: 0 6px 18px rgba(28, 25, 23, 0.06) !important;
     }
-    #map lines,
-    #map svg path,
-    #map .lines path,
-    #map .subLines path,
-    #map .context-menu {
-      /* lines get better contrast via theme below */
+    #map me-parent > me-tpc,
+    #map me-tpc {
+      background: #fffdf9 !important;
+      color: #292524 !important;
+      border: 1px solid #e7e5e4 !important;
+      border-radius: 12px !important;
+      padding: 6px 11px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      box-shadow: 0 3px 10px rgba(28, 25, 23, 0.04) !important;
     }
+    #map me-tpc:hover {
+      border-color: #5eead4 !important;
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.12) !important;
+    }
+    /* branch lines: thicker, softer */
+    #map svg path {
+      stroke-width: 2.25 !important;
+      opacity: 0.92;
+    }
+    #map .epd, #map .epd-plus, #map span.epd {
+      border-color: #0f766e !important;
+      color: #0f766e !important;
+      background: #ecfdf5 !important;
+    }
+
     .disclaimer {
-      position: fixed;
-      left: 12px;
-      bottom: 12px;
-      z-index: 15;
-      max-width: min(520px, calc(100vw - 24px));
-      padding: 8px 12px;
-      border-radius: 10px;
+      position: fixed; left: 14px; bottom: 14px; z-index: 20;
+      max-width: min(540px, calc(100vw - 28px));
+      padding: 9px 12px; border-radius: 12px;
       border: 1px solid var(--warn-border);
-      background: var(--warn-bg);
-      color: var(--warn-text);
-      font-size: 12px;
-      line-height: 1.45;
+      background: var(--warn-bg); color: var(--warn-text);
+      font-size: 12px; line-height: 1.45;
+      box-shadow: 0 8px 24px rgba(154, 52, 18, 0.08);
       pointer-events: none;
-      box-shadow: 0 4px 16px rgba(154, 52, 18, 0.08);
     }
     .loading {
-      position: absolute;
-      inset: 58px 0 0 0;
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      font-size: 14px;
-      z-index: 5;
-      background: rgba(248, 250, 252, 0.75);
+      position: absolute; inset: 60px 0 0 0; z-index: 10;
+      display: grid; place-items: center;
+      background: rgba(247, 244, 239, 0.72);
+      color: var(--muted); font-size: 14px; font-weight: 600;
     }
     .loading.hide { display: none; }
-    @media (max-width: 800px) {
+
+    @media (max-width: 860px) {
       .title, .hint { display: none; }
     }
   </style>
@@ -179,23 +170,26 @@
 <body>
   <header class="topbar">
     <div class="left">
-      <a class="brand" href="/">weljoni</a>
+      <a class="brand" href="/">
+        <span class="brand-dot">W</span>
+        <span>weljoni</span>
+      </a>
       <span class="title"><b>AI Attack Surface</b> · 思维导图</span>
     </div>
     <div class="right">
-      <span class="hint" id="hint">拖拽画布 · 滚轮缩放 · 点击节点展开/折叠</span>
+      <span class="hint" id="hint">拖拽画布 · 滚轮缩放 · 点击展开/折叠</span>
       <div class="lang-switch" role="tablist" aria-label="Language">
         <button type="button" id="tab-zh" class="active" role="tab" aria-selected="true">中文</button>
         <button type="button" id="tab-en" role="tab" aria-selected="false">English</button>
       </div>
-      <button type="button" class="tool-btn" id="btn-fit" title="Fit">适应画布</button>
-      <button type="button" class="tool-btn" id="btn-expand" title="Expand">展开</button>
+      <button type="button" class="tool-btn" id="btn-fit">适应画布</button>
+      <button type="button" class="tool-btn" id="btn-expand">全部展开</button>
       <a class="link" href="/posts/">Blog</a>
       <a class="link" href="https://github.com/weljoni/ai-attack-surface" target="_blank" rel="noopener">Repo</a>
     </div>
   </header>
 
-  <div class="loading" id="loading">Loading mind map…</div>
+  <div class="loading" id="loading">加载思维导图…</div>
   <div id="map"></div>
   <div class="disclaimer" id="disclaimer">仅用于安全研究与防御 · 禁止未授权攻击</div>
 
@@ -216,14 +210,14 @@
 
       var i18n = {
         zh: {
-          hint: '拖拽画布 · 滚轮缩放 · 点击节点展开/折叠',
+          hint: '拖拽画布 · 滚轮缩放 · 点击展开/折叠',
           disclaimer: '仅用于安全研究与防御 · 禁止未授权攻击',
           fit: '适应画布',
           expand: '全部展开',
           loading: '加载思维导图…'
         },
         en: {
-          hint: 'Drag canvas · Scroll to zoom · Click nodes to expand/collapse',
+          hint: 'Drag canvas · Scroll to zoom · Click to expand/collapse',
           disclaimer: 'Research & defense only · No unauthorized attacks',
           fit: 'Fit view',
           expand: 'Expand all',
@@ -245,31 +239,35 @@
         tabEn.setAttribute('aria-selected', String(lang === 'en'));
       }
 
-      // Expand every node so the map opens fully unfolded.
+      // Fully expand every node on open.
       function expandAll(node) {
         if (!node) return node;
-        var copy = {
-          id: node.id,
-          topic: node.topic,
-          expanded: true
-        };
+        var copy = { id: node.id, topic: node.topic, expanded: true };
         if (node.children && node.children.length) {
-          copy.children = node.children.map(function (c) {
-            return expandAll(c);
-          });
+          copy.children = node.children.map(function (c) { return expandAll(c); });
         }
         return copy;
       }
 
       async function loadData(lang) {
-        if (cache[lang]) return cache[lang];
-        var url = '/mindmaps/data-' + lang + '.json';
-        var res = await fetch(url);
-        if (!res.ok) throw new Error('Failed to load ' + url);
+        if (cache[lang]) return JSON.parse(JSON.stringify(cache[lang]));
+        var res = await fetch('/mindmaps/data-' + lang + '.json');
+        if (!res.ok) throw new Error('Failed to load data-' + lang + '.json');
         var data = await res.json();
         data.nodeData = expandAll(data.nodeData);
         cache[lang] = data;
-        return data;
+        return JSON.parse(JSON.stringify(data));
+      }
+
+      function fitView() {
+        if (!mind) return;
+        try { mind.toCenter(); } catch (e) {}
+        try {
+          if (typeof mind.scaleFit === 'function') mind.scaleFit();
+          else mind.scale(0.5);
+        } catch (e) {
+          try { mind.scale(0.5); } catch (e2) {}
+        }
       }
 
       function createMind(data) {
@@ -277,9 +275,10 @@
           try { mind.destroy(); } catch (e) {}
           mapEl.innerHTML = '';
         }
+
         mind = new MindElixir({
           el: mapEl,
-          direction: MindElixir.SIDE, // left + right
+          direction: MindElixir.SIDE, // left + right like classic mind map
           draggable: true,
           contextMenu: false,
           toolBar: true,
@@ -289,41 +288,34 @@
           overflowHidden: false,
           mainLinkStyle: 2,
           mouseSelectionButton: 0,
-          // high-contrast palette
           theme: {
-            name: 'High Contrast',
+            name: 'Paper Soft',
+            // soft but distinct branch colors (XMind-like)
             palette: [
-              '#1d4ed8', '#0f766e', '#b45309', '#be123c',
+              '#0f766e', '#1d4ed8', '#b45309', '#be123c',
               '#7c3aed', '#0369a1', '#15803d', '#c2410c'
             ],
             cssVar: {
-              '--main-color': '#0f172a',
+              '--main-color': '#1c1917',
               '--main-bgcolor': '#ffffff',
-              '--color': '#0f172a',
-              '--bgcolor': '#f8fafc',
-              '--panel-color': '#0f172a',
+              '--color': '#1c1917',
+              '--bgcolor': 'transparent',
+              '--panel-color': '#1c1917',
               '--panel-bgcolor': '#ffffff',
               '--root-color': '#ffffff',
-              '--root-bgcolor': '#1d4ed8',
-              '--root-border-color': '#1e3a8a',
-              '--main-radius': '10px',
-              '--main-color-hover': '#1e293b',
-              '--selected': '#2563eb',
-              '--accent-color': '#1d4ed8'
+              '--root-bgcolor': '#0f766e',
+              '--root-border-color': 'transparent',
+              '--main-radius': '14px',
+              '--selected': '#0f766e',
+              '--accent-color': '#0f766e'
             }
           }
         });
+
         mind.init(data);
-        setTimeout(function () {
-          try { mind.toCenter(); } catch (e) {}
-          // Full tree is large — fit it into view after expand-all.
-          try {
-            if (typeof mind.scaleFit === 'function') mind.scaleFit();
-            else mind.scale(0.55);
-          } catch (e) {
-            try { mind.scale(0.55); } catch (e2) {}
-          }
-        }, 80);
+        // Wait a tick for layout, then fit full expanded tree.
+        setTimeout(fitView, 60);
+        setTimeout(fitView, 220);
       }
 
       async function setLang(lang) {
@@ -332,7 +324,7 @@
         loading.classList.remove('hide');
         try {
           var data = await loadData(lang);
-          createMind(JSON.parse(JSON.stringify(data)));
+          createMind(data);
           try { localStorage.setItem('aas-lang', lang); } catch (e) {}
           if (history.replaceState) history.replaceState(null, '', '#' + lang);
         } catch (err) {
@@ -345,27 +337,15 @@
 
       tabZh.addEventListener('click', function () { setLang('zh'); });
       tabEn.addEventListener('click', function () { setLang('en'); });
-      btnFit.addEventListener('click', function () {
-        if (!mind) return;
-        try { mind.toCenter(); } catch (e) {}
-        try { mind.scaleFit(); } catch (e) {
-          try { mind.scale(0.85); } catch (e2) {}
-        }
-      });
+      btnFit.addEventListener('click', fitView);
       btnExpand.addEventListener('click', function () {
         if (!mind) return;
         try {
           var data = mind.getData();
           data.nodeData = expandAll(data.nodeData);
           mind.refresh(data);
-          mind.toCenter();
-          try {
-            if (typeof mind.scaleFit === 'function') mind.scaleFit();
-            else mind.scale(0.55);
-          } catch (e2) {}
-        } catch (e) {
-          console.warn(e);
-        }
+          fitView();
+        } catch (e) { console.warn(e); }
       });
 
       var initial = 'zh';
