@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Attack Surface · weljoni</title>
-  <meta name="description" content="Interactive bilingual AI attack surface mind map" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Attack Surface · Interactive Mind Map</title>
+  <meta name="description" content="Bilingual AI attack surface mind map — pan, zoom, both-side layout." />
+  <!-- Mind-elixir CSS is bundled in the IIFE build -->
   <style>
     :root {
-      --bg: #0b1220;
-      --border: #243044;
-      --text: #e5eefc;
-      --muted: #93a4bf;
-      --accent: #3b82f6;
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #334155;
+      --line: #cbd5e1;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --warn-bg: #fff7ed;
+      --warn-border: #fdba74;
+      --warn-text: #9a3412;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
@@ -22,54 +28,150 @@
       overflow: hidden;
     }
     .topbar {
-      height: 56px;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       padding: 0 16px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 18, 32, 0.96);
-      backdrop-filter: blur(10px);
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+      z-index: 20;
+      position: relative;
     }
     .left, .right { display: flex; align-items: center; gap: 10px; min-width: 0; }
-    .brand { color: var(--text); text-decoration: none; font-weight: 700; white-space: nowrap; }
-    .title { color: var(--muted); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .title b { color: var(--text); font-weight: 600; }
+    .brand {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .title {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .title b { color: var(--text); }
     .lang-switch {
       display: inline-flex;
       padding: 3px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #0f172a;
+      border: 1px solid var(--line);
+      background: #eef2ff;
       gap: 3px;
     }
     .lang-switch button {
-      appearance: none; border: 0; cursor: pointer;
-      background: transparent; color: var(--muted);
-      border-radius: 999px; padding: 7px 14px;
-      font: inherit; font-size: 13px; font-weight: 700;
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
     }
-    .lang-switch button.active { background: var(--accent); color: #fff; }
-    .link { color: #93c5fd; text-decoration: none; font-size: 13px; white-space: nowrap; }
-    .link:hover { color: #fff; }
-    .hint { color: var(--muted); font-size: 12px; white-space: nowrap; }
-    .stage { position: relative; height: calc(100vh - 56px); background: #111827; }
-    .stage iframe {
-      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-      background: #111827; opacity: 0; pointer-events: none;
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
     }
-    .stage iframe.active { opacity: 1; pointer-events: auto; }
+    .tool-btn, .link {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .tool-btn:hover, .link:hover {
+      border-color: #93c5fd;
+      background: var(--accent-soft);
+    }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    #map {
+      width: 100vw;
+      height: calc(100vh - 58px);
+      background:
+        radial-gradient(circle at 1px 1px, #dbe3ef 1px, transparent 0) 0 0 / 22px 22px,
+        #f8fafc;
+    }
+    /* Higher-contrast overrides for mind-elixir */
+    #map .map-container {
+      background: transparent !important;
+    }
+    #map me-root me-tpc,
+    #map me-main me-tpc,
+    #map me-parent me-tpc {
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      border: 1.5px solid #1e293b !important;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+    }
+    #map me-root > me-tpc {
+      background: #1d4ed8 !important;
+      color: #ffffff !important;
+      border-color: #1e3a8a !important;
+      font-size: 18px !important;
+      padding: 10px 18px !important;
+    }
+    #map me-main > me-tpc {
+      background: #eff6ff !important;
+      border-color: #2563eb !important;
+      color: #0f172a !important;
+    }
+    #map me-parent > me-tpc {
+      background: #ffffff !important;
+      border-color: #64748b !important;
+    }
+    #map lines,
+    #map svg path,
+    #map .lines path,
+    #map .subLines path,
+    #map .context-menu {
+      /* lines get better contrast via theme below */
+    }
     .disclaimer {
-      position: absolute; left: 12px; bottom: 12px; z-index: 5;
-      max-width: min(520px, calc(100% - 24px));
-      padding: 8px 12px; border-radius: 10px;
-      border: 1px solid rgba(248, 113, 113, 0.35);
-      background: rgba(127, 29, 29, 0.72);
-      color: #fecaca; font-size: 12px; line-height: 1.45;
+      position: fixed;
+      left: 12px;
+      bottom: 12px;
+      z-index: 15;
+      max-width: min(520px, calc(100vw - 24px));
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--warn-border);
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      font-size: 12px;
+      line-height: 1.45;
       pointer-events: none;
+      box-shadow: 0 4px 16px rgba(154, 52, 18, 0.08);
     }
-    @media (max-width: 720px) {
+    .loading {
+      position: absolute;
+      inset: 58px 0 0 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      z-index: 5;
+      background: rgba(248, 250, 252, 0.75);
+    }
+    .loading.hide { display: none; }
+    @media (max-width: 800px) {
       .title, .hint { display: none; }
     }
   </style>
@@ -78,55 +180,196 @@
   <header class="topbar">
     <div class="left">
       <a class="brand" href="/">weljoni</a>
-      <span class="title"><b>AI Attack Surface</b></span>
+      <span class="title"><b>AI Attack Surface</b> · 思维导图</span>
     </div>
     <div class="right">
-      <span class="hint" id="hint">拖拽移动 · 滚轮缩放</span>
+      <span class="hint" id="hint">拖拽画布 · 滚轮缩放 · 点击节点展开/折叠</span>
       <div class="lang-switch" role="tablist" aria-label="Language">
         <button type="button" id="tab-zh" class="active" role="tab" aria-selected="true">中文</button>
         <button type="button" id="tab-en" role="tab" aria-selected="false">English</button>
       </div>
+      <button type="button" class="tool-btn" id="btn-fit" title="Fit">适应画布</button>
+      <button type="button" class="tool-btn" id="btn-expand" title="Expand">展开</button>
       <a class="link" href="/posts/">Blog</a>
       <a class="link" href="https://github.com/weljoni/ai-attack-surface" target="_blank" rel="noopener">Repo</a>
     </div>
   </header>
 
-  <main class="stage">
-    <iframe id="frame-zh" class="active" title="AI 攻击面分类" src="/mindmaps/mindmap-zh.html" loading="eager"></iframe>
-    <iframe id="frame-en" title="AI Attack Surface Taxonomy" src="/mindmaps/mindmap-en.html" loading="lazy"></iframe>
-    <div class="disclaimer" id="disclaimer">仅用于安全研究与防御 · 禁止未授权攻击</div>
-  </main>
+  <div class="loading" id="loading">Loading mind map…</div>
+  <div id="map"></div>
+  <div class="disclaimer" id="disclaimer">仅用于安全研究与防御 · 禁止未授权攻击</div>
 
+  <script src="https://cdn.jsdelivr.net/npm/mind-elixir@4.5.0/dist/MindElixir.iife.js"></script>
   <script>
     (function () {
+      var mapEl = document.getElementById('map');
+      var loading = document.getElementById('loading');
       var tabZh = document.getElementById('tab-zh');
       var tabEn = document.getElementById('tab-en');
-      var frameZh = document.getElementById('frame-zh');
-      var frameEn = document.getElementById('frame-en');
       var hint = document.getElementById('hint');
       var disclaimer = document.getElementById('disclaimer');
-      var defaultLang = "zh";
+      var btnFit = document.getElementById('btn-fit');
+      var btnExpand = document.getElementById('btn-expand');
+      var mind = null;
+      var cache = {};
+      var currentLang = 'zh';
 
-      function setLang(lang) {
-        var isZh = lang === 'zh';
-        tabZh.classList.toggle('active', isZh);
-        tabEn.classList.toggle('active', !isZh);
-        tabZh.setAttribute('aria-selected', String(isZh));
-        tabEn.setAttribute('aria-selected', String(!isZh));
-        frameZh.classList.toggle('active', isZh);
-        frameEn.classList.toggle('active', !isZh);
-        hint.textContent = isZh ? '拖拽移动 · 滚轮缩放' : 'Drag to pan · Scroll to zoom';
-        disclaimer.textContent = isZh
-          ? '仅用于安全研究与防御 · 禁止未授权攻击'
-          : 'Research & defense only · No unauthorized attacks';
-        try { localStorage.setItem('aas-lang', lang); } catch (e) {}
-        if (history.replaceState) history.replaceState(null, '', '#' + lang);
+      var i18n = {
+        zh: {
+          hint: '拖拽画布 · 滚轮缩放 · 点击节点展开/折叠',
+          disclaimer: '仅用于安全研究与防御 · 禁止未授权攻击',
+          fit: '适应画布',
+          expand: '展开一级',
+          loading: '加载思维导图…'
+        },
+        en: {
+          hint: 'Drag canvas · Scroll to zoom · Click nodes to expand/collapse',
+          disclaimer: 'Research & defense only · No unauthorized attacks',
+          fit: 'Fit view',
+          expand: 'Expand L1',
+          loading: 'Loading mind map…'
+        }
+      };
+
+      function applyChrome(lang) {
+        var t = i18n[lang];
+        hint.textContent = t.hint;
+        disclaimer.textContent = t.disclaimer;
+        btnFit.textContent = t.fit;
+        btnExpand.textContent = t.expand;
+        loading.textContent = t.loading;
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        tabZh.classList.toggle('active', lang === 'zh');
+        tabEn.classList.toggle('active', lang === 'en');
+        tabZh.setAttribute('aria-selected', String(lang === 'zh'));
+        tabEn.setAttribute('aria-selected', String(lang === 'en'));
+      }
+
+      function collapseDeep(node, depth, maxKeep) {
+        // Keep first maxKeep levels expanded; collapse deeper for readability
+        if (!node) return node;
+        var copy = {
+          id: node.id,
+          topic: node.topic
+        };
+        if (node.children && node.children.length) {
+          if (depth < maxKeep) {
+            copy.children = node.children.map(function (c) {
+              return collapseDeep(c, depth + 1, maxKeep);
+            });
+            copy.expanded = true;
+          } else {
+            copy.children = node.children.map(function (c) {
+              return collapseDeep(c, depth + 1, maxKeep);
+            });
+            copy.expanded = false;
+          }
+        }
+        return copy;
+      }
+
+      async function loadData(lang) {
+        if (cache[lang]) return cache[lang];
+        var url = '/mindmaps/data-' + lang + '.json';
+        var res = await fetch(url);
+        if (!res.ok) throw new Error('Failed to load ' + url);
+        var data = await res.json();
+        // both-side layout works best when not fully expanded to deepest leaves
+        data.nodeData = collapseDeep(data.nodeData, 1, 2);
+        cache[lang] = data;
+        return data;
+      }
+
+      function createMind(data) {
+        if (mind) {
+          try { mind.destroy(); } catch (e) {}
+          mapEl.innerHTML = '';
+        }
+        mind = new MindElixir({
+          el: mapEl,
+          direction: MindElixir.SIDE, // left + right
+          draggable: true,
+          contextMenu: false,
+          toolBar: true,
+          nodeMenu: false,
+          keypress: true,
+          locale: currentLang === 'zh' ? 'zh_CN' : 'en',
+          overflowHidden: false,
+          mainLinkStyle: 2,
+          mouseSelectionButton: 0,
+          // high-contrast palette
+          theme: {
+            name: 'High Contrast',
+            palette: [
+              '#1d4ed8', '#0f766e', '#b45309', '#be123c',
+              '#7c3aed', '#0369a1', '#15803d', '#c2410c'
+            ],
+            cssVar: {
+              '--main-color': '#0f172a',
+              '--main-bgcolor': '#ffffff',
+              '--color': '#0f172a',
+              '--bgcolor': '#f8fafc',
+              '--panel-color': '#0f172a',
+              '--panel-bgcolor': '#ffffff',
+              '--root-color': '#ffffff',
+              '--root-bgcolor': '#1d4ed8',
+              '--root-border-color': '#1e3a8a',
+              '--main-radius': '10px',
+              '--main-color-hover': '#1e293b',
+              '--selected': '#2563eb',
+              '--accent-color': '#1d4ed8'
+            }
+          }
+        });
+        mind.init(data);
+        setTimeout(function () {
+          try { mind.toCenter(); } catch (e) {}
+          try { mind.scale(0.85); } catch (e) {}
+        }, 50);
+      }
+
+      async function setLang(lang) {
+        currentLang = lang;
+        applyChrome(lang);
+        loading.classList.remove('hide');
+        try {
+          var data = await loadData(lang);
+          createMind(JSON.parse(JSON.stringify(data)));
+          try { localStorage.setItem('aas-lang', lang); } catch (e) {}
+          if (history.replaceState) history.replaceState(null, '', '#' + lang);
+        } catch (err) {
+          loading.textContent = 'Load failed: ' + err.message;
+          console.error(err);
+          return;
+        }
+        loading.classList.add('hide');
       }
 
       tabZh.addEventListener('click', function () { setLang('zh'); });
       tabEn.addEventListener('click', function () { setLang('en'); });
+      btnFit.addEventListener('click', function () {
+        if (!mind) return;
+        try { mind.toCenter(); } catch (e) {}
+        try { mind.scaleFit(); } catch (e) {
+          try { mind.scale(0.85); } catch (e2) {}
+        }
+      });
+      btnExpand.addEventListener('click', function () {
+        if (!mind) return;
+        // expand all first-level
+        try {
+          var root = mind.getData().nodeData;
+          (root.children || []).forEach(function (c) {
+            c.expanded = true;
+          });
+          mind.refresh(mind.getData());
+          mind.toCenter();
+        } catch (e) {
+          console.warn(e);
+        }
+      });
 
-      var initial = defaultLang;
+      var initial = 'zh';
       if (location.hash === '#en') initial = 'en';
       else if (location.hash === '#zh') initial = 'zh';
       else {
