@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -182,21 +182,21 @@
       <span class="title"><b>AI Attack Surface</b> · 思维导图</span>
     </div>
     <div class="right">
-      <span class="hint" id="hint">拖拽画布 · 滚轮缩放 · 点击展开/折叠</span>
+      <span class="hint" id="hint">Drag to pan · Scroll to zoom · Click to expand/collapse</span>
       <div class="lang-switch" role="tablist" aria-label="Language">
-        <button type="button" id="tab-zh" class="active" role="tab" aria-selected="true">中文</button>
-        <button type="button" id="tab-en" role="tab" aria-selected="false">English</button>
+        <button type="button" id="tab-zh" role="tab" aria-selected="false">中文</button>
+        <button type="button" id="tab-en" class="active" role="tab" aria-selected="true">English</button>
       </div>
-      <button type="button" class="tool-btn" id="btn-fit">适应画布</button>
-      <button type="button" class="tool-btn" id="btn-expand">全部展开</button>
+      <button type="button" class="tool-btn" id="btn-fit">Fit view</button>
+      <button type="button" class="tool-btn" id="btn-expand">Expand all</button>
       <a class="link" href="/posts/">Blog</a>
       <a class="link" href="https://github.com/weljoni/ai-attack-surface" target="_blank" rel="noopener">Repo</a>
     </div>
   </header>
 
-  <div class="loading" id="loading">加载思维导图…</div>
+  <div class="loading" id="loading">Loading mind map…</div>
   <div id="map"></div>
-  <div class="disclaimer" id="disclaimer">仅用于安全研究与防御 · 禁止未授权攻击</div>
+  <div class="disclaimer" id="disclaimer">Research & defense only · No unauthorized attacks</div>
 
   <script src="https://cdn.jsdelivr.net/npm/mind-elixir@4.5.0/dist/MindElixir.iife.js"></script>
   <script>
@@ -211,7 +211,7 @@
       var btnExpand = document.getElementById('btn-expand');
       var mind = null;
       var cache = {};
-      var currentLang = 'zh';
+      var currentLang = 'en';
 
       var i18n = {
         zh: {
@@ -372,9 +372,10 @@
         } catch (e) { console.warn(e); }
       });
 
-      var initial = 'zh';
-      if (location.hash === '#en') initial = 'en';
-      else if (location.hash === '#zh') initial = 'zh';
+      // Default English; #zh / #en override; otherwise remember last choice.
+      var initial = 'en';
+      if (location.hash === '#zh') initial = 'zh';
+      else if (location.hash === '#en') initial = 'en';
       else {
         try {
           var saved = localStorage.getItem('aas-lang');
